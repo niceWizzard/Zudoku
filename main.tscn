@@ -1,0 +1,326 @@
+[gd_scene load_steps=3 format=3 uid="uid://kls4jfercssy"]
+
+[ext_resource type="PackedScene" uid="uid://0i0m6jeakc54" path="res://tile_view.tscn" id="1_124u2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0kyrk"]
+bg_color = Color(0.310216, 0.186113, 0.863085, 1)
+
+[node name="Main" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" type="PanelContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -308.0
+offset_top = -311.5
+offset_right = 316.0
+offset_bottom = 312.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0kyrk")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Panel"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MainGrid" type="GridContainer" parent="CanvasLayer/Control/Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 6
+columns = 3
+
+[node name="Grid1" type="GridContainer" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid"]
+layout_mode = 2
+columns = 3
+
+[node name="PanelContainer" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid1" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer2" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid1" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer3" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid1" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer4" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid1" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer5" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid1" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer6" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid1" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer7" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid1" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer8" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid1" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer9" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid1" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="Grid4" type="GridContainer" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid"]
+layout_mode = 2
+columns = 3
+
+[node name="PanelContainer" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid4" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer2" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid4" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer3" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid4" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer4" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid4" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer5" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid4" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer6" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid4" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer7" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid4" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer8" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid4" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer9" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid4" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="Grid5" type="GridContainer" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid"]
+layout_mode = 2
+columns = 3
+
+[node name="PanelContainer" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid5" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer2" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid5" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer3" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid5" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer4" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid5" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer5" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid5" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer6" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid5" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer7" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid5" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer8" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid5" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer9" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid5" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="Grid6" type="GridContainer" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid"]
+layout_mode = 2
+columns = 3
+
+[node name="PanelContainer" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid6" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer2" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid6" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer3" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid6" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer4" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid6" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer5" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid6" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer6" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid6" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer7" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid6" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer8" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid6" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer9" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid6" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="Grid7" type="GridContainer" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid"]
+layout_mode = 2
+columns = 3
+
+[node name="PanelContainer" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid7" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer2" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid7" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer3" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid7" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer4" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid7" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer5" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid7" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer6" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid7" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer7" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid7" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer8" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid7" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer9" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid7" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="Grid8" type="GridContainer" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid"]
+layout_mode = 2
+columns = 3
+
+[node name="PanelContainer" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid8" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer2" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid8" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer3" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid8" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer4" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid8" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer5" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid8" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer6" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid8" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer7" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid8" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer8" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid8" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer9" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid8" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="Grid9" type="GridContainer" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid"]
+layout_mode = 2
+columns = 3
+
+[node name="PanelContainer" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid9" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer2" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid9" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer3" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid9" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer4" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid9" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer5" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid9" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer6" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid9" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer7" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid9" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer8" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid9" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer9" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid9" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="Grid2" type="GridContainer" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid"]
+layout_mode = 2
+columns = 3
+
+[node name="PanelContainer" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid2" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer2" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid2" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer3" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid2" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer4" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid2" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer5" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid2" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer6" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid2" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer7" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid2" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer8" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid2" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer9" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid2" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="Grid3" type="GridContainer" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid"]
+layout_mode = 2
+columns = 3
+
+[node name="PanelContainer" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid3" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer2" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid3" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer3" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid3" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer4" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid3" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer5" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid3" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer6" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid3" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer7" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid3" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer8" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid3" instance=ExtResource("1_124u2")]
+layout_mode = 2
+
+[node name="PanelContainer9" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid/Grid3" instance=ExtResource("1_124u2")]
+layout_mode = 2
