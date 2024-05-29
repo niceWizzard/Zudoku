@@ -3,12 +3,12 @@ extends GutTest
 const MainScene := preload("res://main.gd")
 
 var sudoku_board : SudokuBoard
-
+var main_instance : Node
 
 func before_all():
 	gut.p("Instantiating the main.tscn")
 	var main_scene = load("res://main.tscn")
-	var main_instance = main_scene.instantiate()
+	main_instance = main_scene.instantiate()
 	get_tree().root.add_child(main_instance)
 	wait_seconds(0.1)
 	gut.p("Setting board")
@@ -35,6 +35,8 @@ func test_grid_values():
 		get_tile_from_main(4,4)
 	)
 
+func after_all():
+	main_instance.free()
 
 func get_tile_from_main(x:int,y:int) -> SudokuTile:
 	return sudoku_board.get_children()[x].get_children()[y]
