@@ -16,4 +16,18 @@ func test_value_setter():
 
     tile.free()
 
+func test_possible_value():
+    var tile := tile_scn.instantiate() as SudokuTile
+    gut.p("Testing for possible value")
+    get_tree().root.add_child(tile)
+    assert_eq(tile.possible_values.size(), 9)
 
+    tile.set_impossible(7)
+    assert_eq(tile.possible_values.size(), 8)
+    assert_eq(tile.possible_values.has(7), false)
+
+    tile.set_possible(7)
+    assert_eq(tile.possible_values.size(), 9)
+    assert_eq(tile.possible_values.has(7), true)
+
+    tile.free()
