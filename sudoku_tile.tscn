@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://0i0m6jeakc54"]
 
-[ext_resource type="Script" path="res://tile_view.gd" id="1_tqpbu"]
+[ext_resource type="Script" path="res://sudoku_tile.gd" id="1_tqpbu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nqgb5"]
 bg_color = Color(0.195416, 0.16778, 0.153665, 1)

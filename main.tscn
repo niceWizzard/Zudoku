@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://kls4jfercssy"]
+[gd_scene load_steps=5 format=3 uid="uid://kls4jfercssy"]
 
-[ext_resource type="PackedScene" uid="uid://0i0m6jeakc54" path="res://tile_view.tscn" id="1_124u2"]
+[ext_resource type="PackedScene" uid="uid://0i0m6jeakc54" path="res://sudoku_tile.tscn" id="1_124u2"]
 [ext_resource type="Script" path="res://main.gd" id="1_iq2ee"]
+[ext_resource type="Script" path="res://sudoku_board.gd" id="2_p7bhp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0kyrk"]
 bg_color = Color(0.310216, 0.186113, 0.863085, 1)
@@ -48,6 +49,7 @@ size_flags_horizontal = 4
 theme_override_constants/h_separation = 6
 theme_override_constants/v_separation = 6
 columns = 3
+script = ExtResource("2_p7bhp")
 
 [node name="Grid1" type="GridContainer" parent="CanvasLayer/Control/Panel/MarginContainer/MainGrid"]
 layout_mode = 2

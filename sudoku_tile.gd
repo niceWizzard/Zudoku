@@ -1,5 +1,5 @@
 extends PanelContainer
-class_name TileView
+class_name SudokuTile
 
 @export var label : Label
 
