@@ -1,0 +1,290 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv4xo6ygesr5u"]
+
+[ext_resource type="Script" path="res://sudoku_board.gd" id="1_hcdpk"]
+[ext_resource type="PackedScene" uid="uid://0i0m6jeakc54" path="res://sudoku_tile.tscn" id="2_sk6uw"]
+
+[node name="MainGrid" type="GridContainer"]
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 6
+columns = 3
+script = ExtResource("1_hcdpk")
+
+[node name="Grid1" type="GridContainer" parent="."]
+layout_mode = 2
+columns = 3
+
+[node name="PanelContainer" parent="Grid1" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer2" parent="Grid1" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer3" parent="Grid1" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer4" parent="Grid1" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer5" parent="Grid1" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer6" parent="Grid1" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer7" parent="Grid1" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer8" parent="Grid1" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer9" parent="Grid1" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="Grid4" type="GridContainer" parent="."]
+layout_mode = 2
+columns = 3
+
+[node name="PanelContainer" parent="Grid4" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer2" parent="Grid4" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer3" parent="Grid4" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer4" parent="Grid4" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer5" parent="Grid4" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer6" parent="Grid4" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer7" parent="Grid4" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer8" parent="Grid4" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer9" parent="Grid4" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="Grid5" type="GridContainer" parent="."]
+layout_mode = 2
+columns = 3
+
+[node name="PanelContainer" parent="Grid5" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer2" parent="Grid5" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer3" parent="Grid5" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer4" parent="Grid5" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer5" parent="Grid5" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer6" parent="Grid5" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer7" parent="Grid5" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer8" parent="Grid5" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer9" parent="Grid5" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="Grid6" type="GridContainer" parent="."]
+layout_mode = 2
+columns = 3
+
+[node name="PanelContainer" parent="Grid6" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer2" parent="Grid6" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer3" parent="Grid6" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer4" parent="Grid6" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer5" parent="Grid6" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer6" parent="Grid6" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer7" parent="Grid6" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer8" parent="Grid6" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer9" parent="Grid6" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="Grid7" type="GridContainer" parent="."]
+layout_mode = 2
+columns = 3
+
+[node name="PanelContainer" parent="Grid7" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer2" parent="Grid7" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer3" parent="Grid7" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer4" parent="Grid7" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer5" parent="Grid7" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer6" parent="Grid7" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer7" parent="Grid7" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer8" parent="Grid7" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer9" parent="Grid7" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="Grid8" type="GridContainer" parent="."]
+layout_mode = 2
+columns = 3
+
+[node name="PanelContainer" parent="Grid8" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer2" parent="Grid8" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer3" parent="Grid8" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer4" parent="Grid8" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer5" parent="Grid8" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer6" parent="Grid8" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer7" parent="Grid8" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer8" parent="Grid8" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer9" parent="Grid8" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="Grid9" type="GridContainer" parent="."]
+layout_mode = 2
+columns = 3
+
+[node name="PanelContainer" parent="Grid9" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer2" parent="Grid9" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer3" parent="Grid9" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer4" parent="Grid9" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer5" parent="Grid9" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer6" parent="Grid9" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer7" parent="Grid9" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer8" parent="Grid9" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer9" parent="Grid9" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="Grid2" type="GridContainer" parent="."]
+layout_mode = 2
+columns = 3
+
+[node name="PanelContainer" parent="Grid2" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer2" parent="Grid2" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer3" parent="Grid2" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer4" parent="Grid2" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer5" parent="Grid2" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer6" parent="Grid2" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer7" parent="Grid2" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer8" parent="Grid2" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer9" parent="Grid2" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="Grid3" type="GridContainer" parent="."]
+layout_mode = 2
+columns = 3
+
+[node name="PanelContainer" parent="Grid3" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer2" parent="Grid3" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer3" parent="Grid3" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer4" parent="Grid3" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer5" parent="Grid3" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer6" parent="Grid3" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer7" parent="Grid3" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer8" parent="Grid3" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
+
+[node name="PanelContainer9" parent="Grid3" instance=ExtResource("2_sk6uw")]
+layout_mode = 2
