@@ -1,13 +1,13 @@
 extends GutTest
 
-const MainScene := preload("res://main.gd")
+const MainScene := preload("res://scripts/main.gd")
+const main_scene := preload("uid://kls4jfercssy")
 
 var sudoku_board : SudokuBoard
 var main_instance : Node
 
 func before_all():
 	gut.p("Instantiating the main.tscn")
-	var main_scene = load("res://main.tscn")
 	main_instance = main_scene.instantiate()
 	get_tree().root.add_child(main_instance)
 	wait_seconds(0.1)
