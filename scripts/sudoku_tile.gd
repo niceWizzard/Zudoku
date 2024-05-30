@@ -6,8 +6,7 @@ class_name SudokuTile
 var possible_values := PackedInt32Array()
 
 func _ready():
-	for i in range(1, 10):
-		possible_values.push_back(i)
+	reset()
 
 var value : int = 0:
 	set(v):
@@ -30,3 +29,9 @@ func get_random_possible_value() -> int:
 	if possible_values.size() == 0:
 		return -1
 	return possible_values[randi_range(0, possible_values.size()-1)]
+
+func reset():
+	possible_values.clear()
+	label.text = "x"
+	for i in range(1, 10):
+		possible_values.push_back(i)

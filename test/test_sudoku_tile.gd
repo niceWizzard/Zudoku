@@ -74,3 +74,13 @@ func test_get_random_possible_value():
         tile.set_possible(x)
 
     tile.free()
+
+
+func test_reset():
+    var tile := tile_scn.instantiate() as SudokuTile
+    tile._ready()
+    tile.reset()
+    assert_eq(tile.possible_values.size(), 9)
+    assert_eq(tile.label.text.to_lower(), "x")
+
+    tile.free()
