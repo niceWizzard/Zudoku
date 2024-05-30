@@ -17,16 +17,16 @@ func before_all() -> void:
 
 func test_grid_values() -> void:
 	gut.p("Testing for (3,0)")
-	var c1 = sudoku_board.get_tile(3,0)
+	var c1 := sudoku_board.get_tile(3,0)
 	var tileInChildren := get_tile_from_main(1,0)
 	assert_eq(c1, tileInChildren)
 
 	gut.p("Testing for (2,5)")
-	var c2 = sudoku_board.get_tile(2,5)
+	var c2 := sudoku_board.get_tile(2,5)
 	assert_eq(c2,get_tile_from_main(3,8))
 
 	gut.p("Testing for (7,0)")
-	var c3 = sudoku_board.get_tile(7,0)
+	var c3 := sudoku_board.get_tile(7,0)
 	assert_eq(c3,get_tile_from_main(2,1))
 
 	gut.p("Testinf for (4,4)")
