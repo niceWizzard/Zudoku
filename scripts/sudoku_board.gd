@@ -52,3 +52,9 @@ func get_tile(x: int, y: int) -> SudokuTile:
 	if not tile_map.has(key):
 		push_error("SudokuTile does not exist at this location. ",key)
 	return tile_map[key]
+
+func reset():
+	
+	for x in range(9):
+		for y in range(9):
+			get_tile(x,y).reset()
