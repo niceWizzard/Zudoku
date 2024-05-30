@@ -2,17 +2,19 @@ extends GutTest
 
 var board_scn := preload("uid://cv4xo6ygesr5u")
 
+var board_view : BoardView
 var board : SudokuBoard 
 var solver : SudokuSolver
 
 func before_all() -> void:
-    board = board_scn.instantiate()
+    board_view = board_scn.instantiate()
+    board = board_view.board
     solver = SudokuSolver.new(board)
-    get_tree().root.add_child(board)
+    get_tree().root.add_child(board_view)
     await wait_frames(3)
 
 func after_all() -> void:
-    board.queue_free()
+    board_view.queue_free()
     
 func test_generate() -> void:
     gut.p("Testing board generation 10x")

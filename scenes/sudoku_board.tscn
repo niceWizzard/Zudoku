@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cv4xo6ygesr5u"]
 
-[ext_resource type="Script" path="res://scripts/sudoku_board.gd" id="1_0pq43"]
+[ext_resource type="Script" path="res://scripts/sudoku views/board_view.gd" id="1_2suj7"]
 [ext_resource type="PackedScene" uid="uid://0i0m6jeakc54" path="res://scenes/sudoku_tile.tscn" id="2_2moyf"]
 
 [node name="MainGrid" type="GridContainer"]
@@ -8,7 +8,7 @@ size_flags_horizontal = 4
 theme_override_constants/h_separation = 6
 theme_override_constants/v_separation = 6
 columns = 3
-script = ExtResource("1_0pq43")
+script = ExtResource("1_2suj7")
 
 [node name="Grid1" type="GridContainer" parent="."]
 layout_mode = 2

@@ -15,7 +15,7 @@ func generate_board() -> void:
 			tile.value = tile.get_random_possible_value()
 			board.set_tile_peers(tile.coordinate.x, tile.coordinate.y, tile.value)
 
-	await fill_tile(get_min_tile())
+	fill_tile(get_min_tile())
 
 func get_min_tile() -> SudokuTile:
 	var min_tile : SudokuTile = null
@@ -52,13 +52,11 @@ func fill_tile(tile : SudokuTile) -> bool:
 		board.set_tile_peers(tile.coordinate.x, tile.coordinate.y, pos_val)
 		tile.value = pos_val
 		tried_values.append(pos_val)
-		await board.get_tree().create_timer(0.75).timeout
 		var is_safe := await fill_tile(get_min_tile())
 		if not is_safe:
 			board.revert_tile_peers(tile.coordinate.x, tile.coordinate.y, pos_val)
 			tile.value = 0
 			stack += 1
-			await board.get_tree().create_timer(0.75).timeout
 			if stack == MAX_LOOP:
 				push_error("Max loop reached.")
 				return false

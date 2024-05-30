@@ -1,19 +1,22 @@
 extends Node2D
 
-@export var main_grid: SudokuBoard
+@export var board_view : BoardView
 
-@onready var board := main_grid
+var board : SudokuBoard
 
 func _ready() -> void:
 	await get_tree().physics_frame
-	var solver := SudokuSolver.new(main_grid)       
+	board = board_view.board
+	var solver := SudokuSolver.new(board_view.board)
 	solver.generate_board()
+	await board_view.reflect_changes()
 
 	var loop:= true
 	while loop:
-		# await get_tree().create_timer(0.1).timeout
-		main_grid.reset()
-		await solver.generate_board()
+		board.reset()
+		await board_view.reflect_changes()
+		solver.generate_board()
+		await board_view.reflect_changes()
 		for y in range(9):
 			for x in range(9):
 				if  !verify_col(x, y, board.get_tile(x, y).value) or \

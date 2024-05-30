@@ -6,9 +6,9 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0kyrk"]
 bg_color = Color(0.310216, 0.186113, 0.863085, 1)
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("main_grid")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("board_view")]
 script = ExtResource("1_iq2ee")
-main_grid = NodePath("CanvasLayer/Control/Panel/MarginContainer/MainGrid")
+board_view = NodePath("CanvasLayer/Control/Panel/MarginContainer/MainGrid")
 metadata/_edit_vertical_guides_ = [-987.0]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

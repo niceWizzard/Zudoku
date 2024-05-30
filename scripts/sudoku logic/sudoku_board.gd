@@ -1,4 +1,4 @@
-extends GridContainer
+extends RefCounted
 class_name SudokuBoard
 
 
@@ -6,15 +6,10 @@ var tile_map : Dictionary = {}
 
 var tile_peers_map : Dictionary = {}
 
-func _ready() -> void:
-	# Get all the tileviews
-	for main_grid_col in get_children().size():
-		var tile_group := get_children()[main_grid_col].get_children()
-		for tile_group_index in tile_group.size():
-			var tile_view := tile_group[tile_group_index]
-			var x := (main_grid_col % 3)*3 + (tile_group_index % 3)
-			var y := (main_grid_col / 3)*3 + ( tile_group_index / 3)
-			put_tile(x,y, tile_view)
+func _init() -> void:
+	for y in range(0,9):
+		for x in range(0,9):
+			put_tile(x,y, SudokuTile.new())
 
 	for y in range(0,9):
 		for x in range(0,9):
