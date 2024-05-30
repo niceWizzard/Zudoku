@@ -21,5 +21,13 @@ func test_put_tiles():
     gut.p("Freeing tile")
     tile.free()
 
+func test_peer_map_size():
+    assert_eq(board.tile_peers_map.size(), 81)
+    assert_eq(board.tile_peers_map["1:8"].size(), 20)
+    for y in range(9):
+        for x in range(9):
+            assert_eq(board.tile_peers_map[str(x) + ":" + str(y)].size(), 20)
+    
+
 func after_all():
     board.free()

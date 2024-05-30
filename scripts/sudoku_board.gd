@@ -4,7 +4,7 @@ class_name SudokuBoard
 
 var tile_map : Dictionary = {}
 
-var tile_partners_map : Dictionary = {}
+var tile_peers_map : Dictionary = {}
 
 func _ready():
 	# Get all the tileviews
@@ -16,6 +16,29 @@ func _ready():
 			var y := (main_grid_col / 3)*3 + ( tile_group_index / 3)
 			put_tile(x,y, tile_view)
 
+	for y in range(0,9):
+		for x in range(0,9):
+			var tile = get_tile(x,y)
+			var key := "%s:%s" % [x, y]
+			var peers : Array[SudokuTile] = []
+			for i in range(0,9):
+				# Tiles in the same column
+				var same_col := get_tile(i,y)
+				if !peers.has(same_col) and same_col != tile:
+					peers.append(same_col)
+
+				# Tiles in the same row
+				var same_row := get_tile(x,i)
+				if !peers.has(same_row) and same_row != tile:
+					peers.append(same_row)
+				
+				# Tiles in the same 3x3 grid
+				var grid_x := (x / 3) * 3 + i % 3
+				var grid_y := (y / 3) * 3 + i / 3
+				var same_grid := get_tile(grid_x,grid_y)
+				if !peers.has(same_grid) and same_grid != tile:
+					peers.append(same_grid)				
+			tile_peers_map[key] = peers
 
 func put_tile(x: int, y: int, value: SudokuTile) -> void:
 	## Puts a SudokuTile object at the specified x and y coordinates
