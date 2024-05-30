@@ -8,7 +8,7 @@ func _ready() -> void:
 	solver.generate_board()
 
 	while true:
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(0.1).timeout
 		main_grid.reset()
 		solver.generate_board()
 
