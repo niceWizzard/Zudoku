@@ -1,14 +1,11 @@
 extends Node2D
 
-# @export var main_grid: SudokuBoard
+@export var board_view : BoardView
 
-# func _ready() -> void:
-# 	await get_tree().physics_frame
-# 	var solver := SudokuSolver.new(main_grid)       
-# 	solver.generate_board()
+func _ready() -> void:
+	await get_tree().physics_frame
+	var solver := SudokuSolver.new(board_view.board)
+	solver.generate_board()
+	board_view.reflect_changes()
 
-# 	while true:
-# 		await get_tree().create_timer(1).timeout
-# 		main_grid.reset()
-# 		solver.generate_board()
 
