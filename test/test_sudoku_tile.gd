@@ -31,3 +31,46 @@ func test_possible_value():
     assert_eq(tile.possible_values.has(7), true)
 
     tile.free()
+
+
+func test_possible_value_methods():
+    var tile := tile_scn.instantiate() as SudokuTile
+    gut.p("Testing set_impossible")
+
+    for i in range(9):
+        tile.set_impossible(i)
+    assert_eq(tile.possible_values.size(), 0)
+    
+    gut.p("Testing set_possible")
+
+    tile.set_possible(5)
+    assert_eq(tile.possible_values.size(), 1)
+    assert_true(tile.possible_values.has(5))
+
+    gut.p("Testing set_impossible (individual)")
+    tile.set_impossible(5)
+    assert_eq(tile.possible_values.size(), 0)
+    assert_false(tile.possible_values.has(5))
+
+    gut.p("Testing to enable all possible_values")
+    for i in range(9):
+        tile.set_possible(i)
+    assert_eq(tile.possible_values.size(), 9)
+
+    tile.free()
+
+  
+func test_get_random_possible_value():
+    var tile := tile_scn.instantiate() as SudokuTile
+    tile._ready()
+    assert_true(tile.get_random_possible_value() <= 9, "Tile random value should be <= 9")
+    assert_true(tile.get_random_possible_value() > 0, "Tile random value should be > 0")
+
+    gut.p("Testing for set_impossible & get_random_value")
+    for x in range(9):
+        tile.set_impossible(x)
+        for i in range(20):
+            assert_false(tile.get_random_possible_value() == x, "Possible values should not include %s" % x)
+        tile.set_possible(x)
+
+    tile.free()
