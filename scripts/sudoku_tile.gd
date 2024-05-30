@@ -19,6 +19,9 @@ var value : int = 0:
 			label.text = str(v)
 		value = v
 
+func is_set() -> bool:
+	return value != 0
+
 func set_possible(v : int) -> void:
 	if possible_values.has(v):
 		return

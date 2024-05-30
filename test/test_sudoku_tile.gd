@@ -11,7 +11,7 @@ func test_value_setter() -> void:
 
     gut.p("Testing for value 0")
     tile.value = 0
-    assert_eq(tile.get_node("MarginContainer/Label").text, "0")
+    assert_eq(tile.get_node("MarginContainer/Label").text, "")
     assert_eq(tile.value, 0)
 
     tile.free()
@@ -84,4 +84,15 @@ func test_reset() -> void:
     assert_eq(tile.label.text.to_lower(), "")
     assert_eq(tile.value,0)
 
+    tile.free()
+
+func test_is_set() -> void:
+    var tile := tile_scn.instantiate() as SudokuTile
+    tile._ready()
+    assert_false(tile.is_set())
+    tile.value = 5
+    assert_true(tile.is_set())
+
+    tile.reset()
+    assert_false(tile.is_set())
     tile.free()
