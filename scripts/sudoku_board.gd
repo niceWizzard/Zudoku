@@ -4,7 +4,7 @@ class_name SudokuBoard
 
 var tile_map : Dictionary = {}
 
-static var possible_values := range(1,10)
+var tile_partners_map : Dictionary = {}
 
 func _ready():
 	# Get all the tileviews
