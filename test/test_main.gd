@@ -6,7 +6,7 @@ const main_scene := preload("uid://kls4jfercssy")
 var sudoku_board : SudokuBoard
 var main_instance : Node
 
-func before_all():
+func before_all() -> void:
 	gut.p("Instantiating the main.tscn")
 	main_instance = main_scene.instantiate()
 	get_tree().root.add_child(main_instance)
@@ -15,7 +15,7 @@ func before_all():
 	sudoku_board = main_instance.main_grid
 	assert_eq(sudoku_board.get_child_count(), 9)
 
-func test_grid_values():
+func test_grid_values() -> void:
 	gut.p("Testing for (3,0)")
 	var c1 = sudoku_board.get_tile(3,0)
 	var tileInChildren := get_tile_from_main(1,0)
@@ -37,7 +37,7 @@ func test_grid_values():
 
 
 
-func after_all():
+func after_all() -> void:
 	main_instance.free()
 
 func get_tile_from_main(x:int,y:int) -> SudokuTile:

@@ -6,7 +6,7 @@ var tile_map : Dictionary = {}
 
 var tile_peers_map : Dictionary = {}
 
-func _ready():
+func _ready() -> void:
 	# Get all the tileviews
 	for main_grid_col in get_children().size():
 		var tile_group := get_children()[main_grid_col].get_children()
@@ -18,7 +18,7 @@ func _ready():
 
 	for y in range(0,9):
 		for x in range(0,9):
-			var tile = get_tile(x,y)
+			var tile := get_tile(x,y)
 			var key := "%s:%s" % [x, y]
 			var peers : Array[SudokuTile] = []
 			for i in range(0,9):
@@ -42,19 +42,18 @@ func _ready():
 
 func put_tile(x: int, y: int, value: SudokuTile) -> void:
 	## Puts a SudokuTile object at the specified x and y coordinates
-	var key = str(x, ":", y)
+	var key := str(x, ":", y)
 	if tile_map.has(key):
 		push_error("SudokuTile already exists at this location. ",key)
 	tile_map[key] = value
 
 func get_tile(x: int, y: int) -> SudokuTile:
-	var key = str(x, ":", y)
+	var key := str(x, ":", y)
 	if not tile_map.has(key):
 		push_error("SudokuTile does not exist at this location. ",key)
 	return tile_map[key]
 
-func reset():
-	
+func reset() -> void:
 	for x in range(9):
 		for y in range(9):
 			get_tile(x,y).reset()

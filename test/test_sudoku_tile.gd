@@ -2,7 +2,7 @@ extends GutTest
 
 const tile_scn := preload("uid://0i0m6jeakc54")
 
-func test_value_setter():
+func test_value_setter() -> void:
     var tile := tile_scn.instantiate() as SudokuTile
     gut.p("Testing for value 5")
     tile.value = 5
@@ -16,7 +16,7 @@ func test_value_setter():
 
     tile.free()
 
-func test_possible_value():
+func test_possible_value() -> void:
     var tile := tile_scn.instantiate() as SudokuTile
     gut.p("Testing for possible value")
     get_tree().root.add_child(tile)
@@ -33,7 +33,7 @@ func test_possible_value():
     tile.free()
 
 
-func test_possible_value_methods():
+func test_possible_value_methods() -> void:
     var tile := tile_scn.instantiate() as SudokuTile
     gut.p("Testing set_impossible")
 
@@ -60,7 +60,7 @@ func test_possible_value_methods():
     tile.free()
 
   
-func test_get_random_possible_value():
+func test_get_random_possible_value() -> void:
     var tile := tile_scn.instantiate() as SudokuTile
     tile._ready()
     assert_true(tile.get_random_possible_value() <= 9, "Tile random value should be <= 9")
@@ -76,7 +76,7 @@ func test_get_random_possible_value():
     tile.free()
 
 
-func test_reset():
+func test_reset() -> void:
     var tile := tile_scn.instantiate() as SudokuTile
     tile._ready()
     tile.reset()
