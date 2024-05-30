@@ -11,3 +11,6 @@ func setup(t : SudokuTile) -> void:
 
 func update_view() -> void:
 	_label.text = str(tile.value) if tile.value != 0 else ""
+
+func reset() -> void:
+	_label.text = ""

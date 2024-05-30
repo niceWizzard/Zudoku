@@ -10,6 +10,7 @@ func _ready() -> void:
 		var tile_group := get_children()[main_grid_col].get_children()
 		for tile_group_index in tile_group.size():
 			var tile_view := tile_group[tile_group_index] as TileView
+			tile_view.reset()
 			var x := (main_grid_col % 3)*3 + (tile_group_index % 3)
 			var y := (main_grid_col / 3)*3 + ( tile_group_index / 3)
 			tile_view.setup(board.get_tile(x,y))
@@ -18,5 +19,7 @@ func _ready() -> void:
 
 
 func reflect_changes() -> void:
+	tile_views.shuffle()
 	for tile_view : TileView in tile_views:
 		tile_view.update_view()
+		await get_tree().create_timer(0.1).timeout
