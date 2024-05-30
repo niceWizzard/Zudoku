@@ -40,6 +40,16 @@ func _ready() -> void:
 					peers.append(same_grid)				
 			tile_peers_map[key] = peers
 
+func set_tile_peers(x: int, y: int, value: int) -> void:
+	var key := "%s:%s" % [x, y]
+	for peer : SudokuTile in tile_peers_map[key]:
+		peer.set_impossible(value)
+
+func revert_tile_peers(x: int, y: int, value : int) -> void:
+	var key := "%s:%s" % [x, y]
+	for peer : SudokuTile in tile_peers_map[key]:
+		peer.set_possible(value)
+
 func put_tile(x: int, y: int, value: SudokuTile) -> void:
 	## Puts a SudokuTile object at the specified x and y coordinates
 	var key := str(x, ":", y)

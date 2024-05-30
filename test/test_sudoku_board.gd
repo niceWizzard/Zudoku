@@ -27,7 +27,26 @@ func test_peer_map_size() -> void:
     for y in range(9):
         for x in range(9):
             assert_eq(board.tile_peers_map[str(x) + ":" + str(y)].size(), 20)
-    
+
+func test_set_tile_peers() -> void:
+    board.set_tile_peers(0,0, 1)
+    for i in range(1,9):
+        assert_false(board.get_tile(i,0).possible_values.has(1))
+    for i in range(1,3):
+        for j in range(1,3):
+            assert_false(board.get_tile(i,j).possible_values.has(1))
+
+    board.revert_tile_peers(0,0,1)
+
+func test_revert_tile_peers() -> void:
+    board.set_tile_peers(0,0, 1)
+    board.revert_tile_peers(0,0,1)
+    for i in range(9):
+        assert_true(board.get_tile(i,0).possible_values.has(1))
+    for i in range(3):
+        for j in range(3):
+            assert_true(board.get_tile(i,j).possible_values.has(1))
+
 
 func after_all() -> void:
     board.free()
