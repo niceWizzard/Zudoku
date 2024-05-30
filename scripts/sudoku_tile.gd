@@ -20,10 +20,11 @@ func set_possible(v : int):
 		return
 	possible_values.push_back(v)
 
-func set_impossible(v : int):
+func set_impossible(v : int) -> bool:
 	if not possible_values.has(v):
-		return
+		return true
 	possible_values.remove_at(possible_values.find(v))
+	return possible_values.size() == 0
 
 func get_random_possible_value() -> int:
 	if possible_values.size() == 0:
