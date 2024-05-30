@@ -13,9 +13,10 @@ func _ready() -> void:
 
 var value : int = 0:
 	set(v):
-		if v < 1 or v > 9:
-			push_error("Value must be between 1 and 9")
-		label.text = str(v)
+		if v < 0 or v > 9:
+			push_error("Value must be between 0 and 9")
+		if v != 0:
+			label.text = str(v)
 		value = v
 
 func set_possible(v : int) -> void:
@@ -36,6 +37,7 @@ func get_random_possible_value() -> int:
 
 func reset() -> void:
 	possible_values.clear()
+	value = 0
 	label.text = ""
 	for i in range(1, 10):
 		possible_values.push_back(i)

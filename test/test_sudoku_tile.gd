@@ -82,5 +82,6 @@ func test_reset() -> void:
     tile.reset()
     assert_eq(tile.possible_values.size(), 9)
     assert_eq(tile.label.text.to_lower(), "")
+    assert_eq(tile.value,0)
 
     tile.free()
