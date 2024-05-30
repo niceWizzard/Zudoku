@@ -17,6 +17,8 @@ var value : int = 0:
 			push_error("Value must be between 0 and 9")
 		if v != 0:
 			label.text = str(v)
+		else:
+			label.text = ""
 		value = v
 
 func is_set() -> bool:
