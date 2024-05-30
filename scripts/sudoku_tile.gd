@@ -5,6 +5,9 @@ class_name SudokuTile
 
 var possible_values := PackedInt32Array()
 
+var coordinate := Vector2i()
+
+
 func _ready() -> void:
 	reset()
 
@@ -33,6 +36,6 @@ func get_random_possible_value() -> int:
 
 func reset() -> void:
 	possible_values.clear()
-	label.text = "x"
+	label.text = ""
 	for i in range(1, 10):
 		possible_values.push_back(i)
