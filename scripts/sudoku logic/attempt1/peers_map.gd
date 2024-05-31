@@ -15,13 +15,3 @@ func get_peers(key : Vector2i) -> Array[Tile]:
         return []
     return dict[key]
 
-func copy() -> TilePeersMap:
-    var t := TilePeersMap.new()
-    for key : Vector2i in self.dict.keys():
-        var list := self.dict[key] as Array[Tile]
-        var copied_list : Array[Tile]=[]
-        for tile in list:
-            copied_list.append(tile.copy())
-
-        t.put(key, copied_list)
-    return t

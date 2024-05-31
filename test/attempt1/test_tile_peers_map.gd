@@ -29,20 +29,3 @@ func test_get_peers() -> void:
 	var peers := map.get_peers(coord)
 	assert_eq(peers, orig_list, "The returned peers should be the same as the original list")
 
-
-func test_copy() -> void:
-	var map := TilePeersMap.new()
-	var coord := Vector2i()
-	map.put(coord, orig_list.duplicate())
-
-	var copy := map.copy()
-	assert_eq(copy.dict.size(), 1, "The copy should have the same size as the original")
-	
-	assert_false(copy == map, "The copy should not be the same as the original")
-	assert_false(copy.dict == map.dict, "The copy's dictionary should not be the equal to the original's dictionary")
-	var peers1 := map.get_peers(coord)
-	var peers2 := copy.get_peers(coord)
-	assert_false(peers1 == peers2, "The peers should not be the equal")
-	assert_eq(peers1.size(), peers2.size(), "The peers should have the same size")
-	for i in range(peers1.size()):
-		assert_false(peers1[i] == peers2[i], "The peer in list should not be equal")
