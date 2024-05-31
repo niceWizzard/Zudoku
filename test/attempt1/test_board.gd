@@ -9,6 +9,20 @@ func test_create() -> void:
         for x in range(9):
             assert_eq(board.tile_peers_map.get_peers(Vector2i(x,y)).size(), 20, "Tile at %s should have 20 peers" % Vector2i(x,y))
 
+func test_peers() -> void:
+    var board := Board.create()
+    var peers := board.tile_peers_map.get_peers(Vector2i())
+    for i in range(1, 9):
+        assert_true(peers.has(board.tiles_map.get_tile(Vector2i(0, i))))
+        assert_true(peers.has(board.tiles_map.get_tile(Vector2i(i, 0))))
+    
+    assert_true(peers.has(board.tiles_map.get_tile(Vector2i(1,1))))
+    assert_true(peers.has(board.tiles_map.get_tile(Vector2i(2,1))))
+    assert_true(peers.has(board.tiles_map.get_tile(Vector2i(1,2))))
+    assert_true(peers.has(board.tiles_map.get_tile(Vector2i(2,2))))
+
+    
+
 func test_copy() -> void:
     var b := Board.create()
     b.get_tile(0,0).assign(1)
@@ -32,8 +46,5 @@ func test_copy() -> void:
             var copy3 := c.copy()
             copy3.get_tile(x,y).assign(2)
             assert_false(copy3.get_tile(x,y).value() == copy2.get_tile(x,y).value(), "Copied board should have different tile value at %s" % coord)
-
-                
-
 
 
