@@ -60,3 +60,28 @@ func test_copy() -> void:
         assert_eq(orig.coordinate, copy.coordinate)
         assert_eq(orig.possible_values.size(), copy.possible_values.size())
         assert_false(orig == copy)
+
+
+func test_count_possibilities() -> void:
+    var tile := Tile.new(Vector2i(0,0))
+    assert_eq(tile.possible_values.size(), tile.count_possibilities(), "Possible values size should match count of possibilities")
+    tile.eliminate_possibility(1)
+    assert_eq(tile.possible_values.size(), tile.count_possibilities(), "Possible values size should match count of possibilities")
+    assert_eq(tile.count_possibilities(), 8)
+    tile.eliminate_possibility(2)
+    assert_eq(tile.count_possibilities(), 7)
+
+    tile.regain_possibility(1)
+    assert_eq(tile.count_possibilities(), 8)
+    tile.regain_possibility(2)
+    assert_eq(tile.count_possibilities(), 9)
+
+
+func test_regain_possibility() -> void:
+    var tile := Tile.new(Vector2i(0,0))
+    for i in range(1, 10):
+        tile.eliminate_possibility(i)
+        assert_false(tile.has_possibility(i))
+        tile.regain_possibility(i)
+        assert_true(tile.has_possibility(i))
+

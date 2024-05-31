@@ -34,4 +34,11 @@ func copy() -> Tile:
     return new_tile
 
 
+func count_possibilities() -> int:
+    return possible_values.size()
 
+func regain_possibility(val : int) -> void:
+    if possible_values.has(val):
+        push_error("Value already possible.")
+        return
+    possible_values.append(val)
