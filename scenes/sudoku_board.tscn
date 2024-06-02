@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://dcdooiu4iuf56" path="res://scenes/tile_group.tscn" id="2_0aet6"]
 
 [node name="MainGrid" type="GridContainer"]
+offset_right = 1080.0
+offset_bottom = 612.0
 size_flags_horizontal = 4
 theme_override_constants/h_separation = 6
 theme_override_constants/v_separation = 6
@@ -12,6 +14,7 @@ script = ExtResource("1_2suj7")
 
 [node name="Panel3" parent="." instance=ExtResource("2_0aet6")]
 layout_mode = 2
+metadata/_edit_group_ = true
 
 [node name="Panel" parent="." instance=ExtResource("2_0aet6")]
 layout_mode = 2

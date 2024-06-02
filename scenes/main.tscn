@@ -22,6 +22,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="PanelContainer" parent="CanvasLayer/Control"]
 layout_mode = 1
@@ -30,10 +31,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -308.0
-offset_top = -311.5
-offset_right = 316.0
-offset_bottom = 312.5
+offset_left = -240.0
+offset_top = -240.0
+offset_right = 240.0
+offset_bottom = 240.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_0kyrk")
@@ -42,6 +43,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_0kyrk")
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
 
 [node name="MainGrid" parent="CanvasLayer/Control/Panel/MarginContainer" instance=ExtResource("2_6xg60")]
 layout_mode = 2
