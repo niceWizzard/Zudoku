@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://0i0m6jeakc54"]
+[gd_scene load_steps=4 format=3 uid="uid://c2v0h8xk14wbf"]
 
 [ext_resource type="Script" path="res://scripts/sudoku views/tile_view.gd" id="1_xt8q1"]
 
@@ -7,7 +7,7 @@ bg_color = Color(0.195416, 0.16778, 0.153665, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_lqgti"]
 line_spacing = 0.0
-font_size = 24
+font_size = 40
 
 [node name="PanelContainer" type="PanelContainer" node_paths=PackedStringArray("_label")]
 custom_minimum_size = Vector2(64, 64)
