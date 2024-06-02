@@ -1,9 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2v0h8xk14wbf"]
+[gd_scene load_steps=8 format=3 uid="uid://c2v0h8xk14wbf"]
 
+[ext_resource type="FontFile" uid="uid://ke23phxg2wkl" path="res://fonts/Roboto-Regular.ttf" id="1_7qrrr"]
 [ext_resource type="Script" path="res://scripts/sudoku views/tile_view.gd" id="1_xt8q1"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nqgb5"]
-bg_color = Color(0.195416, 0.16778, 0.153665, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0po03"]
+bg_color = Color(0.200195, 0.46658, 0.383028, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e5kgy"]
+bg_color = Color(0.210107, 0.32197, 0.517297, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lny23"]
+bg_color = Color(0.18468, 0.170468, 0.168592, 1)
+
+[sub_resource type="Theme" id="Theme_iwoww"]
+GameplayBtn/base_type = &"Button"
+GameplayBtn/font_sizes/font_size = 36
+GameplayBtn/fonts/font = ExtResource("1_7qrrr")
+GameplayBtn/styles/normal = SubResource("StyleBoxFlat_0po03")
+Tile/base_type = &"PanelContainer"
+Tile/styles/highlighted = SubResource("StyleBoxFlat_e5kgy")
+Tile/styles/normal = SubResource("StyleBoxFlat_lny23")
+Tile/styles/panel = SubResource("StyleBoxFlat_lny23")
 
 [sub_resource type="LabelSettings" id="LabelSettings_lqgti"]
 line_spacing = 0.0
@@ -22,7 +39,8 @@ offset_right = 16.0
 offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_nqgb5")
+theme = SubResource("Theme_iwoww")
+theme_type_variation = &"Tile"
 script = ExtResource("1_xt8q1")
 _label = NodePath("MarginContainer/Label")
 
@@ -41,3 +59,6 @@ size_flags_horizontal = 4
 text = "12"
 label_settings = SubResource("LabelSettings_lqgti")
 horizontal_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
