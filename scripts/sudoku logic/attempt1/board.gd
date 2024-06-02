@@ -1,87 +1,82 @@
-class_name Board
 extends RefCounted
+class_name Board
 
+var board_map : Dictionary = {}
+var peers_map : Dictionary = {}
 
-var tiles_map := TilesMap.new()
-var tile_peers_map := TilePeersMap.new()
-
-
-static func create() -> Board:
-	var b := Board.new()
-
+func _init() -> void:
 	for y in range(9):
 		for x in range(9):
-			var coord := Vector2i(x,y)
-			var tile := Tile.new(coord)
-			b.tiles_map.put(coord, tile)
-	
-	for y in range(0,9):
-		for x in range(0,9):
-			var tile := b.get_tile(x,y)
-			var coord := Vector2i(x,y)
-			var peers : Array[Tile] = []
-			for i in range(0,9):
-				# Tiles in the same column
-				var same_col := b.get_tile(i,y)
-				if !peers.has(same_col) and same_col != tile:
-					peers.append(same_col)
+			board_map[Vector2i(x, y)] = 0
 
-				# Tiles in the same row
-				var same_row := b.get_tile(x,i)
-				if !peers.has(same_row) and same_row != tile:
-					peers.append(same_row)
+	#add peers
+	for y in range(9):
+		for x in range(9):
+			var tile := Vector2i(x, y)
+			var peers : = PackedVector2Array()
+			for i in range(9):
+				var row := Vector2i(x, i)
+				if row != tile and not peers.has(row):
+					peers.append(row)
+				var col := Vector2i(i, y)
+				if col != tile and not peers.has(col):
+					peers.append(col)
+
+			var x0 := x - x % 3
+			var y0 := y - y % 3
+			for i in range(3):
+				for j in range(3):
+					var group := Vector2i(x0 + i, y0 + j)
+					if group != tile and not peers.has(group):
+						peers.append(group)
+			peers_map[tile] = peers
+
+
+func solve(tile : Vector2i) -> bool:
+
+	var tried_values := PackedInt32Array()
+	while true:
+		if tried_values.size() == 9:
+			return false
+		
+		var try_val := randi_range(1,9)
+		if tried_values.has(try_val):
+			continue
+		tried_values.append(try_val)
+
+		if not is_valid_for_tile(tile, try_val):
+			continue
+		
+		set_tile(tile, try_val)
+
+		var next_x := (tile.x + 1) % 9
+		var next_y := (tile.y + 1) if tile.x == 8 else tile.y
+		if solve(Vector2i(next_x, next_y)):
+			return true
 				
-				# Tiles in the same 3x3 grid
-				var grid_x := (x / 3) * 3 + i % 3
-				var grid_y := (y / 3) * 3 + i / 3
-				var same_grid := b.get_tile(grid_x,grid_y)
-				if !peers.has(same_grid) and same_grid != tile:
-					peers.append(same_grid)				
-			b.tile_peers_map.put(coord, peers)
-	return b
+	return false
+
+func is_valid_for_tile(coord : Vector2i, val : int) -> bool:
+	for peer : Vector2i in get_peers(coord):
+				if get_tile(peer) == val:
+					return false
+	return true
+
+func set_tile(coord : Vector2i, value : int) -> void:
+	board_map[coord] = value
 
 
-func copy() -> Board:
-	var b := Board.new()
-	b.tiles_map = tiles_map.copy()
+func get_tilei(x : int, y : int) -> int:
+	return get_tile(Vector2i(x, y))
 
-	for y in range(0,9):
-		for x in range(0,9):
-			var tile := b.get_tile(x,y)
-			var coord := Vector2i(x,y)
-			var peers : Array[Tile] = []
-			for i in range(0,9):
-				# Tiles in the same column
-				var same_col := b.get_tile(i,y)
-				if !peers.has(same_col) and same_col != tile:
-					peers.append(same_col)
+func get_peers(coord : Vector2i) -> PackedVector2Array:
+	if not peers_map.has(coord):
+		return PackedVector2Array()
+	return peers_map[coord]
 
-				# Tiles in the same row
-				var same_row := b.get_tile(x,i)
-				if !peers.has(same_row) and same_row != tile:
-					peers.append(same_row)
-				
-				# Tiles in the same 3x3 grid
-				var grid_x := (x / 3) * 3 + i % 3
-				var grid_y := (y / 3) * 3 + i / 3
-				var same_grid := b.get_tile(grid_x,grid_y)
-				if !peers.has(same_grid) and same_grid != tile:
-					peers.append(same_grid)				
-			b.tile_peers_map.put(coord, peers)
+func get_tile(coord : Vector2i) -> int:
+	if not board_map.has(coord):
+		return -1
+	return board_map[coord]
 
-	return b
 
-func get_tile(x: int, y: int) -> Tile:
-	return tiles_map.get_tile(Vector2i(x,y))
-
-func get_tile_group(i : int, j : int) -> Array[Tile]:
-	var tile_group : Array[Tile] = []
-
-	for y in range(3):
-		for x in range(3):
-			tile_group.push_back(get_tile(
-				x + 3 * i,
-				y + 3 * j
-			))
-
-	return tile_group
