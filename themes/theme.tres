@@ -1,0 +1,12 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://wdgprplnsvvu"]
+
+[ext_resource type="FontFile" uid="uid://ke23phxg2wkl" path="res://fonts/Roboto-Regular.ttf" id="1_gh4mm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0po03"]
+bg_color = Color(0.200195, 0.46658, 0.383028, 1)
+
+[resource]
+GameplayBtn/base_type = &"Button"
+GameplayBtn/font_sizes/font_size = 36
+GameplayBtn/fonts/font = ExtResource("1_gh4mm")
+GameplayBtn/styles/normal = SubResource("StyleBoxFlat_0po03")
