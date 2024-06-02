@@ -16,6 +16,9 @@ static func generate() -> Board:
 	return null
 	
 static func create_from(puzzle : String) -> Board:
+	if puzzle.length() != 81:
+		push_error("Invalid puzzle string. It should consist of 81 characters but got %s" % puzzle.length())
+		return null
 	var b := Board.new()
 	var i := -1
 	for c : String in puzzle:
