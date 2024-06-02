@@ -36,7 +36,7 @@ func test_get_peers() -> void:
 
     var empty := b.get_peers(Vector2i(-1,-1))
     assert_eq(empty.size(), 0, "Peers size of invalid coordinate is not 0 but %s" % empty.size())
-    
+
     
     for i in range(9):
         var row := Vector2i(0, i)
@@ -45,3 +45,13 @@ func test_get_peers() -> void:
         var col := Vector2i(i, 0)
         if col != Vector2i(0, 0):
             assert_true(peer.has(col), "(0,0) should have peer %s" % col)
+
+func test_is_valid_for_tile() -> void:
+    for i in range(1,10):
+        assert_true(b.is_valid_for_tile(Vector2i(0, 0), i), "Value %s should be valid for tile (0,0)" % i)
+
+    b.set_tile(Vector2i(1,0), 1)
+    assert_false(b.is_valid_for_tile(Vector2i(0, 0), 1), "Value 1 should not be valid for tile (0,0)")
+
+    b.set_tile(Vector2i(5,5), 5 )
+    assert_true(b.is_valid_for_tile(Vector2i(0, 0), 5), "Value 5 should be valid for tile (0,0)")
