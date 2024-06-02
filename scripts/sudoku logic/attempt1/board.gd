@@ -4,6 +4,14 @@ class_name Board
 var board_map : Dictionary = {}
 var peers_map : Dictionary = {}
 
+func copy() -> Board:
+	var b := Board.new()
+	for key : Vector2i in self.board_map.keys():
+		b.board_map[key] = self.board_map[key]
+	for key : Vector2i in self.peers_map.keys():
+		b.peers_map[key] = self.peers_map[key].duplicate()
+	return b
+
 static func generate() -> Board:
 	var i:= 0
 	while i < 1000:
@@ -37,6 +45,22 @@ static func create_from(puzzle : String) -> Board:
 
 
 	return b
+
+static func generate_puzzle() -> Board:
+	var b:= generate()
+
+	b.solve()
+
+	for i in range(abs(24-81)):
+		var random := Vector2i(randi_range(0,8), randi_range(0,8))
+		var orig_val := b.get_tile(random)
+		b.set_tile(random, 0)
+
+		if not b.copy().solve():
+			b.set_tile(random, orig_val)
+			continue
+	return b
+
 
 func _init() -> void:
 	for y in range(9):

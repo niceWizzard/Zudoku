@@ -145,3 +145,12 @@ func test_create_from() -> void:
 	assert_null(Board.create_from(""), "create_from should return null when string is empty.")
 	assert_null(Board.create_from("lakdjalskdfjlasdfklasdfjadsklkladslasdkfjkldsjlads"), "Should return null when puzzle string is not 81")
 
+func test_copy() -> void:
+	var copy := b.copy()
+	assert_ne(copy, b, "Copy and Original should not be equal")
+
+	for i in range(10):
+		var random := Vector2i(randi_range(0,8),randi_range(0,8))
+		copy.set_tile(random, 2)
+		b.set_tile(random, 9)
+		assert_ne(copy.get_tile(random), b.get_tile(random), "Modifying copy board value of tile %s shouldn't modify the original" % random)
