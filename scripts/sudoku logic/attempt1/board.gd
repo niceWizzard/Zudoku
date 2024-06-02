@@ -33,27 +33,22 @@ func _init() -> void:
 
 
 func solve(tile : Vector2i) -> bool:
+	if tile.y == 9:
+		return true
 
-	var tried_values := PackedInt32Array()
-	while true:
-		if tried_values.size() == 9:
-			return false
-		
-		var try_val := randi_range(1,9)
-		if tried_values.has(try_val):
-			continue
-		tried_values.append(try_val)
-
+	var possible_values := range(1, 10)
+	possible_values.shuffle()
+	for try_val : int in possible_values:
 		if not is_valid_for_tile(tile, try_val):
 			continue
-		
 		set_tile(tile, try_val)
-
 		var next_x := (tile.x + 1) % 9
 		var next_y := (tile.y + 1) if tile.x == 8 else tile.y
-		if solve(Vector2i(next_x, next_y)):
+		var next:= Vector2i(next_x, next_y)
+		if solve(next):
 			return true
-				
+	
+	set_tile(tile, 0)
 	return false
 
 func is_valid_for_tile(coord : Vector2i, val : int) -> bool:
@@ -79,4 +74,15 @@ func get_tile(coord : Vector2i) -> int:
 		return -1
 	return board_map[coord]
 
+func reset() -> void:
+	for y in range(9):
+		for x in range(9):
+			set_tile(Vector2i(x, y), 0)
 
+func _to_string() -> String:
+	var s : = ""
+	for y in range(9):
+		for x in range(9):
+			s += str(get_tile(Vector2i(x, y)), " ")
+		s += ("\n")
+	return s

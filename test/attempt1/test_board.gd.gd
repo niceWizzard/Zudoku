@@ -55,3 +55,35 @@ func test_is_valid_for_tile() -> void:
 
     b.set_tile(Vector2i(5,5), 5 )
     assert_true(b.is_valid_for_tile(Vector2i(0, 0), 5), "Value 5 should be valid for tile (0,0)")
+
+func test_set_tile() -> void:
+    b.set_tile(Vector2i(), 1)
+    assert_eq(b.get_tile(Vector2i()), 1, "Tile (0,0) should be 1 but got %s" % b.get_tile(Vector2i()))
+
+    b.set_tile(Vector2i(8,8), 9)
+    assert_eq(b.get_tile(Vector2i(8,8)), 9, "Tile (8,8) should be 9 but got %s" % b.get_tile(Vector2i(8,8)))
+
+    b.set_tile(Vector2i(), 0)
+    assert_eq(b.get_tile(Vector2i()), 0, "Tile (0,0) should be 0 but got %s" % b.get_tile(Vector2i()))
+
+func test_solve() -> void:
+    assert_true(b.solve(Vector2i(0, 0)), "Board should be solvable")
+    
+    for y in range(9):
+        for x in range(9):
+            assert_ne(b.get_tile(Vector2i(x, y)), 0, "Tile (%s, %s) should not be 0" % [x, y])
+            for peer : Vector2i in b.get_peers(Vector2i(x, y)):
+                assert_ne(b.get_tile(Vector2i(x, y)), b.get_tile(peer), "Tile (%s, %s) should not be equal to its peer %s" % [x,y ,peer])
+
+    for y in range(9):
+        for x in range(9):
+            var coord := Vector2i(x, y)
+            var tile := b.get_tile(coord)
+            for i in range(9):
+                var col := Vector2i(i, y)
+                if col != coord:
+                    assert_ne(tile, b.get_tile(col), "Tile (%s, %s) should not be equal to its peer %s" % [x,y ,col])
+                var row := Vector2i(x, i)
+                if row != coord:
+                    assert_ne(tile, b.get_tile(row), "Tile (%s, %s) should not be equal to its peer %s" % [x,y ,row])
+
