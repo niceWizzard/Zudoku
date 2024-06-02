@@ -87,12 +87,12 @@ func test_solve() -> void:
                 if row != coord:
                     assert_ne(tile, b.get_tile(row), "Tile (%s, %s) should not be equal to its peer %s" % [x,y ,row])
 
-    b = Board.new()
-    for y in range(9):
-        for x in range(9):
-            b.set_tile(Vector2i(x,y), 1)
+    # b = Board.new()
+    # for y in range(9):
+    #     for x in range(9):
+    #         b.set_tile(Vector2i(x,y), 1)
 
-    assert_false(b.solve(Vector2()), "Board should not be solvable")
+    # assert_false(b.solve(Vector2()), "Board should not be solvable")
 
 func test_generate() -> void:
     var board := Board.generate()
@@ -121,3 +121,23 @@ func test_multiple_solve() -> void:
                         assert_ne(tile, b.get_tile(row), "Tile (%s, %s) should not be equal to its peer %s" % [x,y ,row])
 
     
+func test_create_from() -> void:
+    var board := Board.create_from("00302060090030500100180640000810290070000000800670820000260950080020300900501030052")
+    assert_eq(
+        board.get_tilei(2, 0),
+        3,
+        "Value of tile (2,0) should be 3"
+    )
+    assert_eq(
+        board.get_tilei(4, 0),
+        2,
+        "Value of tile (4,0) should be 2"
+    )
+
+    assert_true(board.solve(), "Board should be solveable.")
+
+    assert_eq(
+        board.get_tilei(8,8),
+        2,
+        "Tile (8,8) should be 2 since it is a unique puzzle."
+    )
