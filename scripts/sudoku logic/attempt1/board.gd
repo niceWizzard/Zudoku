@@ -15,7 +15,25 @@ static func generate() -> Board:
 	push_error("Something went wrong and couldn't generate a board")
 	return null
 	
+static func create_from(puzzle : String) -> Board:
+	var b := Board.new()
+	var i := -1
+	for c : String in puzzle:
+		i += 1
+		if c == ".":
+			continue
+		var val := int(c)
+		if val <0 or val > 9:
+			push_error("Invalid puzzle string")
+			return null
 		
+		var x := i % 9
+		var y := i / 9
+
+		b.set_tile(Vector2i(x,y), val)
+
+
+	return b
 
 func _init() -> void:
 	for y in range(9):
@@ -44,10 +62,24 @@ func _init() -> void:
 						peers.append(group)
 			peers_map[tile] = peers
 
+func is_solved() -> bool:
+	for y in range(9):
+		for x in range(9):
+			if get_tilei(x,y) == 0:
+				return false
+	return true
 
 func solve(tile := Vector2i()) -> bool:
 	if tile.y == 9:
 		return true
+
+	var next_x := (tile.x + 1) % 9
+	var next_y := (tile.y + 1) if tile.x == 8 else tile.y
+	var next:= Vector2i(next_x, next_y)
+
+	var tile_val := get_tile(tile)
+	if tile_val != 0:
+		return solve(next)
 
 	var possible_values := range(1, 10)
 	possible_values.shuffle()
@@ -55,9 +87,7 @@ func solve(tile := Vector2i()) -> bool:
 		if not is_valid_for_tile(tile, try_val):
 			continue
 		set_tile(tile, try_val)
-		var next_x := (tile.x + 1) % 9
-		var next_y := (tile.y + 1) if tile.x == 8 else tile.y
-		var next:= Vector2i(next_x, next_y)
+
 		if solve(next):
 			return true
 	
