@@ -1,13 +1,14 @@
 extends GridContainer
 class_name BoardView
 
-var board := Board.new()
+var board := Board.generate_puzzle()
+
 
 var tile_views : Array[TileView] = []
 
 func _ready() -> void:
 	for main_grid_col in get_children().size():
-		var tile_group := get_children()[main_grid_col].get_children()
+		var tile_group := get_children()[main_grid_col].get_children()[0].get_children()
 		for tile_group_index in tile_group.size():
 			var tile_view := tile_group[tile_group_index] as TileView
 			tile_view.reset()

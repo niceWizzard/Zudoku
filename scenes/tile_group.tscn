@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcdooiu4iuf56"]
+
+[ext_resource type="PackedScene" uid="uid://0i0m6jeakc54" path="res://scenes/sudoku_tile.tscn" id="1_gpope"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_drxfq"]
+bg_color = Color(0.178993, 0.29051, 0.360675, 1)
+
+[node name="Panel" type="PanelContainer"]
+theme_override_styles/panel = SubResource("StyleBoxFlat_drxfq")
+
+[node name="Grid1" type="GridContainer" parent="."]
+layout_mode = 2
+columns = 3
+
+[node name="PanelContainer9" parent="Grid1" instance=ExtResource("1_gpope")]
+layout_mode = 2
+
+[node name="PanelContainer8" parent="Grid1" instance=ExtResource("1_gpope")]
+layout_mode = 2
+
+[node name="PanelContainer7" parent="Grid1" instance=ExtResource("1_gpope")]
+layout_mode = 2
+
+[node name="PanelContainer6" parent="Grid1" instance=ExtResource("1_gpope")]
+layout_mode = 2
+
+[node name="PanelContainer5" parent="Grid1" instance=ExtResource("1_gpope")]
+layout_mode = 2
+
+[node name="PanelContainer4" parent="Grid1" instance=ExtResource("1_gpope")]
+layout_mode = 2
+
+[node name="PanelContainer3" parent="Grid1" instance=ExtResource("1_gpope")]
+layout_mode = 2
+
+[node name="PanelContainer2" parent="Grid1" instance=ExtResource("1_gpope")]
+layout_mode = 2
+
+[node name="PanelContainer" parent="Grid1" instance=ExtResource("1_gpope")]
+layout_mode = 2
