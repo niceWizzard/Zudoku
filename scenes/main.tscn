@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://kls4jfercssy"]
+[gd_scene load_steps=7 format=3 uid="uid://kls4jfercssy"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_iq2ee"]
 [ext_resource type="PackedScene" uid="uid://cv4xo6ygesr5u" path="res://scenes/sudoku_board.tscn" id="2_6xg60"]
@@ -14,9 +14,13 @@ content_margin_right = 12.0
 content_margin_bottom = 12.0
 bg_color = Color(0.725588, 0.17911, 0.122584, 1)
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("board_view")]
+[sub_resource type="LabelSettings" id="LabelSettings_sre6d"]
+font_size = 31
+
+[node name="Main" type="Node2D" node_paths=PackedStringArray("board_view", "state_label")]
 script = ExtResource("1_iq2ee")
 board_view = NodePath("CanvasLayer/Control/Panel/MarginContainer/MainGrid")
+state_label = NodePath("CanvasLayer/Control/Label")
 metadata/_edit_vertical_guides_ = [-987.0]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -157,3 +161,19 @@ theme_type_variation = &"GameplayBtn"
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_4co4j")
 text = "Clear"
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -140.0
+offset_right = 20.0
+offset_bottom = -111.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "asdfasdfasdfasdfasdffsd"
+label_settings = SubResource("LabelSettings_sre6d")
