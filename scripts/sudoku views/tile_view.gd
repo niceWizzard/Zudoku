@@ -3,14 +3,14 @@ class_name TileView
 
 @export var _label : Label
 
-var tile : SudokuTile
+var coordinate : Vector2i
 
-func setup(t : SudokuTile) -> void:
-	self.tile = t
+func setup(coord : Vector2i) -> void:
+	self.coordinate = coord
 
 
-func update_view() -> void:
-	_label.text = str(tile.value) if tile.value != 0 else ""
+func update_view(val : int) -> void:
+	_label.text = str(val) if val != 0 else ""
 
 func reset() -> void:
 	_label.text = ""
