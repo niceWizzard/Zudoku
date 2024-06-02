@@ -4,6 +4,19 @@ class_name Board
 var board_map : Dictionary = {}
 var peers_map : Dictionary = {}
 
+static func generate() -> Board:
+	var i:= 0
+	while i < 1000:
+		var b := Board.new()
+		if not b.solve():
+			i += 1
+			continue
+		return b
+	push_error("Something went wrong and couldn't generate a board")
+	return null
+	
+		
+
 func _init() -> void:
 	for y in range(9):
 		for x in range(9):
@@ -32,7 +45,7 @@ func _init() -> void:
 			peers_map[tile] = peers
 
 
-func solve(tile : Vector2i) -> bool:
+func solve(tile := Vector2i()) -> bool:
 	if tile.y == 9:
 		return true
 

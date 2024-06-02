@@ -94,8 +94,9 @@ func test_solve() -> void:
 
     assert_false(b.solve(Vector2()), "Board should not be solvable")
 
-
-
+func test_generate() -> void:
+    var board := Board.generate()
+    assert_true(board.solve(), "Board should be solveable since it is already solved.")
 
 func test_multiple_solve() -> void:
     for j in range(5):
