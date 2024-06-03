@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c2v0h8xk14wbf"]
+[gd_scene load_steps=7 format=3 uid="uid://c2v0h8xk14wbf"]
 
 [ext_resource type="FontFile" uid="uid://ke23phxg2wkl" path="res://fonts/Roboto-Regular.ttf" id="1_7qrrr"]
 [ext_resource type="Script" path="res://scripts/sudoku views/tile_view.gd" id="1_xt8q1"]
@@ -6,8 +6,8 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0po03"]
 bg_color = Color(0.200195, 0.46658, 0.383028, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e5kgy"]
-bg_color = Color(0.210107, 0.32197, 0.517297, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bm54e"]
+bg_color = Color(0.515948, 0.636756, 0.538909, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lny23"]
 bg_color = Color(0.18468, 0.170468, 0.168592, 1)
@@ -17,16 +17,12 @@ GameplayBtn/base_type = &"Button"
 GameplayBtn/font_sizes/font_size = 36
 GameplayBtn/fonts/font = ExtResource("1_7qrrr")
 GameplayBtn/styles/normal = SubResource("StyleBoxFlat_0po03")
-Tile/base_type = &"PanelContainer"
-Tile/styles/highlighted = SubResource("StyleBoxFlat_e5kgy")
+Tile/base_type = &"Button"
+Tile/font_sizes/font_size = 32
+Tile/styles/hover = SubResource("StyleBoxFlat_bm54e")
 Tile/styles/normal = SubResource("StyleBoxFlat_lny23")
-Tile/styles/panel = SubResource("StyleBoxFlat_lny23")
 
-[sub_resource type="LabelSettings" id="LabelSettings_lqgti"]
-line_spacing = 0.0
-font_size = 40
-
-[node name="PanelContainer" type="PanelContainer" node_paths=PackedStringArray("_label")]
+[node name="Tile" type="Button"]
 custom_minimum_size = Vector2(64, 64)
 anchors_preset = 8
 anchor_left = 0.5
@@ -41,24 +37,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_iwoww")
 theme_type_variation = &"Tile"
+text = "1"
 script = ExtResource("1_xt8q1")
-_label = NodePath("MarginContainer/Label")
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
-
-[node name="Label" type="Label" parent="MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "12"
-label_settings = SubResource("LabelSettings_lqgti")
-horizontal_alignment = 1
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
