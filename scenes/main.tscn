@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://kls4jfercssy"]
+[gd_scene load_steps=6 format=3 uid="uid://kls4jfercssy"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_iq2ee"]
 [ext_resource type="PackedScene" uid="uid://cv4xo6ygesr5u" path="res://scenes/sudoku_board.tscn" id="2_6xg60"]
@@ -7,20 +7,14 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0kyrk"]
 bg_color = Color(0.310216, 0.186113, 0.863085, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4co4j"]
-content_margin_left = 12.0
-content_margin_top = 12.0
-content_margin_right = 12.0
-content_margin_bottom = 12.0
-bg_color = Color(0.725588, 0.17911, 0.122584, 1)
-
 [sub_resource type="LabelSettings" id="LabelSettings_sre6d"]
 font_size = 31
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("board_view", "state_label")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("board_view", "state_label", "number_btn_parent")]
 script = ExtResource("1_iq2ee")
 board_view = NodePath("CanvasLayer/Control/Panel/MarginContainer/MainGrid")
 state_label = NodePath("CanvasLayer/Control/Label")
+number_btn_parent = NodePath("CanvasLayer/Control/MarginContainer/HBoxContainer")
 metadata/_edit_vertical_guides_ = [-987.0]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -152,15 +146,6 @@ size_flags_vertical = 4
 theme = ExtResource("3_2ohgn")
 theme_type_variation = &"GameplayBtn"
 text = "9"
-
-[node name="ClearBtn" type="Button" parent="CanvasLayer/Control/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(64, 31.405)
-layout_mode = 2
-theme = ExtResource("3_2ohgn")
-theme_type_variation = &"GameplayBtn"
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_4co4j")
-text = "Clear"
 
 [node name="Label" type="Label" parent="CanvasLayer/Control"]
 layout_mode = 1

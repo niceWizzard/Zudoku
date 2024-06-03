@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c2v0h8xk14wbf"]
+[gd_scene load_steps=8 format=3 uid="uid://c2v0h8xk14wbf"]
 
 [ext_resource type="FontFile" uid="uid://ke23phxg2wkl" path="res://fonts/Roboto-Regular.ttf" id="1_7qrrr"]
 [ext_resource type="Script" path="res://scripts/sudoku views/tile_view.gd" id="1_xt8q1"]
@@ -12,6 +12,9 @@ bg_color = Color(0.515948, 0.636756, 0.538909, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lny23"]
 bg_color = Color(0.18468, 0.170468, 0.168592, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xwlp3"]
+bg_color = Color(0.274341, 0.182815, 0.293131, 1)
+
 [sub_resource type="Theme" id="Theme_iwoww"]
 GameplayBtn/base_type = &"Button"
 GameplayBtn/font_sizes/font_size = 36
@@ -21,6 +24,9 @@ Tile/base_type = &"Button"
 Tile/font_sizes/font_size = 32
 Tile/styles/hover = SubResource("StyleBoxFlat_bm54e")
 Tile/styles/normal = SubResource("StyleBoxFlat_lny23")
+TileStatic/base_type = &"Tile"
+TileStatic/colors/font_color = Color(1, 1, 1, 1)
+TileStatic/styles/normal = SubResource("StyleBoxFlat_xwlp3")
 
 [node name="Tile" type="Button"]
 custom_minimum_size = Vector2(64, 64)
@@ -40,5 +46,5 @@ theme_type_variation = &"Tile"
 text = "1"
 script = ExtResource("1_xt8q1")
 
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
