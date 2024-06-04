@@ -154,3 +154,13 @@ func test_copy() -> void:
 		copy.set_tile(random, 2)
 		b.set_tile(random, 9)
 		assert_ne(copy.get_tile(random), b.get_tile(random), "Modifying copy board value of tile %s shouldn't modify the original" % random)
+
+
+func test_generate_puzzle() -> void:
+	var board := Board.generate_puzzle(25)
+	var count := 0
+	for b : int in board.board_map.values():
+		if  b != 0:
+			count += 1
+	assert_eq(count, 25, "Generated puzzle should have 25 unfilled tiles")
+	print(board)
