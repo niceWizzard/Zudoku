@@ -1,0 +1,130 @@
+[gd_scene load_steps=5 format=3 uid="uid://dg30cn0wga43j"]
+
+[ext_resource type="Script" path="res://scripts/start_up.gd" id="1_t7c6g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lvmws"]
+bg_color = Color(0.952941, 0.968627, 0.92549, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_41y78"]
+font_size = 96
+font_color = Color(0, 0.360784, 0.470588, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qq55o"]
+bg_color = Color(0.488286, 0.619424, 0.717166, 1)
+
+[node name="Startup" type="Control" node_paths=PackedStringArray("difficulty_btn")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t7c6g")
+difficulty_btn = NodePath("DifficultyBtn")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lvmws")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -101.0
+offset_top = 88.0
+offset_right = 101.0
+offset_bottom = 173.0
+grow_horizontal = 2
+text = "Zudoku"
+label_settings = SubResource("LabelSettings_41y78")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qq55o")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Button" type="Button" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "Single Player"
+
+[node name="Button2" type="Button" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "Multiplayer"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -259.0
+offset_top = -166.0
+offset_right = 259.0
+offset_bottom = 166.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="PlayBtn" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Play"
+
+[node name="SettingsBtn" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Settings"
+
+[node name="ExitBtn" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Exit"
+
+[node name="DifficultyBtn" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = -296.0
+offset_right = 49.0
+offset_bottom = -248.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "Easy"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PlayBtn" to="." method="_on_play_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ExitBtn" to="." method="_on_exit_btn_pressed"]
+[connection signal="pressed" from="DifficultyBtn" to="." method="_on_difficulty_btn_pressed"]
