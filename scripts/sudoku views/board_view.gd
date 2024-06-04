@@ -3,7 +3,7 @@ class_name BoardView
 
 signal on_active_tile_change(coord: Vector2i)
 
-var board := Board.generate_puzzle(52)
+var board := Board.generate_puzzle(69)
 
 var active_tile_coord := Vector2i(-1,-1)
 var tile_views : Array[TileView] = []

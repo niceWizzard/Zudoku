@@ -60,16 +60,17 @@ layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 37.0
-offset_top = -258.0
-offset_right = -37.0
-offset_bottom = -205.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -232.0
+offset_top = 254.145
+offset_right = 232.0
+offset_bottom = 307.145
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/MarginContainer"]
 layout_mode = 2
@@ -150,33 +151,50 @@ text = "9"
 
 [node name="Label" type="Label" parent="CanvasLayer/Control"]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -140.0
-offset_right = 20.0
-offset_bottom = -111.0
+anchor_bottom = 0.5
+offset_left = -188.0
+offset_top = 338.5
+offset_right = 162.0
+offset_bottom = 375.5
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 text = "asdfasdfasdfasdfasdffsd"
 label_settings = SubResource("LabelSettings_sre6d")
 
 [node name="Label2" type="Label" parent="CanvasLayer/Control"]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -175.0
-offset_top = -188.0
-offset_right = 175.0
-offset_bottom = -151.0
+anchor_bottom = 0.5
+offset_left = -188.0
+offset_top = 207.0
+offset_right = 162.0
+offset_bottom = 244.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 text = "Lives Left: 3"
 label_settings = SubResource("LabelSettings_sre6d")
 horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = 397.0
+offset_right = 27.0
+offset_bottom = 461.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Check"
+
+[connection signal="pressed" from="CanvasLayer/Control/Button" to="." method="_on_button_pressed"]

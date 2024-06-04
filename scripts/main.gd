@@ -31,9 +31,15 @@ func _ready() -> void:
 
 func _input(event : InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
-		if board_view.board.is_solved():
-			state_label.text = "Solved!"	
-		else:
-			state_label.text = "Incorrect!"
+		check()
 
+func check() -> void:
+	if board_view.board.is_solved():
+			state_label.text = "Solved!"	
+	else:
+		state_label.text = "Incorrect!"
 		
+
+
+func _on_button_pressed() -> void:
+	check()
