@@ -3,7 +3,7 @@ class_name BoardView
 
 signal on_active_tile_change(coord: Vector2i)
 
-var board := Board.generate_puzzle()
+var board := Board.generate_puzzle(52)
 
 var active_tile_coord := Vector2i(-1,-1)
 var tile_views : Array[TileView] = []
@@ -45,3 +45,6 @@ func reflect_changes(animate:=true) -> void:
 		tile_view.update_view(board.get_tile(tile_view.coordinate))
 		if animate:
 			await get_tree().create_timer(0.02).timeout
+	
+func can_set_tile(val : int) -> bool:
+	return board.is_valid_for_tile(active_tile_coord,val)

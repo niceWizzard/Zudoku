@@ -46,12 +46,12 @@ static func create_from(puzzle : String) -> Board:
 
 	return b
 
-static func generate_puzzle() -> Board:
+static func generate_puzzle(tiles_left := 24) -> Board:
 	var b:= generate()
 
 	b.solve()
 
-	for i in range(abs(24-81)):
+	for i in range(abs(tiles_left-81)):
 		var random := Vector2i(randi_range(0,8), randi_range(0,8))
 		var orig_val := b.get_tile(random)
 		b.set_tile(random, 0)

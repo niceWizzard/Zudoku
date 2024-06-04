@@ -10,10 +10,11 @@ bg_color = Color(0.310216, 0.186113, 0.863085, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_sre6d"]
 font_size = 31
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("board_view", "state_label", "number_btn_parent")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("board_view", "state_label", "lives_label", "number_btn_parent")]
 script = ExtResource("1_iq2ee")
 board_view = NodePath("CanvasLayer/Control/Panel/MarginContainer/MainGrid")
 state_label = NodePath("CanvasLayer/Control/Label")
+lives_label = NodePath("CanvasLayer/Control/Label2")
 number_btn_parent = NodePath("CanvasLayer/Control/MarginContainer/HBoxContainer")
 metadata/_edit_vertical_guides_ = [-987.0]
 
@@ -162,3 +163,20 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "asdfasdfasdfasdfasdffsd"
 label_settings = SubResource("LabelSettings_sre6d")
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -175.0
+offset_top = -188.0
+offset_right = 175.0
+offset_bottom = -151.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Lives Left: 3"
+label_settings = SubResource("LabelSettings_sre6d")
+horizontal_alignment = 1
