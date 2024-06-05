@@ -6,6 +6,7 @@ extends Node2D
 @export var number_btn_parent : Container
 @export var clear_btn : Button
 
+
 var lives := IntBindable.new(3)
 
 func _ready() -> void:
@@ -50,3 +51,7 @@ func _on_button_pressed() -> void:
 
 func _on_clear_btn_pressed() -> void:
 	board_view.set_active_tile(0)
+
+
+func _on_back_button_pressed() -> void:	
+	SceneManager.go_to_start_scn()

@@ -15,6 +15,10 @@ run/main_scene="res://scenes/start_up.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SceneManager="*res://scripts/SceneManager.gd"
+
 [debug]
 
 gdscript/warnings/untyped_declaration=2
