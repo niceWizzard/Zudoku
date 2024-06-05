@@ -16,18 +16,34 @@ enum Difficulty {
 var puzzle_generated := false
 
 var running_threads := {}
+var running_timeouts := {}
+
+func start_timer() -> void:
+	var id := str(Time.get_unix_time_from_system(), randi())
+	running_timeouts[id] = true
+	var timer := get_tree().create_timer(7.0, true, false, true)
+	await timer.timeout
+	if not running_threads.has(id):
+		return
+	running_timeouts.erase(id)
+	print("Puzzle generation over time!")
+	if not puzzle_generated:
+		running_threads.clear()
+		SceneManager.go_to_start_scn()
+		
 
 func generate_puzzle(difficulty : Difficulty) -> Signal:
 	puzzle_generated = false
+	start_timer()
 	for i in range(3):
 		var thread := Thread.new()
-		running_threads[thread.get_id()] = thread
 		thread.start(
 			func() -> void:
 				var b := Board.generate_puzzle(
 					get_tile_from_difficulty(difficulty)
 				)	
-
+				if not running_threads.has(thread.get_id()):
+					return
 				if puzzle_generated:
 					running_threads.erase(thread.get_id())
 					return
@@ -36,13 +52,12 @@ func generate_puzzle(difficulty : Difficulty) -> Signal:
 				running_threads.erase(thread.get_id())
 
 		)
+		running_threads[thread.get_id()] = thread
 	
 	return generate_puzzle_completed
 
 func _exit_tree() -> void:
-	for thread : Thread in running_threads.values():
-		if thread.is_alive():
-			thread.wait_to_finish()
+	running_threads.clear()
 
 func get_tile_from_difficulty(difficulty: Difficulty) -> int:
 	
