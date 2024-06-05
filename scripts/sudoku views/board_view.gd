@@ -15,9 +15,9 @@ func get_tile_from_difficulty() -> int:
 	print(Startup.difficulty.value)
 	match Startup.difficulty.value:
 		0:
-			return 40
+			return 60
 		1:
-			return 30
+			return 40
 		2: 
 			return 20
 		_:
