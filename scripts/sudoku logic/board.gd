@@ -17,7 +17,6 @@ static func generate() -> Board:
 	while i < 1000:
 		var b := Board.new()
 		b.fill_independent_groups()
-		return b
 		if not b.solve():
 			i += 1
 			continue
