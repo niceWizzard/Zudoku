@@ -3,11 +3,11 @@ class_name Startup
 
 @export var difficulty_btn : Button
 
-static var difficulty := IntBindable.new(0)
+static var difficulty : IntBindable
 
-const MAIN_SCN := preload("uid://kls4jfercssy")
 
 func _ready() -> void:
+	difficulty = IntBindable.new(3)
 	difficulty.bind_transform(
 		difficulty_btn,
 		"text",
@@ -27,5 +27,4 @@ func _on_difficulty_btn_pressed() -> void:
 
 
 func _on_play_btn_pressed() -> void:
-	get_tree().change_scene_to_packed(MAIN_SCN)
- 
+	SceneManager.go_to_main_scn()
