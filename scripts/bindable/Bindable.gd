@@ -26,3 +26,6 @@ func bind_transform(object:  Node,  property :String, transformer :Callable) -> 
 
 func _default_transformer(a : int) -> Variant:
 	return a
+
+func clear_bindings() -> void:
+	binded_nodes.clear()
