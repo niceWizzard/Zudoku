@@ -6,8 +6,16 @@ var board : Board
 
 var thread : Thread
 
+enum Difficulty {
+	VeryEasy,
+	Easy,
+	Medium,
+	Hard,
+	VeryHard,
+	Nightmare
+}
 
-func generate_puzzle(difficulty : int) -> Signal:
+func generate_puzzle(difficulty : Difficulty) -> Signal:
 	if thread != null:
 		thread.wait_to_finish()
 	thread = Thread.new()
@@ -25,14 +33,21 @@ func _exit_tree() -> void:
 	if thread != null:
 		thread.wait_to_finish()
 
-func get_tile_from_difficulty(difficulty: int) -> int:
+func get_tile_from_difficulty(difficulty: Difficulty) -> int:
+	
 	match difficulty:
-		0:
+		Difficulty.VeryEasy:
 			return 60
-		1:
-			return 40
-		2: 
+		Difficulty.Easy:
+			return 50
+		Difficulty.Medium:
+			return 36
+		Difficulty.Hard: 
 			return 30
+		Difficulty.VeryHard:
+			return 24
+		Difficulty.Nightmare:
+			return 17
 		_:
 			return 40
 

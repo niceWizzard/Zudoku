@@ -12,18 +12,14 @@ func _ready() -> void:
 		difficulty_btn,
 		"text",
 		func(a: int) -> String:
-			match a:
-				0: return "Easy"
-				1: return "Medium"
-				2: return "Hard"
-				_: return "Unknown"
+			return (GameManager.Difficulty.find_key(a) as String)
 	)
 
 func _on_exit_btn_pressed() -> void:
 	get_tree().quit()
 
 func _on_difficulty_btn_pressed() -> void:
-	difficulty.value = (difficulty.value + 1 )   % 3
+	difficulty.value = (difficulty.value + 1 )   % GameManager.Difficulty.size()
 
 
 func _on_play_btn_pressed() -> void:
