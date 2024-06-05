@@ -16,13 +16,15 @@ static func generate() -> Board:
 	var i:= 0
 	while i < 1000:
 		var b := Board.new()
+		b.fill_independent_groups()
+		return b
 		if not b.solve():
 			i += 1
 			continue
 		return b
 	push_error("Something went wrong and couldn't generate a board")
 	return null
-	
+
 static func create_from(puzzle : String) -> Board:
 	if puzzle.length() != 81:
 		push_error("Invalid puzzle string. It should consist of 81 characters but got %s" % puzzle.length())
@@ -49,23 +51,32 @@ static func create_from(puzzle : String) -> Board:
 static func generate_puzzle(tiles_left := 24) -> Board:
 	var b:= generate()
 
-	b.solve()
-	var limit :int = abs(tiles_left-81)
-	var i := 0
-	while i < limit: 
-		var random := Vector2i(randi_range(0,8), randi_range(0,8))
-		if b.get_tile(random) == 0:
-			continue
-		var orig_val := b.get_tile(random)
-		b.set_tile(random, 0)
+	# var limit :int = abs(tiles_left-81)
+	# var i := 0
+	# while i < limit: 
+	# 	var random := Vector2i(randi_range(0,8), randi_range(0,8))
+	# 	if b.get_tile(random) == 0:
+	# 		continue
+	# 	var orig_val := b.get_tile(random)
+	# 	b.set_tile(random, 0)
 
-		if not b.copy().solve():
-			b.set_tile(random, orig_val)
-			continue
-		i += 1
-	print("I ", i)
+	# 	if not b.copy().solve():
+	# 		b.set_tile(random, orig_val)
+	# 		continue
+	# 	i += 1
+	# print("I ", i)
 	return b
 
+func fill_independent_groups() -> void:
+	for i in range(3):
+		var values := range(1, 10)
+		values.shuffle()
+		var index := 0
+		for y in range(3):
+			for x in range(3):
+				var tile := Vector2i(x + i*3, y + i*3)
+				set_tile(tile, values[index])
+				index += 1
 
 func _init() -> void:
 	for y in range(9):
