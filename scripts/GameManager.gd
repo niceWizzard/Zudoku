@@ -63,15 +63,15 @@ func get_tile_from_difficulty(difficulty: Difficulty) -> int:
 	
 	match difficulty:
 		Difficulty.VeryEasy:
-			return 60
+			return 65
 		Difficulty.Easy:
-			return 50
+			return 55
 		Difficulty.Medium:
-			return 36
+			return 40
 		Difficulty.Hard: 
-			return 30
+			return 32
 		Difficulty.VeryHard:
-			return 24
+			return 26
 		Difficulty.Nightmare:
 			return 17
 		_:
