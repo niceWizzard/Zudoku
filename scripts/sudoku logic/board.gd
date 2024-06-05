@@ -48,21 +48,21 @@ static func create_from(puzzle : String) -> Board:
 	return b
 
 static func generate_puzzle(tiles_left := 24) -> Board:
-	var b:= generate()
+	var board:= generate()
 	var limit :int = abs(tiles_left-81)
-	var i := 0
-	while i < limit: 
-		var random := Vector2i(randi_range(0,8), randi_range(0,8))
-		if b.get_tile(random) == 0:
-			continue
-		var orig_val := b.get_tile(random)
-		b.set_tile(random, 0)
-
-		if not b.copy().solve():
-			b.set_tile(random, orig_val)
-			continue
-		i += 1
-	return b
+	while true:
+		var b := board.copy()
+		var i := 0
+		while i < limit: 
+			var random := Vector2i(randi_range(0,8), randi_range(0,8))
+			if b.get_tile(random) == 0:
+				continue
+			b.set_tile(random, 0)
+			i += 1
+		if b.copy().solve():
+			return b
+		
+	return null
 
 func fill_independent_groups() -> void:
 	for i in range(3):
