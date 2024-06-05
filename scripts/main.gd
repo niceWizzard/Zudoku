@@ -4,6 +4,7 @@ extends Node2D
 @export var state_label : Label
 @export var lives_label : Label
 @export var number_btn_parent : Container
+@export var clear_btn : Button
 
 var lives := IntBindable.new(3)
 
@@ -12,10 +13,12 @@ func _ready() -> void:
 		func(a: int) -> String:
 			return "Lives left: %s" %a
 	)
+	clear_btn.disabled = true
 	for child : Button in number_btn_parent.get_children():
 		child.disabled = true
 		board_view.on_active_tile_change.connect(
 			func(_a : Vector2i) -> void:
+				clear_btn.disabled = false
 				child.disabled = false
 		)
 		child.pressed.connect(
@@ -43,3 +46,7 @@ func check() -> void:
 
 func _on_button_pressed() -> void:
 	check()
+
+
+func _on_clear_btn_pressed() -> void:
+	board_view.set_active_tile(0)

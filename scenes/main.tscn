@@ -10,12 +10,13 @@ bg_color = Color(0.310216, 0.186113, 0.863085, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_sre6d"]
 font_size = 31
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("board_view", "state_label", "lives_label", "number_btn_parent")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("board_view", "state_label", "lives_label", "number_btn_parent", "clear_btn")]
 script = ExtResource("1_iq2ee")
 board_view = NodePath("CanvasLayer/Control/Panel/MarginContainer/MainGrid")
 state_label = NodePath("CanvasLayer/Control/Label")
 lives_label = NodePath("CanvasLayer/Control/Label2")
 number_btn_parent = NodePath("CanvasLayer/Control/MarginContainer/HBoxContainer")
+clear_btn = NodePath("CanvasLayer/Control/ClearBtn")
 metadata/_edit_vertical_guides_ = [-987.0]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -197,4 +198,20 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Check"
 
+[node name="ClearBtn" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 61.0
+offset_top = 397.0
+offset_right = 141.0
+offset_bottom = 461.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Clear"
+
 [connection signal="pressed" from="CanvasLayer/Control/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/ClearBtn" to="." method="_on_clear_btn_pressed"]
