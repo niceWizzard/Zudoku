@@ -12,7 +12,6 @@ var tile_views : Array[TileView] = []
 var tile_views_map := {}
 
 func get_tile_from_difficulty() -> int:
-	print(Startup.difficulty.value)
 	match Startup.difficulty.value:
 		0:
 			return 60
