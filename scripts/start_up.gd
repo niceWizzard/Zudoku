@@ -7,7 +7,7 @@ static var difficulty : IntBindable
 
 
 func _ready() -> void:
-	difficulty = IntBindable.new(3)
+	difficulty = IntBindable.new(1 if difficulty == null else difficulty.value)
 	difficulty.bind_transform(
 		difficulty_btn,
 		"text",
