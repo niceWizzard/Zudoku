@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dg30cn0wga43j"]
+[gd_scene load_steps=6 format=3 uid="uid://dg30cn0wga43j"]
 
+[ext_resource type="Script" path="res://nodes/SafeAreaContainer.gd" id="1_ru3uo"]
 [ext_resource type="Script" path="res://scripts/start_up.gd" id="1_t7c6g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lvmws"]
@@ -12,17 +13,15 @@ font_color = Color(0, 0.360784, 0.470588, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qq55o"]
 bg_color = Color(0.488286, 0.619424, 0.717166, 1)
 
-[node name="Startup" type="Control" node_paths=PackedStringArray("difficulty_btn")]
+[node name="Root" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_t7c6g")
-difficulty_btn = NodePath("DifficultyBtn")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel2" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,22 +30,36 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_lvmws")
 
-[node name="Label" type="Label" parent="."]
+[node name="SafeAreaContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ru3uo")
+
+[node name="Control" type="Control" parent="SafeAreaContainer" node_paths=PackedStringArray("difficulty_btn")]
+layout_mode = 2
+script = ExtResource("1_t7c6g")
+difficulty_btn = NodePath("DifficultyBtn")
+
+[node name="Label" type="Label" parent="SafeAreaContainer/Control"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -101.0
-offset_top = 88.0
-offset_right = 101.0
-offset_bottom = 173.0
+offset_left = -160.0
+offset_top = 38.0
+offset_right = 161.0
+offset_bottom = 152.0
 grow_horizontal = 2
 text = "Zudoku"
 label_settings = SubResource("LabelSettings_41y78")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="SafeAreaContainer/Control"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -57,23 +70,23 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_qq55o")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="SafeAreaContainer/Control/PanelContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Button" type="Button" parent="PanelContainer/HBoxContainer"]
+[node name="Button" type="Button" parent="SafeAreaContainer/Control/PanelContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 24
 text = "Single Player"
 
-[node name="Button2" type="Button" parent="PanelContainer/HBoxContainer"]
+[node name="Button2" type="Button" parent="SafeAreaContainer/Control/PanelContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 24
 text = "Multiplayer"
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="SafeAreaContainer/Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -91,25 +104,25 @@ theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SafeAreaContainer/Control/MarginContainer"]
 layout_mode = 2
 
-[node name="PlayBtn" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="PlayBtn" type="Button" parent="SafeAreaContainer/Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Play"
 
-[node name="SettingsBtn" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="SettingsBtn" type="Button" parent="SafeAreaContainer/Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Settings"
 
-[node name="ExitBtn" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="ExitBtn" type="Button" parent="SafeAreaContainer/Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Exit"
 
-[node name="DifficultyBtn" type="Button" parent="."]
+[node name="DifficultyBtn" type="Button" parent="SafeAreaContainer/Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -125,6 +138,6 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 48
 text = "Easy"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/PlayBtn" to="." method="_on_play_btn_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ExitBtn" to="." method="_on_exit_btn_pressed"]
-[connection signal="pressed" from="DifficultyBtn" to="." method="_on_difficulty_btn_pressed"]
+[connection signal="pressed" from="SafeAreaContainer/Control/MarginContainer/VBoxContainer/PlayBtn" to="SafeAreaContainer/Control" method="_on_play_btn_pressed"]
+[connection signal="pressed" from="SafeAreaContainer/Control/MarginContainer/VBoxContainer/ExitBtn" to="SafeAreaContainer/Control" method="_on_exit_btn_pressed"]
+[connection signal="pressed" from="SafeAreaContainer/Control/DifficultyBtn" to="SafeAreaContainer/Control" method="_on_difficulty_btn_pressed"]
