@@ -7,6 +7,6 @@ bg_color = Color(0.200195, 0.46658, 0.383028, 1)
 
 [resource]
 GameplayBtn/base_type = &"Button"
-GameplayBtn/font_sizes/font_size = 36
+GameplayBtn/font_sizes/font_size = 58
 GameplayBtn/fonts/font = ExtResource("1_gh4mm")
 GameplayBtn/styles/normal = SubResource("StyleBoxFlat_0po03")
