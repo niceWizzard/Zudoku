@@ -10,10 +10,10 @@ bg_color = Color(0.200195, 0.46658, 0.383028, 1)
 bg_color = Color(0.515948, 0.636756, 0.538909, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lny23"]
-bg_color = Color(0.18468, 0.170468, 0.168592, 1)
+bg_color = Color(1.83498e-07, 0.0987651, 0.139373, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xwlp3"]
-bg_color = Color(0.274341, 0.182815, 0.293131, 1)
+bg_color = Color(0, 0.360784, 0.470588, 1)
 
 [sub_resource type="Theme" id="Theme_iwoww"]
 GameplayBtn/base_type = &"Button"
@@ -21,6 +21,7 @@ GameplayBtn/font_sizes/font_size = 36
 GameplayBtn/fonts/font = ExtResource("1_7qrrr")
 GameplayBtn/styles/normal = SubResource("StyleBoxFlat_0po03")
 Tile/base_type = &"Button"
+Tile/colors/font_color = Color(0.883378, 0.883378, 0.883378, 1)
 Tile/font_sizes/font_size = 32
 Tile/styles/hover = SubResource("StyleBoxFlat_bm54e")
 Tile/styles/normal = SubResource("StyleBoxFlat_lny23")
@@ -35,10 +36,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -32.0
-offset_top = -32.0
-offset_right = 16.0
-offset_bottom = 16.0
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 28.0
+offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_iwoww")

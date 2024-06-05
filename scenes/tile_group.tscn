@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c2v0h8xk14wbf" path="res://scenes/sudoku_tile.tscn" id="1_gpope"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_drxfq"]
-bg_color = Color(0.178993, 0.29051, 0.360675, 1)
+bg_color = Color(1.55222e-06, 0.226088, 0.30032, 1)
 
 [node name="Panel" type="PanelContainer"]
 theme_override_styles/panel = SubResource("StyleBoxFlat_drxfq")
