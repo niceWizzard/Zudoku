@@ -199,6 +199,7 @@ grow_vertical = 2
 text = "Check"
 
 [node name="BackButton" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
 offset_left = 20.0
 offset_top = 11.0
 offset_right = 84.0

@@ -3,26 +3,16 @@ class_name BoardView
 
 signal on_active_tile_change(coord: Vector2i)
 
-var board := Board.generate_puzzle(
-	get_tile_from_difficulty()
-)
+var board : Board
 
 var active_tile_coord := Vector2i(-1,-1)
 var tile_views : Array[TileView] = []
 var tile_views_map := {}
 
-func get_tile_from_difficulty() -> int:
-	match Startup.difficulty.value:
-		0:
-			return 60
-		1:
-			return 40
-		2: 
-			return 30
-		_:
-			return 40
+
 
 func _ready() -> void:
+	board = GameManager.board
 	for main_grid_col in get_children().size():
 		var tile_group := get_children()[main_grid_col].get_children()[0].get_children()
 		for tile_group_index in tile_group.size():

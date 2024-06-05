@@ -27,4 +27,4 @@ func _on_difficulty_btn_pressed() -> void:
 
 
 func _on_play_btn_pressed() -> void:
-	SceneManager.go_to_main_scn()
+	SceneManager.go_to_game_preloader_scn()
