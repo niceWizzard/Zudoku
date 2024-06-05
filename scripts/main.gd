@@ -7,7 +7,7 @@ extends Node2D
 @export var clear_btn : Button
 @export var time_label : Label
 
-var time := 60.0
+var time := 0.0
 var lives := IntBindable.new(3)
 
 func _ready() -> void:
@@ -33,10 +33,10 @@ func _ready() -> void:
 						for c: Button in number_btn_parent.get_children():
 							c.disabled = true	
 		)
-		await get_tree().physics_frame
-		while true:
-			await get_tree().create_timer(1.0/12.0).timeout
-			time_label.text = parse_time(time)
+	await get_tree().physics_frame
+	while true:
+		await get_tree().create_timer(1.0/12.0).timeout
+		time_label.text = parse_time(time)
 
 func parse_time(time : float) -> String:
 	var seconds := floori(time) % 60 
