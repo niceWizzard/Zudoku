@@ -5,8 +5,9 @@ extends Node2D
 @export var lives_label : Label
 @export var number_btn_parent : Container
 @export var clear_btn : Button
+@export var time_label : Label
 
-
+var time := 60.0
 var lives := IntBindable.new(3)
 
 func _ready() -> void:
@@ -32,6 +33,29 @@ func _ready() -> void:
 						for c: Button in number_btn_parent.get_children():
 							c.disabled = true	
 		)
+		await get_tree().physics_frame
+		while true:
+			await get_tree().create_timer(1.0/12.0).timeout
+			time_label.text = parse_time(time)
+
+func parse_time(time : float) -> String:
+	var seconds := floori(time) % 60 
+	var minutes := floori(time / 60)
+	var hours := floori(time / (60 * 60))
+	var s := ""		
+	var array := []
+	if hours != 0:
+		s += "%sh "
+		array.push_front(hours)
+	if minutes != 0:
+		s += "%smin "
+		array.push_back(minutes)
+	s += "%ss"
+	array.push_back(seconds)
+	return s % array
+
+func _physics_process(delta : float) -> void:
+	time += delta
 
 func _input(event : InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
