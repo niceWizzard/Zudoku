@@ -22,7 +22,8 @@ func generate_puzzle(difficulty : int) -> Signal:
 	return generate_puzzle_completed
 
 func _exit_tree() -> void:
-	thread.wait_to_finish()
+	if thread != null:
+		thread.wait_to_finish()
 
 func get_tile_from_difficulty(difficulty: int) -> int:
 	match difficulty:
