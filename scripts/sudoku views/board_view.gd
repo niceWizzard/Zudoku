@@ -19,7 +19,7 @@ func get_tile_from_difficulty() -> int:
 		1:
 			return 40
 		2: 
-			return 20
+			return 30
 		_:
 			return 40
 
