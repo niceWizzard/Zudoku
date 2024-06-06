@@ -16,12 +16,6 @@ func _ready() -> void:
 	)
 	clear_btn.disabled = true
 	for child : Button in number_btn_parent.get_children():
-		child.disabled = true
-		board_view.on_active_tile_change.connect(
-			func(_a : Vector2i) -> void:
-				clear_btn.disabled = false
-				child.disabled = false
-		)
 		child.pressed.connect(
 			func() -> void:
 				if board_view.can_set_tile(int(child.text)):
