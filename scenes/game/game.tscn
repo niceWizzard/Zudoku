@@ -1,36 +1,26 @@
-[gd_scene load_steps=10 format=3 uid="uid://kls4jfercssy"]
+[gd_scene load_steps=8 format=3 uid="uid://kls4jfercssy"]
 
-[ext_resource type="Script" path="res://scripts/game/game.gd" id="1_iq2ee"]
-[ext_resource type="PackedScene" uid="uid://cv4xo6ygesr5u" path="res://scenes/game/sudoku_board.tscn" id="2_6xg60"]
-[ext_resource type="Script" path="res://nodes/SafeAreaContainer.gd" id="2_qd5u1"]
-[ext_resource type="Theme" uid="uid://wdgprplnsvvu" path="res://themes/theme.tres" id="3_2ohgn"]
+[ext_resource type="Script" path="res://scripts/game/game.gd" id="1_7uriu"]
+[ext_resource type="Script" path="res://nodes/SafeAreaContainer.gd" id="2_1mxru"]
+[ext_resource type="PackedScene" uid="uid://cv4xo6ygesr5u" path="res://scenes/game/sudoku_board.tscn" id="3_m8twr"]
+[ext_resource type="Theme" uid="uid://wdgprplnsvvu" path="res://themes/theme.tres" id="4_e4yss"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0sxk"]
 bg_color = Color(0.952941, 0.968627, 0.92549, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_f3i8y"]
+font_size = 32
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0kyrk"]
 bg_color = Color(6.64204e-06, 0.55328, 0.71392, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_sre6d"]
-font_size = 31
-font_color = Color(0.117647, 0.117647, 0.117647, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_opg0t"]
-font_size = 32
-font_color = Color(0.117647, 0.117647, 0.117647, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_84hn0"]
-font_size = 32
-font_color = Color(0.117647, 0.117647, 0.117647, 1)
-
-[node name="Main" type="Node2D" node_paths=PackedStringArray("board_view", "state_label", "lives_label", "number_btn_parent", "clear_btn", "time_label")]
-script = ExtResource("1_iq2ee")
-board_view = NodePath("CanvasLayer/Panel/SafeAreaContainer/Control/Panel/MarginContainer/MainGrid")
-state_label = NodePath("CanvasLayer/Panel/SafeAreaContainer/Control/Label")
-lives_label = NodePath("CanvasLayer/Panel/SafeAreaContainer/Control/Label2")
-number_btn_parent = NodePath("CanvasLayer/Panel/SafeAreaContainer/Control/MarginContainer/HBoxContainer")
-clear_btn = NodePath("CanvasLayer/Panel/SafeAreaContainer/Control/ClearBtn")
-time_label = NodePath("CanvasLayer/Panel/SafeAreaContainer/Control/Label4")
+[node name="Main" type="Node2D" node_paths=PackedStringArray("board_view", "lives_label", "number_btn_parent", "clear_btn", "time_label")]
+script = ExtResource("1_7uriu")
+board_view = NodePath("CanvasLayer/Panel/SafeAreaContainer/Control/MainContent/Panel/MarginContainer/MainGrid")
+lives_label = NodePath("CanvasLayer/Panel/SafeAreaContainer/Control/Header/HBoxContainer/Center/LivesLeft")
+number_btn_parent = NodePath("CanvasLayer/Panel/SafeAreaContainer/Control/MainContent/Number Btn")
+clear_btn = NodePath("CanvasLayer/Panel/SafeAreaContainer/Control/MainContent/HBoxContainer/ClearBtn")
+time_label = NodePath("CanvasLayer/Panel/SafeAreaContainer/Control/Header/HBoxContainer/Center/TimeLabel")
 metadata/_edit_vertical_guides_ = [-987.0]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -53,27 +43,67 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("2_qd5u1")
+script = ExtResource("2_1mxru")
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/SafeAreaContainer"]
 layout_mode = 2
 
-[node name="Panel" type="PanelContainer" parent="CanvasLayer/Panel/SafeAreaContainer/Control"]
+[node name="Header" type="Panel" parent="CanvasLayer/Panel/SafeAreaContainer/Control"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -312.0
-offset_top = -420.0
-offset_right = 312.0
-offset_bottom = 204.0
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 68.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/SafeAreaContainer/Control/Header"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Panel/SafeAreaContainer/Control/Header/HBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[node name="Center" type="HBoxContainer" parent="CanvasLayer/Panel/SafeAreaContainer/Control/Header/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer/Panel/SafeAreaContainer/Control/Header/HBoxContainer/Center"]
+layout_mode = 2
+text = "00:00"
+label_settings = SubResource("LabelSettings_f3i8y")
+
+[node name="Spacer" type="Control" parent="CanvasLayer/Panel/SafeAreaContainer/Control/Header/HBoxContainer/Center"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LivesLeft" type="Label" parent="CanvasLayer/Panel/SafeAreaContainer/Control/Header/HBoxContainer/Center"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Lives Left: 1"
+label_settings = SubResource("LabelSettings_f3i8y")
+
+[node name="MainContent" type="VBoxContainer" parent="CanvasLayer/Panel/SafeAreaContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Panel" type="PanelContainer" parent="CanvasLayer/Panel/SafeAreaContainer/Control/MainContent"]
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_0kyrk")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel/SafeAreaContainer/Control/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel/SafeAreaContainer/Control/MainContent/Panel"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -82,196 +112,85 @@ theme_override_constants/margin_top = 6
 theme_override_constants/margin_right = 6
 theme_override_constants/margin_bottom = 6
 
-[node name="MainGrid" parent="CanvasLayer/Panel/SafeAreaContainer/Control/Panel/MarginContainer" instance=ExtResource("2_6xg60")]
+[node name="MainGrid" parent="CanvasLayer/Panel/SafeAreaContainer/Control/MainContent/Panel/MarginContainer" instance=ExtResource("3_m8twr")]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel/SafeAreaContainer/Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -232.0
-offset_top = 254.145
-offset_right = 232.0
-offset_bottom = 307.145
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/SafeAreaContainer/Control/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/SafeAreaContainer/Control/MainContent"]
 layout_mode = 2
 alignment = 1
 
-[node name="Button" type="Button" parent="CanvasLayer/Panel/SafeAreaContainer/Control/MarginContainer/HBoxContainer"]
+[node name="ClearBtn" type="Button" parent="CanvasLayer/Panel/SafeAreaContainer/Control/MainContent/HBoxContainer"]
+custom_minimum_size = Vector2(72, 36)
+layout_mode = 2
+text = "Clear"
+
+[node name="Number Btn" type="HBoxContainer" parent="CanvasLayer/Panel/SafeAreaContainer/Control/MainContent"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/Panel/SafeAreaContainer/Control/MainContent/Number Btn"]
 custom_minimum_size = Vector2(72, 72)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("3_2ohgn")
+theme = ExtResource("4_e4yss")
 theme_type_variation = &"GameplayBtn"
 text = "1"
 
-[node name="Button2" type="Button" parent="CanvasLayer/Panel/SafeAreaContainer/Control/MarginContainer/HBoxContainer"]
+[node name="Button2" type="Button" parent="CanvasLayer/Panel/SafeAreaContainer/Control/MainContent/Number Btn"]
 custom_minimum_size = Vector2(72, 72)
 layout_mode = 2
-theme = ExtResource("3_2ohgn")
+theme = ExtResource("4_e4yss")
 theme_type_variation = &"GameplayBtn"
 text = "2"
 
-[node name="Button3" type="Button" parent="CanvasLayer/Panel/SafeAreaContainer/Control/MarginContainer/HBoxContainer"]
+[node name="Button3" type="Button" parent="CanvasLayer/Panel/SafeAreaContainer/Control/MainContent/Number Btn"]
 custom_minimum_size = Vector2(72, 72)
 layout_mode = 2
-theme = ExtResource("3_2ohgn")
+theme = ExtResource("4_e4yss")
 theme_type_variation = &"GameplayBtn"
 text = "3"
 
-[node name="Button4" type="Button" parent="CanvasLayer/Panel/SafeAreaContainer/Control/MarginContainer/HBoxContainer"]
+[node name="Button4" type="Button" parent="CanvasLayer/Panel/SafeAreaContainer/Control/MainContent/Number Btn"]
 custom_minimum_size = Vector2(72, 72)
 layout_mode = 2
-theme = ExtResource("3_2ohgn")
+theme = ExtResource("4_e4yss")
 theme_type_variation = &"GameplayBtn"
 text = "4"
 
-[node name="Button5" type="Button" parent="CanvasLayer/Panel/SafeAreaContainer/Control/MarginContainer/HBoxContainer"]
+[node name="Button5" type="Button" parent="CanvasLayer/Panel/SafeAreaContainer/Control/MainContent/Number Btn"]
 custom_minimum_size = Vector2(72, 72)
 layout_mode = 2
-theme = ExtResource("3_2ohgn")
+theme = ExtResource("4_e4yss")
 theme_type_variation = &"GameplayBtn"
 text = "5"
 
-[node name="Button6" type="Button" parent="CanvasLayer/Panel/SafeAreaContainer/Control/MarginContainer/HBoxContainer"]
+[node name="Button6" type="Button" parent="CanvasLayer/Panel/SafeAreaContainer/Control/MainContent/Number Btn"]
 custom_minimum_size = Vector2(72, 72)
 layout_mode = 2
-theme = ExtResource("3_2ohgn")
+theme = ExtResource("4_e4yss")
 theme_type_variation = &"GameplayBtn"
 text = "6"
 
-[node name="Button7" type="Button" parent="CanvasLayer/Panel/SafeAreaContainer/Control/MarginContainer/HBoxContainer"]
+[node name="Button7" type="Button" parent="CanvasLayer/Panel/SafeAreaContainer/Control/MainContent/Number Btn"]
 custom_minimum_size = Vector2(72, 72)
 layout_mode = 2
-theme = ExtResource("3_2ohgn")
+theme = ExtResource("4_e4yss")
 theme_type_variation = &"GameplayBtn"
 text = "7"
 
-[node name="Button8" type="Button" parent="CanvasLayer/Panel/SafeAreaContainer/Control/MarginContainer/HBoxContainer"]
+[node name="Button8" type="Button" parent="CanvasLayer/Panel/SafeAreaContainer/Control/MainContent/Number Btn"]
 custom_minimum_size = Vector2(72, 72)
 layout_mode = 2
-theme = ExtResource("3_2ohgn")
+theme = ExtResource("4_e4yss")
 theme_type_variation = &"GameplayBtn"
 text = "8"
 
-[node name="Button9" type="Button" parent="CanvasLayer/Panel/SafeAreaContainer/Control/MarginContainer/HBoxContainer"]
+[node name="Button9" type="Button" parent="CanvasLayer/Panel/SafeAreaContainer/Control/MainContent/Number Btn"]
 custom_minimum_size = Vector2(72, 72)
 layout_mode = 2
-theme = ExtResource("3_2ohgn")
+theme = ExtResource("4_e4yss")
 theme_type_variation = &"GameplayBtn"
 text = "9"
 
-[node name="Label" type="Label" parent="CanvasLayer/Panel/SafeAreaContainer/Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -188.0
-offset_top = 338.5
-offset_right = 162.0
-offset_bottom = 375.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.117647, 0.117647, 0.117647, 1)
-text = "asdfasdfasdfasdfasdffsd"
-label_settings = SubResource("LabelSettings_sre6d")
-
-[node name="Label2" type="Label" parent="CanvasLayer/Panel/SafeAreaContainer/Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -188.0
-offset_top = 207.0
-offset_right = 162.0
-offset_bottom = 244.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.117647, 0.117647, 0.117647, 1)
-text = "Lives Left: 3"
-label_settings = SubResource("LabelSettings_sre6d")
-horizontal_alignment = 1
-
-[node name="Button" type="Button" parent="CanvasLayer/Panel/SafeAreaContainer/Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -53.0
-offset_top = 397.0
-offset_right = 27.0
-offset_bottom = 461.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Check"
-
-[node name="BackButton" type="Button" parent="CanvasLayer/Panel/SafeAreaContainer/Control"]
-offset_left = 20.0
-offset_top = 11.0
-offset_right = 84.0
-offset_bottom = 55.0
-text = "Back"
-
-[node name="ClearBtn" type="Button" parent="CanvasLayer/Panel/SafeAreaContainer/Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 61.0
-offset_top = 397.0
-offset_right = 141.0
-offset_bottom = 461.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Clear"
-
-[node name="Label3" type="Label" parent="CanvasLayer/Panel/SafeAreaContainer/Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -101.0
-offset_top = -498.0
-offset_right = -13.0
-offset_bottom = -460.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Time: "
-label_settings = SubResource("LabelSettings_opg0t")
-
-[node name="Label4" type="Label" parent="CanvasLayer/Panel/SafeAreaContainer/Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 6.0
-offset_top = -497.0
-offset_right = 198.0
-offset_bottom = -459.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "asdasdf"
-label_settings = SubResource("LabelSettings_84hn0")
-
-[connection signal="pressed" from="CanvasLayer/Panel/SafeAreaContainer/Control/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/Panel/SafeAreaContainer/Control/BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/Panel/SafeAreaContainer/Control/ClearBtn" to="." method="_on_clear_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/SafeAreaContainer/Control/MainContent/HBoxContainer/ClearBtn" to="." method="_on_clear_btn_pressed"]

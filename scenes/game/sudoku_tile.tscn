@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://c2v0h8xk14wbf"]
 
-[ext_resource type="FontFile" uid="uid://ke23phxg2wkl" path="res://fonts/Roboto-Regular.ttf" id="1_7qrrr"]
-[ext_resource type="Script" path="res://scripts/game/sudoku views/tile_view.gd" id="1_xt8q1"]
+[ext_resource type="FontFile" uid="uid://ke23phxg2wkl" path="res://fonts/Roboto-Regular.ttf" id="1_muf7l"]
+[ext_resource type="Script" path="res://scripts/game/sudoku views/tile_view.gd" id="2_jhw5w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0po03"]
 bg_color = Color(0.200195, 0.46658, 0.383028, 1)
@@ -18,11 +18,11 @@ bg_color = Color(0, 0.360784, 0.470588, 1)
 [sub_resource type="Theme" id="Theme_iwoww"]
 GameplayBtn/base_type = &"Button"
 GameplayBtn/font_sizes/font_size = 36
-GameplayBtn/fonts/font = ExtResource("1_7qrrr")
+GameplayBtn/fonts/font = ExtResource("1_muf7l")
 GameplayBtn/styles/normal = SubResource("StyleBoxFlat_0po03")
 Tile/base_type = &"Button"
 Tile/colors/font_color = Color(0.883378, 0.883378, 0.883378, 1)
-Tile/font_sizes/font_size = 32
+Tile/font_sizes/font_size = 48
 Tile/styles/hover = SubResource("StyleBoxFlat_bm54e")
 Tile/styles/normal = SubResource("StyleBoxFlat_lny23")
 TileStatic/base_type = &"Tile"
@@ -30,7 +30,7 @@ TileStatic/colors/font_color = Color(1, 1, 1, 1)
 TileStatic/styles/normal = SubResource("StyleBoxFlat_xwlp3")
 
 [node name="Tile" type="Button"]
-custom_minimum_size = Vector2(64, 64)
+custom_minimum_size = Vector2(72, 72)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -38,14 +38,14 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -40.0
 offset_top = -40.0
-offset_right = 28.0
+offset_right = 24.0
 offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_iwoww")
 theme_type_variation = &"Tile"
 text = "1"
-script = ExtResource("1_xt8q1")
+script = ExtResource("2_jhw5w")
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]

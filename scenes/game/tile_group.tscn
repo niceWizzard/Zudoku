@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dcdooiu4iuf56"]
 
-[ext_resource type="PackedScene" uid="uid://c2v0h8xk14wbf" path="res://scenes/game/sudoku_tile.tscn" id="1_gpope"]
+[ext_resource type="PackedScene" uid="uid://c2v0h8xk14wbf" path="res://scenes/game/sudoku_tile.tscn" id="1_7k3re"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_drxfq"]
 bg_color = Color(1.55222e-06, 0.226088, 0.30032, 1)
@@ -12,29 +12,29 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_drxfq")
 layout_mode = 2
 columns = 3
 
-[node name="PanelContainer9" parent="Grid1" instance=ExtResource("1_gpope")]
+[node name="PanelContainer9" parent="Grid1" instance=ExtResource("1_7k3re")]
 layout_mode = 2
 
-[node name="PanelContainer8" parent="Grid1" instance=ExtResource("1_gpope")]
+[node name="PanelContainer8" parent="Grid1" instance=ExtResource("1_7k3re")]
 layout_mode = 2
 
-[node name="PanelContainer7" parent="Grid1" instance=ExtResource("1_gpope")]
+[node name="PanelContainer7" parent="Grid1" instance=ExtResource("1_7k3re")]
 layout_mode = 2
 
-[node name="PanelContainer6" parent="Grid1" instance=ExtResource("1_gpope")]
+[node name="PanelContainer6" parent="Grid1" instance=ExtResource("1_7k3re")]
 layout_mode = 2
 
-[node name="PanelContainer5" parent="Grid1" instance=ExtResource("1_gpope")]
+[node name="PanelContainer5" parent="Grid1" instance=ExtResource("1_7k3re")]
 layout_mode = 2
 
-[node name="PanelContainer4" parent="Grid1" instance=ExtResource("1_gpope")]
+[node name="PanelContainer4" parent="Grid1" instance=ExtResource("1_7k3re")]
 layout_mode = 2
 
-[node name="PanelContainer3" parent="Grid1" instance=ExtResource("1_gpope")]
+[node name="PanelContainer3" parent="Grid1" instance=ExtResource("1_7k3re")]
 layout_mode = 2
 
-[node name="PanelContainer2" parent="Grid1" instance=ExtResource("1_gpope")]
+[node name="PanelContainer2" parent="Grid1" instance=ExtResource("1_7k3re")]
 layout_mode = 2
 
-[node name="PanelContainer" parent="Grid1" instance=ExtResource("1_gpope")]
+[node name="PanelContainer" parent="Grid1" instance=ExtResource("1_7k3re")]
 layout_mode = 2

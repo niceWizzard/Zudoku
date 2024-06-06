@@ -1,7 +1,6 @@
 extends Node2D
 
 @export var board_view : BoardView
-@export var state_label : Label
 @export var lives_label : Label
 @export var number_btn_parent : Container
 @export var clear_btn : Button
@@ -45,10 +44,10 @@ func parse_time(time : float) -> String:
 	var s := ""		
 	var array := []
 	if hours != 0:
-		s += "%sh "
+		s += "%s:"
 		array.push_front(hours)
 	if minutes != 0:
-		s += "%smin "
+		s += "%s:"
 		array.push_back(minutes)
 	s += "%ss"
 	array.push_back(seconds)
@@ -57,20 +56,6 @@ func parse_time(time : float) -> String:
 func _physics_process(delta : float) -> void:
 	time += delta
 
-func _input(event : InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
-		check()
-
-func check() -> void:
-	if board_view.board.is_solved():
-			state_label.text = "Solved!"	
-	else:
-		state_label.text = "Incorrect!"
-		
-
-
-func _on_button_pressed() -> void:
-	check()
 
 
 func _on_clear_btn_pressed() -> void:

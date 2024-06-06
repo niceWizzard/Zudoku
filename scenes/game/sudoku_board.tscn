@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cv4xo6ygesr5u"]
 
-[ext_resource type="Script" path="res://scripts/game/sudoku views/board_view.gd" id="1_2suj7"]
-[ext_resource type="PackedScene" uid="uid://dcdooiu4iuf56" path="res://scenes/game/tile_group.tscn" id="2_0aet6"]
+[ext_resource type="Script" path="res://scripts/game/sudoku views/board_view.gd" id="1_42eli"]
+[ext_resource type="PackedScene" uid="uid://dcdooiu4iuf56" path="res://scenes/game/tile_group.tscn" id="2_6pjjk"]
 
 [node name="MainGrid" type="GridContainer"]
 offset_right = 1080.0
@@ -10,32 +10,32 @@ size_flags_horizontal = 4
 theme_override_constants/h_separation = 6
 theme_override_constants/v_separation = 6
 columns = 3
-script = ExtResource("1_2suj7")
+script = ExtResource("1_42eli")
 
-[node name="Panel3" parent="." instance=ExtResource("2_0aet6")]
+[node name="Panel3" parent="." instance=ExtResource("2_6pjjk")]
 layout_mode = 2
 metadata/_edit_group_ = true
 
-[node name="Panel" parent="." instance=ExtResource("2_0aet6")]
+[node name="Panel" parent="." instance=ExtResource("2_6pjjk")]
 layout_mode = 2
 
-[node name="Panel2" parent="." instance=ExtResource("2_0aet6")]
+[node name="Panel2" parent="." instance=ExtResource("2_6pjjk")]
 layout_mode = 2
 
-[node name="Panel4" parent="." instance=ExtResource("2_0aet6")]
+[node name="Panel4" parent="." instance=ExtResource("2_6pjjk")]
 layout_mode = 2
 
-[node name="Panel5" parent="." instance=ExtResource("2_0aet6")]
+[node name="Panel5" parent="." instance=ExtResource("2_6pjjk")]
 layout_mode = 2
 
-[node name="Panel6" parent="." instance=ExtResource("2_0aet6")]
+[node name="Panel6" parent="." instance=ExtResource("2_6pjjk")]
 layout_mode = 2
 
-[node name="Panel7" parent="." instance=ExtResource("2_0aet6")]
+[node name="Panel7" parent="." instance=ExtResource("2_6pjjk")]
 layout_mode = 2
 
-[node name="Panel8" parent="." instance=ExtResource("2_0aet6")]
+[node name="Panel8" parent="." instance=ExtResource("2_6pjjk")]
 layout_mode = 2
 
-[node name="Panel9" parent="." instance=ExtResource("2_0aet6")]
+[node name="Panel9" parent="." instance=ExtResource("2_6pjjk")]
 layout_mode = 2
