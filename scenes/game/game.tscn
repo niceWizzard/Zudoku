@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://kls4jfercssy"]
+[gd_scene load_steps=7 format=3 uid="uid://kls4jfercssy"]
 
 [ext_resource type="Script" path="res://scripts/game/game.gd" id="1_7uriu"]
 [ext_resource type="Script" path="res://nodes/SafeAreaContainer.gd" id="2_1mxru"]
@@ -7,10 +7,6 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0sxk"]
 bg_color = Color(0.952941, 0.968627, 0.92549, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_f3i8y"]
-font_size = 32
-font_color = Color(0, 0.0980392, 0.137255, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0kyrk"]
 bg_color = Color(6.64204e-06, 0.55328, 0.71392, 1)
@@ -87,7 +83,6 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Lives Left: 1"
-label_settings = SubResource("LabelSettings_f3i8y")
 
 [node name="Spacer" type="Control" parent="CanvasLayer/Control/SafeAreaContainer/VBox/Header/HBoxContainer/Center"]
 layout_mode = 2
@@ -96,7 +91,6 @@ size_flags_horizontal = 3
 [node name="TimeLabel" type="Label" parent="CanvasLayer/Control/SafeAreaContainer/VBox/Header/HBoxContainer/Center"]
 layout_mode = 2
 text = "00:00"
-label_settings = SubResource("LabelSettings_f3i8y")
 
 [node name="MainContent" type="VBoxContainer" parent="CanvasLayer/Control/SafeAreaContainer/VBox"]
 layout_mode = 2

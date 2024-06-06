@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dg30cn0wga43j"]
+[gd_scene load_steps=7 format=3 uid="uid://dg30cn0wga43j"]
 
 [ext_resource type="Script" path="res://nodes/SafeAreaContainer.gd" id="1_ru3uo"]
 [ext_resource type="Script" path="res://scripts/start_up.gd" id="1_t7c6g"]
+[ext_resource type="Theme" uid="uid://wdgprplnsvvu" path="res://themes/theme.tres" id="3_sdijh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lvmws"]
 bg_color = Color(0.952941, 0.968627, 0.92549, 1)
@@ -109,17 +110,17 @@ layout_mode = 2
 
 [node name="PlayBtn" type="Button" parent="SafeAreaContainer/Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
+theme = ExtResource("3_sdijh")
 text = "Play"
 
 [node name="SettingsBtn" type="Button" parent="SafeAreaContainer/Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
+theme = ExtResource("3_sdijh")
 text = "Settings"
 
 [node name="ExitBtn" type="Button" parent="SafeAreaContainer/Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
+theme = ExtResource("3_sdijh")
 text = "Exit"
 
 [node name="DifficultyBtn" type="Button" parent="SafeAreaContainer/Control"]
@@ -135,7 +136,7 @@ offset_right = 49.0
 offset_bottom = -248.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 48
+theme = ExtResource("3_sdijh")
 text = "Easy"
 
 [connection signal="pressed" from="SafeAreaContainer/Control/MarginContainer/VBoxContainer/PlayBtn" to="SafeAreaContainer/Control" method="_on_play_btn_pressed"]

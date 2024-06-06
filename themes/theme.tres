@@ -1,12 +1,64 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://wdgprplnsvvu"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://wdgprplnsvvu"]
 
 [ext_resource type="FontFile" uid="uid://ke23phxg2wkl" path="res://fonts/Roboto-Regular.ttf" id="1_gh4mm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fe2s4"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.0470588, 0.14902, 0.152941, 0.619608)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.153308, 0.356247, 0.364048, 0.619608)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rrh1q"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(3.91062e-07, 0.163422, 0.221105, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.623356, 0.373005, 0.0776537, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g8qt5"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(1.83498e-07, 0.0987651, 0.139373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0x3y"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0, 0.360784, 0.470588, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0po03"]
 bg_color = Color(0.200195, 0.46658, 0.383028, 1)
 
 [resource]
+default_font_size = 32
+Button/font_sizes/font_size = 42
+Button/fonts/font = ExtResource("1_gh4mm")
+Button/styles/disabled = SubResource("StyleBoxFlat_fe2s4")
+Button/styles/focus = SubResource("StyleBoxFlat_rrh1q")
+Button/styles/hover = SubResource("StyleBoxFlat_g8qt5")
+Button/styles/normal = SubResource("StyleBoxFlat_v0x3y")
 GameplayBtn/base_type = &"Button"
 GameplayBtn/font_sizes/font_size = 58
 GameplayBtn/fonts/font = ExtResource("1_gh4mm")
 GameplayBtn/styles/normal = SubResource("StyleBoxFlat_0po03")
+Label/colors/font_color = Color(0.250818, 0.250818, 0.250818, 1)
