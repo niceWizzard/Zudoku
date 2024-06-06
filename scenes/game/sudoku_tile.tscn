@@ -21,5 +21,4 @@ theme_type_variation = &"Tile"
 text = "1"
 script = ExtResource("2_jhw5w")
 
-[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]

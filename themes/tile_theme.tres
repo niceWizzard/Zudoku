@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://cobhq532aqdhx"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cobhq532aqdhx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bm54e"]
 bg_color = Color(0.515948, 0.636756, 0.538909, 1)
@@ -6,8 +6,19 @@ bg_color = Color(0.515948, 0.636756, 0.538909, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lny23"]
 bg_color = Color(1.83498e-07, 0.0987651, 0.139373, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jtvuq"]
+bg_color = Color(0.583436, 0.089879, 0.19947, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jlmnw"]
+bg_color = Color(0.583436, 0.089879, 0.19947, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_id5gj"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xwlp3"]
 bg_color = Color(0, 0.360784, 0.470588, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0lq22"]
+bg_color = Color(0.244197, 0.289617, 0.603128, 1)
 
 [resource]
 resource_local_to_scene = true
@@ -16,6 +27,13 @@ Tile/colors/font_color = Color(0.883378, 0.883378, 0.883378, 1)
 Tile/font_sizes/font_size = 48
 Tile/styles/hover = SubResource("StyleBoxFlat_bm54e")
 Tile/styles/normal = SubResource("StyleBoxFlat_lny23")
+TileActive/base_type = &"Button"
+TileActive/styles/focus = SubResource("StyleBoxFlat_jtvuq")
+TileActive/styles/normal = SubResource("StyleBoxFlat_jlmnw")
+TilePeerActive/base_type = &"Tile"
+TilePeerActive/styles/normal = SubResource("StyleBoxFlat_id5gj")
 TileStatic/base_type = &"Tile"
 TileStatic/colors/font_color = Color(1, 1, 1, 1)
 TileStatic/styles/normal = SubResource("StyleBoxFlat_xwlp3")
+TileStaticPeerActive/base_type = &"TileStatic"
+TileStaticPeerActive/styles/normal = SubResource("StyleBoxFlat_0lq22")
