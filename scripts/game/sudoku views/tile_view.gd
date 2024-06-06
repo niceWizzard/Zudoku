@@ -24,9 +24,6 @@ var state := State.DEFAULT:
 
 
 
-func _ready() -> void:
-	theme = theme.duplicate()
-
 func setup(coord : Vector2i) -> void:
 	self.coordinate = coord
 

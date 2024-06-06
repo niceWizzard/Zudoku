@@ -10,6 +10,7 @@ bg_color = Color(1.83498e-07, 0.0987651, 0.139373, 1)
 bg_color = Color(0, 0.360784, 0.470588, 1)
 
 [resource]
+resource_local_to_scene = true
 Tile/base_type = &"Button"
 Tile/colors/font_color = Color(0.883378, 0.883378, 0.883378, 1)
 Tile/font_sizes/font_size = 48
