@@ -39,6 +39,8 @@ func _on_tile_activated(coord : Vector2i) -> void:
 
 	active_tile_view.state = TileView.State.ACTIVE
 	for i in active_tile_peers:
+		if i == active_tile_view:
+			continue
 		if i.state == TileView.State.STATIC_PEER_ACTIVE:
 			i.state = TileView.State.STATIC
 		else:
