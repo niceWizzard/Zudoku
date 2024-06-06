@@ -57,7 +57,7 @@ func _on_tile_activated(coord : Vector2i) -> void:
 
 
 
-func set_active_tile(val : int) -> void:
+func set_active_tile_value(val : int) -> void:
 	if active_tile_view == null:
 		return
 
@@ -71,5 +71,5 @@ func reflect_changes(animate:=true) -> void:
 		if animate:
 			await get_tree().create_timer(0.02).timeout
 	
-func can_set_tile(val : int) -> bool:
+func can_set_active_tile_value(val : int) -> bool:
 	return board.is_valid_for_tile(active_tile_view.coordinate, val)
