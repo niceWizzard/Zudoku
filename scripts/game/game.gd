@@ -62,5 +62,5 @@ func _on_clear_btn_pressed() -> void:
 	board_view.set_active_tile(0)
 
 
-func _on_back_button_pressed() -> void:	
+func _on_back_btn_pressed() -> void:
 	SceneManager.go_to_start_scn()
