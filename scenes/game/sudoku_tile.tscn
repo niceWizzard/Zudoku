@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://c2v0h8xk14wbf"]
 
 [ext_resource type="FontFile" uid="uid://ke23phxg2wkl" path="res://fonts/Roboto-Regular.ttf" id="1_7qrrr"]
-[ext_resource type="Script" path="res://scripts/sudoku views/tile_view.gd" id="1_xt8q1"]
+[ext_resource type="Script" path="res://scripts/game/sudoku views/tile_view.gd" id="1_xt8q1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0po03"]
 bg_color = Color(0.200195, 0.46658, 0.383028, 1)

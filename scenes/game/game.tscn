@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://kls4jfercssy"]
 
-[ext_resource type="Script" path="res://scripts/main.gd" id="1_iq2ee"]
-[ext_resource type="PackedScene" uid="uid://cv4xo6ygesr5u" path="res://scenes/sudoku_board.tscn" id="2_6xg60"]
+[ext_resource type="Script" path="res://scripts/game/game.gd" id="1_iq2ee"]
+[ext_resource type="PackedScene" uid="uid://cv4xo6ygesr5u" path="res://scenes/game/sudoku_board.tscn" id="2_6xg60"]
 [ext_resource type="Script" path="res://nodes/SafeAreaContainer.gd" id="2_qd5u1"]
 [ext_resource type="Theme" uid="uid://wdgprplnsvvu" path="res://themes/theme.tres" id="3_2ohgn"]
 

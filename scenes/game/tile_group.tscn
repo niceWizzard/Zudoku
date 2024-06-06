@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dcdooiu4iuf56"]
 
-[ext_resource type="PackedScene" uid="uid://c2v0h8xk14wbf" path="res://scenes/sudoku_tile.tscn" id="1_gpope"]
+[ext_resource type="PackedScene" uid="uid://c2v0h8xk14wbf" path="res://scenes/game/sudoku_tile.tscn" id="1_gpope"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_drxfq"]
 bg_color = Color(1.55222e-06, 0.226088, 0.30032, 1)
