@@ -15,6 +15,8 @@ enum State {
 
 var state := State.DEFAULT:
 	set(v):
+		if state == v:
+			return
 		state = v
 		match state:
 			State.STATIC:
