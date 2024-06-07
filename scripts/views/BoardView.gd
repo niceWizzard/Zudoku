@@ -39,7 +39,6 @@ func _ready() -> void:
 			tileViewsMap[Vector2i(x, y)] = tile_view
 		
 func _on_tile_selected(tile : TileView) -> void:
-	prints("TIle View CHange ", tile)
 	for peer : TileView in peerActivatedTileViews:
 			peer.mode_normal()
 	if activeTileView != null:
