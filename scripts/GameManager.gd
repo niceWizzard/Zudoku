@@ -5,13 +5,13 @@ signal generate_puzzle_completed(board : Board)
 var board : Board
 
 enum Difficulty {
-	Childs_Play,
-	Very_Easy,
+	Noob,
+	Basic,
 	Easy,
-	Medium,
+	Normal,
 	Hard,
 	Expert,
-	Insane
+	Insane,
 }
 
 var puzzle_generated := false
@@ -63,13 +63,13 @@ func _exit_tree() -> void:
 func get_tile_from_difficulty(difficulty: Difficulty) -> int:
 	
 	match difficulty:
-		Difficulty.Childs_Play:
+		Difficulty.Noob:
 			return 75
-		Difficulty.Very_Easy:
+		Difficulty.Basic:
 			return 65
 		Difficulty.Easy:
 			return 55
-		Difficulty.Medium:
+		Difficulty.Normal:
 			return 40
 		Difficulty.Hard: 
 			return 32

@@ -12,7 +12,7 @@ func _ready() -> void:
 		difficulty_btn,
 		"text",
 		func(a: int) -> String:
-			return (GameManager.Difficulty.find_key(a) as String).replace("_", " ")
+			return (GameManager.Difficulty.find_key(a) as String)
 	)
 
 func _on_exit_btn_pressed() -> void:
