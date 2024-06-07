@@ -1,9 +1,10 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bgd6lt1h1dri"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://bgd6lt1h1dri"]
 
 [ext_resource type="StyleBox" uid="uid://bq12moj0dca12" path="res://themes/tiles/normal_stylebox.tres" id="1_7ftwf"]
 [ext_resource type="StyleBox" uid="uid://drfjk01hda7lm" path="res://themes/tiles/selected_stylebox.tres" id="2_2sywb"]
 [ext_resource type="StyleBox" uid="uid://dpudui7vuiqhs" path="res://themes/tiles/peer_selected.tres" id="2_n8f8o"]
 [ext_resource type="StyleBox" uid="uid://be51ph025ugsq" path="res://themes/tiles/fixed_stylebox.tres" id="2_u4fkm"]
+[ext_resource type="StyleBox" uid="uid://c82yrcvalgw5b" path="res://themes/tiles/peer_selected_hover.tres" id="3_aex8i"]
 [ext_resource type="FontFile" uid="uid://ke23phxg2wkl" path="res://fonts/Roboto-Regular.ttf" id="4_qrmq7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_id733"]
@@ -33,10 +34,12 @@ Tile/styles/pressed = ExtResource("1_7ftwf")
 TileFixed/base_type = &"Tile"
 TileFixed/styles/normal = ExtResource("2_u4fkm")
 TileFixedPeerSelected/base_type = &"Tile"
+TileFixedPeerSelected/styles/hover = ExtResource("3_aex8i")
 TileFixedPeerSelected/styles/normal = ExtResource("2_n8f8o")
 TileFixedSelected/base_type = &"TileFixed"
 TileFixedSelected/styles/focus = ExtResource("2_2sywb")
 TilePeerSelected/base_type = &"Tile"
+TilePeerSelected/styles/hover = ExtResource("3_aex8i")
 TilePeerSelected/styles/normal = ExtResource("2_n8f8o")
 TileSelected/base_type = &"Button"
 TileSelected/colors/font_color = Color(0, 0, 0, 1)
