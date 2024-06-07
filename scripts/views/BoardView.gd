@@ -10,6 +10,7 @@ var tileViewsMap := {}
 var peerActivatedTileViews : Array[TileView] = []
 
 var activeTileView : TileView = null
+var unfilled_tiles := 81
 
 
 func set_board(b : Board) -> void:
@@ -17,6 +18,8 @@ func set_board(b : Board) -> void:
 	for key : Vector2i in board.board_map:
 		var value := board.board_map[key] as int
 		var script := NormalTileView if value == 0 else FixedTileView
+		if value != 0:
+			unfilled_tiles -= 1
 		var unsetTileView :=  tileViewsMap[key] as Control
 		unsetTileView.set_script(script)
 		var tileView := unsetTileView as TileView
@@ -49,3 +52,23 @@ func _on_tile_selected(tile : TileView) -> void:
 		var peerTileView := tileViewsMap[coord] as TileView
 		peerTileView.mode_peer_selected()
 		peerActivatedTileViews.append(peerTileView)
+
+func try_set_active_tile_value(value : int) -> bool:
+	if activeTileView == null:
+		return false
+	if not board.is_valid_for_tile(activeTileView.coordinate, value):
+		return false
+	board.set_tile(activeTileView.coordinate, value)
+	activeTileView.update_view(value)
+	unfilled_tiles -= 1
+	return true
+
+	 
+func clear_active_tile_value() -> void:
+	if activeTileView == null:
+		return
+	if activeTileView is FixedTileView:
+		return
+	board.set_tile(activeTileView.coordinate, 0)
+	activeTileView.update_view(0)
+	unfilled_tiles += 1
