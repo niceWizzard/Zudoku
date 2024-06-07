@@ -1,6 +1,8 @@
 extends Control
 class_name BoardView
 
+signal tileValueCountChanged
+
 var board : Board
 
 
@@ -10,7 +12,11 @@ var tileViewsMap := {}
 var peerActivatedTileViews : Array[TileView] = []
 
 var activeTileView : TileView = null
-var unfilled_tiles := 81
+var unfilled_tiles : int:
+	get:
+		return valueTileMapping[0].size()
+
+var valueTileMapping := {}
 
 
 func set_board(b : Board) -> void:
@@ -18,8 +24,7 @@ func set_board(b : Board) -> void:
 	for key : Vector2i in board.board_map:
 		var value := board.board_map[key] as int
 		var script := NormalTileView if value == 0 else FixedTileView
-		if value != 0:
-			unfilled_tiles -= 1
+		
 		var unsetTileView :=  tileViewsMap[key] as Control
 		unsetTileView.set_script(script)
 		var tileView := unsetTileView as TileView
@@ -28,8 +33,14 @@ func set_board(b : Board) -> void:
 		tileView.tile_selected.connect(_on_tile_selected)
 		tileView.mode_normal()
 
+		var valueTileDict := valueTileMapping[value] as Dictionary
+		valueTileDict[key] = tileView
+	tileValueCountChanged.emit()
+
 
 func _ready() -> void:
+	for i in range(10):
+		valueTileMapping[i] = {}
 	for mainGridColIndex in grid.get_child_count():
 		var tile_group := grid.get_child(mainGridColIndex).get_child(0).get_children()
 		for tileGroupIndex in tile_group.size():
@@ -58,9 +69,13 @@ func try_set_active_tile_value(value : int) -> bool:
 		return false
 	if not board.is_valid_for_tile(activeTileView.coordinate, value):
 		return false
+	var prevValue := board.get_tile(activeTileView.coordinate)
 	board.set_tile(activeTileView.coordinate, value)
 	activeTileView.update_view(value)
-	unfilled_tiles -= 1
+
+	valueTileMapping[prevValue].erase(activeTileView.coordinate)
+	valueTileMapping[value][activeTileView.coordinate] = activeTileView
+	tileValueCountChanged.emit()
 	return true
 
 	 
@@ -71,4 +86,5 @@ func clear_active_tile_value() -> void:
 		return
 	board.set_tile(activeTileView.coordinate, 0)
 	activeTileView.update_view(0)
-	unfilled_tiles += 1
+	valueTileMapping[board.get_tile(activeTileView.coordinate)].erase(activeTileView.coordinate)
+	tileValueCountChanged.emit()

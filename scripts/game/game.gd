@@ -5,6 +5,7 @@ extends Node2D
 @export var number_btn_parent : Container
 @export var clear_btn : Button
 @export var time_label : Label
+@export var unfilledLabel : Label
 
 var time := 0.0
 var lives := IntBindable.new(3)
@@ -20,7 +21,14 @@ func _ready() -> void:
 			_onNumberBtnPressed.bind(child)
 		)
 	await get_tree().physics_frame
+	board_view.tileValueCountChanged.connect(
+		func() -> void:
+			unfilledLabel.text = "Unfilled tiles: %s" % (board_view.valueTileMapping[0].size())
+			for i in range(1, 10):
+				number_btn_parent.get_child(i-1).get_node("Label").text = str(9-board_view.valueTileMapping[i].size())
+	)	
 	board_view.set_board(GameManager.board)
+
 	while true:
 		await get_tree().create_timer(1.0/12.0).timeout
 		time_label.text = parse_time(time)
