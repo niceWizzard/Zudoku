@@ -38,6 +38,7 @@ TileFixedPeerSelected/styles/hover = ExtResource("3_aex8i")
 TileFixedPeerSelected/styles/normal = ExtResource("2_n8f8o")
 TileFixedSelected/base_type = &"TileFixed"
 TileFixedSelected/styles/focus = ExtResource("2_2sywb")
+TileFixedSelected/styles/normal = ExtResource("2_2sywb")
 TilePeerSelected/base_type = &"Tile"
 TilePeerSelected/styles/hover = ExtResource("3_aex8i")
 TilePeerSelected/styles/normal = ExtResource("2_n8f8o")
