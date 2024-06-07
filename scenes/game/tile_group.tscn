@@ -1,9 +1,191 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcdooiu4iuf56"]
+[gd_scene load_steps=19 format=3 uid="uid://dcdooiu4iuf56"]
 
-[ext_resource type="PackedScene" uid="uid://c2v0h8xk14wbf" path="res://scenes/game/sudoku_tile.tscn" id="1_7k3re"]
+[ext_resource type="PackedScene" uid="uid://c2v0h8xk14wbf" path="res://scenes/game/sudoku_tile.tscn" id="1_tfqsl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_drxfq"]
 bg_color = Color(1.55222e-06, 0.226088, 0.30032, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bm54e"]
+bg_color = Color(0.515948, 0.636756, 0.538909, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lny23"]
+bg_color = Color(1.83498e-07, 0.0987651, 0.139373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jtvuq"]
+bg_color = Color(0.583436, 0.089879, 0.19947, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jlmnw"]
+bg_color = Color(0.583436, 0.089879, 0.19947, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_id5gj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xwlp3"]
+bg_color = Color(0, 0.360784, 0.470588, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0lq22"]
+bg_color = Color(0.244197, 0.289617, 0.603128, 1)
+
+[sub_resource type="Theme" id="Theme_m4d0k"]
+resource_local_to_scene = true
+Tile/base_type = &"Button"
+Tile/colors/font_color = Color(0.883378, 0.883378, 0.883378, 1)
+Tile/font_sizes/font_size = 48
+Tile/styles/hover = SubResource("StyleBoxFlat_bm54e")
+Tile/styles/normal = SubResource("StyleBoxFlat_lny23")
+TileActive/base_type = &"Button"
+TileActive/styles/focus = SubResource("StyleBoxFlat_jtvuq")
+TileActive/styles/normal = SubResource("StyleBoxFlat_jlmnw")
+TilePeerActive/base_type = &"Tile"
+TilePeerActive/styles/normal = SubResource("StyleBoxFlat_id5gj")
+TileStatic/base_type = &"Tile"
+TileStatic/colors/font_color = Color(1, 1, 1, 1)
+TileStatic/styles/normal = SubResource("StyleBoxFlat_xwlp3")
+TileStaticPeerActive/base_type = &"TileStatic"
+TileStaticPeerActive/styles/normal = SubResource("StyleBoxFlat_0lq22")
+
+[sub_resource type="Theme" id="Theme_08svr"]
+resource_local_to_scene = true
+Tile/base_type = &"Button"
+Tile/colors/font_color = Color(0.883378, 0.883378, 0.883378, 1)
+Tile/font_sizes/font_size = 48
+Tile/styles/hover = SubResource("StyleBoxFlat_bm54e")
+Tile/styles/normal = SubResource("StyleBoxFlat_lny23")
+TileActive/base_type = &"Button"
+TileActive/styles/focus = SubResource("StyleBoxFlat_jtvuq")
+TileActive/styles/normal = SubResource("StyleBoxFlat_jlmnw")
+TilePeerActive/base_type = &"Tile"
+TilePeerActive/styles/normal = SubResource("StyleBoxFlat_id5gj")
+TileStatic/base_type = &"Tile"
+TileStatic/colors/font_color = Color(1, 1, 1, 1)
+TileStatic/styles/normal = SubResource("StyleBoxFlat_xwlp3")
+TileStaticPeerActive/base_type = &"TileStatic"
+TileStaticPeerActive/styles/normal = SubResource("StyleBoxFlat_0lq22")
+
+[sub_resource type="Theme" id="Theme_0n683"]
+resource_local_to_scene = true
+Tile/base_type = &"Button"
+Tile/colors/font_color = Color(0.883378, 0.883378, 0.883378, 1)
+Tile/font_sizes/font_size = 48
+Tile/styles/hover = SubResource("StyleBoxFlat_bm54e")
+Tile/styles/normal = SubResource("StyleBoxFlat_lny23")
+TileActive/base_type = &"Button"
+TileActive/styles/focus = SubResource("StyleBoxFlat_jtvuq")
+TileActive/styles/normal = SubResource("StyleBoxFlat_jlmnw")
+TilePeerActive/base_type = &"Tile"
+TilePeerActive/styles/normal = SubResource("StyleBoxFlat_id5gj")
+TileStatic/base_type = &"Tile"
+TileStatic/colors/font_color = Color(1, 1, 1, 1)
+TileStatic/styles/normal = SubResource("StyleBoxFlat_xwlp3")
+TileStaticPeerActive/base_type = &"TileStatic"
+TileStaticPeerActive/styles/normal = SubResource("StyleBoxFlat_0lq22")
+
+[sub_resource type="Theme" id="Theme_j31xa"]
+resource_local_to_scene = true
+Tile/base_type = &"Button"
+Tile/colors/font_color = Color(0.883378, 0.883378, 0.883378, 1)
+Tile/font_sizes/font_size = 48
+Tile/styles/hover = SubResource("StyleBoxFlat_bm54e")
+Tile/styles/normal = SubResource("StyleBoxFlat_lny23")
+TileActive/base_type = &"Button"
+TileActive/styles/focus = SubResource("StyleBoxFlat_jtvuq")
+TileActive/styles/normal = SubResource("StyleBoxFlat_jlmnw")
+TilePeerActive/base_type = &"Tile"
+TilePeerActive/styles/normal = SubResource("StyleBoxFlat_id5gj")
+TileStatic/base_type = &"Tile"
+TileStatic/colors/font_color = Color(1, 1, 1, 1)
+TileStatic/styles/normal = SubResource("StyleBoxFlat_xwlp3")
+TileStaticPeerActive/base_type = &"TileStatic"
+TileStaticPeerActive/styles/normal = SubResource("StyleBoxFlat_0lq22")
+
+[sub_resource type="Theme" id="Theme_jx48b"]
+resource_local_to_scene = true
+Tile/base_type = &"Button"
+Tile/colors/font_color = Color(0.883378, 0.883378, 0.883378, 1)
+Tile/font_sizes/font_size = 48
+Tile/styles/hover = SubResource("StyleBoxFlat_bm54e")
+Tile/styles/normal = SubResource("StyleBoxFlat_lny23")
+TileActive/base_type = &"Button"
+TileActive/styles/focus = SubResource("StyleBoxFlat_jtvuq")
+TileActive/styles/normal = SubResource("StyleBoxFlat_jlmnw")
+TilePeerActive/base_type = &"Tile"
+TilePeerActive/styles/normal = SubResource("StyleBoxFlat_id5gj")
+TileStatic/base_type = &"Tile"
+TileStatic/colors/font_color = Color(1, 1, 1, 1)
+TileStatic/styles/normal = SubResource("StyleBoxFlat_xwlp3")
+TileStaticPeerActive/base_type = &"TileStatic"
+TileStaticPeerActive/styles/normal = SubResource("StyleBoxFlat_0lq22")
+
+[sub_resource type="Theme" id="Theme_pmh3u"]
+resource_local_to_scene = true
+Tile/base_type = &"Button"
+Tile/colors/font_color = Color(0.883378, 0.883378, 0.883378, 1)
+Tile/font_sizes/font_size = 48
+Tile/styles/hover = SubResource("StyleBoxFlat_bm54e")
+Tile/styles/normal = SubResource("StyleBoxFlat_lny23")
+TileActive/base_type = &"Button"
+TileActive/styles/focus = SubResource("StyleBoxFlat_jtvuq")
+TileActive/styles/normal = SubResource("StyleBoxFlat_jlmnw")
+TilePeerActive/base_type = &"Tile"
+TilePeerActive/styles/normal = SubResource("StyleBoxFlat_id5gj")
+TileStatic/base_type = &"Tile"
+TileStatic/colors/font_color = Color(1, 1, 1, 1)
+TileStatic/styles/normal = SubResource("StyleBoxFlat_xwlp3")
+TileStaticPeerActive/base_type = &"TileStatic"
+TileStaticPeerActive/styles/normal = SubResource("StyleBoxFlat_0lq22")
+
+[sub_resource type="Theme" id="Theme_641sx"]
+resource_local_to_scene = true
+Tile/base_type = &"Button"
+Tile/colors/font_color = Color(0.883378, 0.883378, 0.883378, 1)
+Tile/font_sizes/font_size = 48
+Tile/styles/hover = SubResource("StyleBoxFlat_bm54e")
+Tile/styles/normal = SubResource("StyleBoxFlat_lny23")
+TileActive/base_type = &"Button"
+TileActive/styles/focus = SubResource("StyleBoxFlat_jtvuq")
+TileActive/styles/normal = SubResource("StyleBoxFlat_jlmnw")
+TilePeerActive/base_type = &"Tile"
+TilePeerActive/styles/normal = SubResource("StyleBoxFlat_id5gj")
+TileStatic/base_type = &"Tile"
+TileStatic/colors/font_color = Color(1, 1, 1, 1)
+TileStatic/styles/normal = SubResource("StyleBoxFlat_xwlp3")
+TileStaticPeerActive/base_type = &"TileStatic"
+TileStaticPeerActive/styles/normal = SubResource("StyleBoxFlat_0lq22")
+
+[sub_resource type="Theme" id="Theme_hqiph"]
+resource_local_to_scene = true
+Tile/base_type = &"Button"
+Tile/colors/font_color = Color(0.883378, 0.883378, 0.883378, 1)
+Tile/font_sizes/font_size = 48
+Tile/styles/hover = SubResource("StyleBoxFlat_bm54e")
+Tile/styles/normal = SubResource("StyleBoxFlat_lny23")
+TileActive/base_type = &"Button"
+TileActive/styles/focus = SubResource("StyleBoxFlat_jtvuq")
+TileActive/styles/normal = SubResource("StyleBoxFlat_jlmnw")
+TilePeerActive/base_type = &"Tile"
+TilePeerActive/styles/normal = SubResource("StyleBoxFlat_id5gj")
+TileStatic/base_type = &"Tile"
+TileStatic/colors/font_color = Color(1, 1, 1, 1)
+TileStatic/styles/normal = SubResource("StyleBoxFlat_xwlp3")
+TileStaticPeerActive/base_type = &"TileStatic"
+TileStaticPeerActive/styles/normal = SubResource("StyleBoxFlat_0lq22")
+
+[sub_resource type="Theme" id="Theme_5d1u4"]
+resource_local_to_scene = true
+Tile/base_type = &"Button"
+Tile/colors/font_color = Color(0.883378, 0.883378, 0.883378, 1)
+Tile/font_sizes/font_size = 48
+Tile/styles/hover = SubResource("StyleBoxFlat_bm54e")
+Tile/styles/normal = SubResource("StyleBoxFlat_lny23")
+TileActive/base_type = &"Button"
+TileActive/styles/focus = SubResource("StyleBoxFlat_jtvuq")
+TileActive/styles/normal = SubResource("StyleBoxFlat_jlmnw")
+TilePeerActive/base_type = &"Tile"
+TilePeerActive/styles/normal = SubResource("StyleBoxFlat_id5gj")
+TileStatic/base_type = &"Tile"
+TileStatic/colors/font_color = Color(1, 1, 1, 1)
+TileStatic/styles/normal = SubResource("StyleBoxFlat_xwlp3")
+TileStaticPeerActive/base_type = &"TileStatic"
+TileStaticPeerActive/styles/normal = SubResource("StyleBoxFlat_0lq22")
 
 [node name="Panel" type="PanelContainer"]
 theme_override_styles/panel = SubResource("StyleBoxFlat_drxfq")
@@ -12,29 +194,38 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_drxfq")
 layout_mode = 2
 columns = 3
 
-[node name="PanelContainer9" parent="Grid1" instance=ExtResource("1_7k3re")]
+[node name="Tile" parent="Grid1" instance=ExtResource("1_tfqsl")]
 layout_mode = 2
+theme = SubResource("Theme_m4d0k")
 
-[node name="PanelContainer8" parent="Grid1" instance=ExtResource("1_7k3re")]
+[node name="Tile2" parent="Grid1" instance=ExtResource("1_tfqsl")]
 layout_mode = 2
+theme = SubResource("Theme_08svr")
 
-[node name="PanelContainer7" parent="Grid1" instance=ExtResource("1_7k3re")]
+[node name="Tile3" parent="Grid1" instance=ExtResource("1_tfqsl")]
 layout_mode = 2
+theme = SubResource("Theme_0n683")
 
-[node name="PanelContainer6" parent="Grid1" instance=ExtResource("1_7k3re")]
+[node name="Tile4" parent="Grid1" instance=ExtResource("1_tfqsl")]
 layout_mode = 2
+theme = SubResource("Theme_j31xa")
 
-[node name="PanelContainer5" parent="Grid1" instance=ExtResource("1_7k3re")]
+[node name="Tile5" parent="Grid1" instance=ExtResource("1_tfqsl")]
 layout_mode = 2
+theme = SubResource("Theme_jx48b")
 
-[node name="PanelContainer4" parent="Grid1" instance=ExtResource("1_7k3re")]
+[node name="Tile6" parent="Grid1" instance=ExtResource("1_tfqsl")]
 layout_mode = 2
+theme = SubResource("Theme_pmh3u")
 
-[node name="PanelContainer3" parent="Grid1" instance=ExtResource("1_7k3re")]
+[node name="Tile7" parent="Grid1" instance=ExtResource("1_tfqsl")]
 layout_mode = 2
+theme = SubResource("Theme_641sx")
 
-[node name="PanelContainer2" parent="Grid1" instance=ExtResource("1_7k3re")]
+[node name="Tile8" parent="Grid1" instance=ExtResource("1_tfqsl")]
 layout_mode = 2
+theme = SubResource("Theme_hqiph")
 
-[node name="PanelContainer" parent="Grid1" instance=ExtResource("1_7k3re")]
+[node name="Tile9" parent="Grid1" instance=ExtResource("1_tfqsl")]
 layout_mode = 2
+theme = SubResource("Theme_5d1u4")

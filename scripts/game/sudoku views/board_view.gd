@@ -10,6 +10,8 @@ var tile_views_map := {}
 var active_tile_view : TileView
 var active_tile_peers : Array[TileView]= []
 
+const TILE_THEME := preload('uid://cobhq532aqdhx')
+
 func _ready() -> void:
 	board = GameManager.board
 	for main_grid_col in get_children().size():
@@ -29,6 +31,8 @@ func _ready() -> void:
 		if val != 0:
 			tile_view.state = TileView.State.STATIC	
 		tile_view.update_view(val)
+		tile_view.theme = TILE_THEME
+
 
 func _on_tile_activated(coord : Vector2i) -> void:
 	if active_tile_view != null:
