@@ -5,11 +5,15 @@ signal tile_activated(coordinate : Vector2i)
 
 var coordinate : Vector2i
 
+var is_static := false:
+	set(v) :
+		is_static = v
+
 enum State {
 	DEFAULT,
-	STATIC,
 	ACTIVE,
 	PEER_ACTIVE,
+	STATIC,
 	STATIC_PEER_ACTIVE
 }
 
@@ -18,10 +22,8 @@ var state := State.DEFAULT:
 		if state == v:
 			return
 		state = v
-		match state:
+		match state:		
 			State.STATIC:
-				self.mouse_filter = MOUSE_FILTER_IGNORE
-				self.focus_mode = FOCUS_NONE
 				theme_type_variation = "TileStatic"
 			State.ACTIVE:
 				theme_type_variation = "TileActive"
@@ -47,12 +49,10 @@ func reset() -> void:
 	text = ""
 
 func _on_focus_entered() -> void:
-	if state == State.STATIC:
+	if is_static:
 		return
 	tile_activated.emit(coordinate)
 
 func _on_pressed() -> void:
-	if state == State.STATIC:
-		return
 	tile_activated.emit(coordinate)
 

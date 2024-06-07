@@ -9,7 +9,7 @@
 bg_color = Color(0.952941, 0.968627, 0.92549, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0kyrk"]
-bg_color = Color(6.64204e-06, 0.55328, 0.71392, 1)
+bg_color = Color(0.247911, 0.244948, 0.247912, 1)
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("board_view", "lives_label", "number_btn_parent", "clear_btn", "time_label")]
 script = ExtResource("1_7uriu")

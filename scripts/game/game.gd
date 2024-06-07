@@ -18,6 +18,8 @@ func _ready() -> void:
 	for child : Button in number_btn_parent.get_children():
 		child.pressed.connect(
 			func() -> void:
+				if board_view.active_tile_view != null and board_view.active_tile_view.is_static:
+					return
 				var can_set :=  board_view.try_set_active_tile_value(int(child.text))
 				if not can_set:
 					lives.value -= 1

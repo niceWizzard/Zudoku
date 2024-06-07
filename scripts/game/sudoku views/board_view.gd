@@ -29,14 +29,18 @@ func _ready() -> void:
 	for tile_view : TileView in tile_views:
 		var val := board.get_tile(tile_view.coordinate)
 		if val != 0:
-			tile_view.state = TileView.State.STATIC	
+			tile_view.state = TileView.State.STATIC
+			tile_view.is_static = true
 		tile_view.update_view(val)
 		tile_view.theme = TILE_THEME
 
 
 func _on_tile_activated(coord : Vector2i) -> void:
 	if active_tile_view != null:
-		active_tile_view.state = TileView.State.DEFAULT
+		if active_tile_view.is_static:
+			active_tile_view.state = TileView.State.STATIC
+		else:
+			active_tile_view.state = TileView.State.DEFAULT
 
 	active_tile_view = tile_views_map[coord] as TileView
 	on_active_tile_change.emit(coord)
@@ -45,7 +49,7 @@ func _on_tile_activated(coord : Vector2i) -> void:
 	for i in active_tile_peers:
 		if i == active_tile_view:
 			continue
-		if i.state == TileView.State.STATIC_PEER_ACTIVE:
+		if i.is_static:
 			i.state = TileView.State.STATIC
 		else:
 			i.state = TileView.State.DEFAULT
@@ -53,8 +57,8 @@ func _on_tile_activated(coord : Vector2i) -> void:
 
 	for peer_coord : Vector2i in board.get_peers(coord):
 		var peer := tile_views_map[peer_coord] as TileView
-		if peer.state == TileView.State.STATIC:
-					peer.state = TileView.State.STATIC_PEER_ACTIVE
+		if peer.is_static:
+			peer.state = TileView.State.STATIC_PEER_ACTIVE
 		else:
 			peer.state = TileView.State.PEER_ACTIVE
 		active_tile_peers.append(peer)
@@ -73,7 +77,7 @@ func reflect_changes(animate:=true) -> void:
 func try_set_active_tile_value(val : int) -> bool:
 	if active_tile_view == null:
 		return false
-
+	
 	if not board.is_valid_for_tile(active_tile_view.coordinate, val):
 		return false
 	
