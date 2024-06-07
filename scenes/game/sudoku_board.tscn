@@ -1,39 +1,59 @@
-[gd_scene load_steps=2 format=3 uid="uid://cv4xo6ygesr5u"]
+[gd_scene load_steps=3 format=3 uid="uid://cv4xo6ygesr5u"]
 
+[ext_resource type="Script" path="res://scripts/views/BoardView.gd" id="1_blpj5"]
 [ext_resource type="PackedScene" uid="uid://dcdooiu4iuf56" path="res://scenes/game/tile_group.tscn" id="2_6pjjk"]
 
-[node name="MainGrid" type="GridContainer"]
-offset_right = 1080.0
-offset_bottom = 612.0
-size_flags_horizontal = 4
-theme_override_constants/h_separation = 6
-theme_override_constants/v_separation = 6
+[node name="Board" type="PanelContainer" node_paths=PackedStringArray("grid")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -345.0
+offset_top = -345.0
+offset_right = 345.0
+offset_bottom = 345.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_blpj5")
+grid = NodePath("MarginContainer/BoardGrid")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="BoardGrid" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 9
+theme_override_constants/v_separation = 9
 columns = 3
 
-[node name="Panel3" parent="." instance=ExtResource("2_6pjjk")]
-layout_mode = 2
-metadata/_edit_group_ = true
-
-[node name="Panel" parent="." instance=ExtResource("2_6pjjk")]
+[node name="Panel" parent="MarginContainer/BoardGrid" instance=ExtResource("2_6pjjk")]
 layout_mode = 2
 
-[node name="Panel2" parent="." instance=ExtResource("2_6pjjk")]
+[node name="Panel2" parent="MarginContainer/BoardGrid" instance=ExtResource("2_6pjjk")]
 layout_mode = 2
 
-[node name="Panel4" parent="." instance=ExtResource("2_6pjjk")]
+[node name="Panel3" parent="MarginContainer/BoardGrid" instance=ExtResource("2_6pjjk")]
 layout_mode = 2
 
-[node name="Panel5" parent="." instance=ExtResource("2_6pjjk")]
+[node name="Panel4" parent="MarginContainer/BoardGrid" instance=ExtResource("2_6pjjk")]
 layout_mode = 2
 
-[node name="Panel6" parent="." instance=ExtResource("2_6pjjk")]
+[node name="Panel5" parent="MarginContainer/BoardGrid" instance=ExtResource("2_6pjjk")]
 layout_mode = 2
 
-[node name="Panel7" parent="." instance=ExtResource("2_6pjjk")]
+[node name="Panel6" parent="MarginContainer/BoardGrid" instance=ExtResource("2_6pjjk")]
 layout_mode = 2
 
-[node name="Panel8" parent="." instance=ExtResource("2_6pjjk")]
+[node name="Panel7" parent="MarginContainer/BoardGrid" instance=ExtResource("2_6pjjk")]
 layout_mode = 2
 
-[node name="Panel9" parent="." instance=ExtResource("2_6pjjk")]
+[node name="Panel8" parent="MarginContainer/BoardGrid" instance=ExtResource("2_6pjjk")]
+layout_mode = 2
+
+[node name="Panel9" parent="MarginContainer/BoardGrid" instance=ExtResource("2_6pjjk")]
 layout_mode = 2

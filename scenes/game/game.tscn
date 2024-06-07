@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://kls4jfercssy"]
+[gd_scene load_steps=6 format=3 uid="uid://kls4jfercssy"]
 
 [ext_resource type="Script" path="res://scripts/game/game.gd" id="1_7uriu"]
 [ext_resource type="Script" path="res://nodes/SafeAreaContainer.gd" id="2_1mxru"]
@@ -8,12 +8,9 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0sxk"]
 bg_color = Color(0.952941, 0.968627, 0.92549, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0kyrk"]
-bg_color = Color(0.247911, 0.244948, 0.247912, 1)
-
 [node name="Main" type="Node2D" node_paths=PackedStringArray("board_view", "lives_label", "number_btn_parent", "clear_btn", "time_label")]
 script = ExtResource("1_7uriu")
-board_view = NodePath("CanvasLayer/Control/SafeAreaContainer/VBox/MainContent/Panel/MarginContainer/MainGrid")
+board_view = NodePath("CanvasLayer/Control/SafeAreaContainer/VBox/MainContent/Board")
 lives_label = NodePath("CanvasLayer/Control/SafeAreaContainer/VBox/Header/HBoxContainer/Center/LivesLeft")
 number_btn_parent = NodePath("CanvasLayer/Control/SafeAreaContainer/VBox/MainContent/Number Btn")
 clear_btn = NodePath("CanvasLayer/Control/SafeAreaContainer/VBox/MainContent/HBoxContainer/ClearBtn")
@@ -98,21 +95,7 @@ size_flags_horizontal = 4
 theme_override_constants/separation = 12
 alignment = 1
 
-[node name="Panel" type="PanelContainer" parent="CanvasLayer/Control/SafeAreaContainer/VBox/MainContent"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_0kyrk")
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/SafeAreaContainer/VBox/MainContent/Panel"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/margin_left = 6
-theme_override_constants/margin_top = 6
-theme_override_constants/margin_right = 6
-theme_override_constants/margin_bottom = 6
-
-[node name="MainGrid" parent="CanvasLayer/Control/SafeAreaContainer/VBox/MainContent/Panel/MarginContainer" instance=ExtResource("3_m8twr")]
+[node name="Board" parent="CanvasLayer/Control/SafeAreaContainer/VBox/MainContent" instance=ExtResource("3_m8twr")]
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/SafeAreaContainer/VBox/MainContent"]
