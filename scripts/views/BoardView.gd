@@ -7,6 +7,23 @@ var board : Board
 @export var grid : GridContainer
 
 var tileViewsMap := {}
+var peerActivatedTileViews : Array[TileView] = []
+
+var activeTileView : TileView = null:
+	set(v):
+		if activeTileView != null:
+			activeTileView.mode_normal()
+		activeTileView = v
+		activeTileView.mode_selected()
+		for peer : TileView in peerActivatedTileViews:
+			peer.mode_normal()
+		peerActivatedTileViews.clear()
+
+		for coord : Vector2i in board.get_peers(v.coordinate):
+			var peerTileView := tileViewsMap[coord] as TileView
+			peerTileView.mode_peer_selected()
+			peerActivatedTileViews.append(peerTileView)
+
 
 func set_board(b : Board) -> void:
 	board = b
@@ -19,6 +36,7 @@ func set_board(b : Board) -> void:
 		tileView.setup(key)
 		tileView.update_view(value)
 		tileView.tile_selected.connect(_on_tile_selected)
+		tileView.mode_normal()
 
 
 func _ready() -> void:
@@ -29,7 +47,6 @@ func _ready() -> void:
 			var x := (mainGridColIndex %3) * 3 + (tileGroupIndex % 3)
 			var y := (mainGridColIndex /3) * 3 + (tileGroupIndex / 3)
 			tileViewsMap[Vector2i(x, y)] = tile_view
-			tile_view.get_node("Label").text = str(x,y)
 		
 func _on_tile_selected(tile : TileView) -> void:
-	print("Tile selected: ", tile.coordinate)
+	activeTileView = tile

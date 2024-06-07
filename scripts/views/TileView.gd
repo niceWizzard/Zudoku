@@ -1,17 +1,17 @@
-extends PanelContainer
+extends Button
 class_name TileView
 
 signal tile_selected(tile : TileView)
 
-@export var label : Label
+var coordinate : Vector2i
 
-var coordinate : Vector2
+const TILE_THEME := preload("uid://bgd6lt1h1dri")
 
 
 func setup(coord : Vector2i) -> void:
 	coordinate  =coord
-	label = get_node("Label")
 	gui_input.connect(_on_gui_input)
+	theme = TILE_THEME
 	
 
 func mode_normal() -> void: 
@@ -24,7 +24,7 @@ func mode_peer_selected() -> void:
 	pass
 
 func update_view(val : int) -> void:
-	label.text = str(val if val != 0 else "")
+	text = str(val) if val != 0 else ""
 
 func _on_gui_input(event : InputEvent) -> void:
 	if  event is InputEventMouse:

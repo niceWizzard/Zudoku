@@ -1,159 +1,245 @@
-[gd_scene load_steps=17 format=3 uid="uid://dcdooiu4iuf56"]
+[gd_scene load_steps=14 format=3 uid="uid://dcdooiu4iuf56"]
 
 [ext_resource type="PackedScene" uid="uid://c2v0h8xk14wbf" path="res://scenes/game/sudoku_tile.tscn" id="1_tfqsl"]
+[ext_resource type="StyleBox" uid="uid://bq12moj0dca12" path="res://themes/tiles/normal_stylebox.tres" id="2_avm0e"]
+[ext_resource type="StyleBox" uid="uid://drfjk01hda7lm" path="res://themes/tiles/selected_stylebox.tres" id="3_eym8a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_drxfq"]
 bg_color = Color(0.5083, 0.5049, 0.51, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bm54e"]
-bg_color = Color(0.515948, 0.636756, 0.538909, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lny23"]
-bg_color = Color(0.952941, 0.968627, 0.92549, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jtvuq"]
-bg_color = Color(0.583436, 0.089879, 0.19947, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jlmnw"]
-bg_color = Color(0.583436, 0.089879, 0.19947, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_id5gj"]
-bg_color = Color(0.78, 0.78, 0.78, 1)
-
-[sub_resource type="Theme" id="Theme_bjmgy"]
+[sub_resource type="Theme" id="Theme_3vm6d"]
 resource_local_to_scene = true
+default_font_size = 48
 Tile/base_type = &"Button"
-Tile/colors/font_color = Color(0.116127, 0.116127, 0.116126, 1)
-Tile/font_sizes/font_size = 48
-Tile/styles/hover = SubResource("StyleBoxFlat_bm54e")
-Tile/styles/normal = SubResource("StyleBoxFlat_lny23")
-TileActive/base_type = &"Tile"
-TileActive/styles/focus = SubResource("StyleBoxFlat_jtvuq")
-TileActive/styles/normal = SubResource("StyleBoxFlat_jlmnw")
-TilePeerActive/base_type = &"Tile"
-TilePeerActive/styles/normal = SubResource("StyleBoxFlat_id5gj")
-TileStatic/base_type = &"Tile"
-TileStatic/colors/font_color = Color(0.0022333, 0.080062, 0.121947, 1)
+Tile/colors/font_color = Color(0.106237, 0.106237, 0.106237, 1)
+Tile/colors/font_disabled_color = Color(0, 0, 0, 1)
+Tile/colors/font_focus_color = Color(0, 0, 0, 1)
+Tile/colors/font_hover_color = Color(0, 0, 0, 1)
+Tile/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Tile/colors/font_outline_color = Color(0, 0, 0, 1)
+Tile/colors/font_pressed_color = Color(0, 0, 0, 1)
+Tile/colors/icon_disabled_color = Color(0, 0, 0, 1)
+Tile/colors/icon_focus_color = Color(0, 0, 0, 1)
+Tile/colors/icon_hover_color = Color(0, 0, 0, 1)
+Tile/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+Tile/colors/icon_normal_color = Color(0, 0, 0, 1)
+Tile/colors/icon_pressed_color = Color(0, 0, 0, 1)
+Tile/styles/focus = ExtResource("2_avm0e")
+Tile/styles/hover = ExtResource("2_avm0e")
+Tile/styles/normal = ExtResource("2_avm0e")
+Tile/styles/pressed = ExtResource("2_avm0e")
+TileSelected/base_type = &"Tile"
+TileSelected/styles/focused = ExtResource("3_eym8a")
+TileSelected/styles/hover = ExtResource("3_eym8a")
+TileSelected/styles/normal = ExtResource("3_eym8a")
 
-[sub_resource type="Theme" id="Theme_ks0gg"]
+[sub_resource type="Theme" id="Theme_604ib"]
 resource_local_to_scene = true
+default_font_size = 48
 Tile/base_type = &"Button"
-Tile/colors/font_color = Color(0.116127, 0.116127, 0.116126, 1)
-Tile/font_sizes/font_size = 48
-Tile/styles/hover = SubResource("StyleBoxFlat_bm54e")
-Tile/styles/normal = SubResource("StyleBoxFlat_lny23")
-TileActive/base_type = &"Tile"
-TileActive/styles/focus = SubResource("StyleBoxFlat_jtvuq")
-TileActive/styles/normal = SubResource("StyleBoxFlat_jlmnw")
-TilePeerActive/base_type = &"Tile"
-TilePeerActive/styles/normal = SubResource("StyleBoxFlat_id5gj")
-TileStatic/base_type = &"Tile"
-TileStatic/colors/font_color = Color(0.0022333, 0.080062, 0.121947, 1)
+Tile/colors/font_color = Color(0.106237, 0.106237, 0.106237, 1)
+Tile/colors/font_disabled_color = Color(0, 0, 0, 1)
+Tile/colors/font_focus_color = Color(0, 0, 0, 1)
+Tile/colors/font_hover_color = Color(0, 0, 0, 1)
+Tile/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Tile/colors/font_outline_color = Color(0, 0, 0, 1)
+Tile/colors/font_pressed_color = Color(0, 0, 0, 1)
+Tile/colors/icon_disabled_color = Color(0, 0, 0, 1)
+Tile/colors/icon_focus_color = Color(0, 0, 0, 1)
+Tile/colors/icon_hover_color = Color(0, 0, 0, 1)
+Tile/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+Tile/colors/icon_normal_color = Color(0, 0, 0, 1)
+Tile/colors/icon_pressed_color = Color(0, 0, 0, 1)
+Tile/styles/focus = ExtResource("2_avm0e")
+Tile/styles/hover = ExtResource("2_avm0e")
+Tile/styles/normal = ExtResource("2_avm0e")
+Tile/styles/pressed = ExtResource("2_avm0e")
+TileSelected/base_type = &"Tile"
+TileSelected/styles/focused = ExtResource("3_eym8a")
+TileSelected/styles/hover = ExtResource("3_eym8a")
+TileSelected/styles/normal = ExtResource("3_eym8a")
 
-[sub_resource type="Theme" id="Theme_w1rin"]
+[sub_resource type="Theme" id="Theme_24pcj"]
 resource_local_to_scene = true
+default_font_size = 48
 Tile/base_type = &"Button"
-Tile/colors/font_color = Color(0.116127, 0.116127, 0.116126, 1)
-Tile/font_sizes/font_size = 48
-Tile/styles/hover = SubResource("StyleBoxFlat_bm54e")
-Tile/styles/normal = SubResource("StyleBoxFlat_lny23")
-TileActive/base_type = &"Tile"
-TileActive/styles/focus = SubResource("StyleBoxFlat_jtvuq")
-TileActive/styles/normal = SubResource("StyleBoxFlat_jlmnw")
-TilePeerActive/base_type = &"Tile"
-TilePeerActive/styles/normal = SubResource("StyleBoxFlat_id5gj")
-TileStatic/base_type = &"Tile"
-TileStatic/colors/font_color = Color(0.0022333, 0.080062, 0.121947, 1)
+Tile/colors/font_color = Color(0.106237, 0.106237, 0.106237, 1)
+Tile/colors/font_disabled_color = Color(0, 0, 0, 1)
+Tile/colors/font_focus_color = Color(0, 0, 0, 1)
+Tile/colors/font_hover_color = Color(0, 0, 0, 1)
+Tile/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Tile/colors/font_outline_color = Color(0, 0, 0, 1)
+Tile/colors/font_pressed_color = Color(0, 0, 0, 1)
+Tile/colors/icon_disabled_color = Color(0, 0, 0, 1)
+Tile/colors/icon_focus_color = Color(0, 0, 0, 1)
+Tile/colors/icon_hover_color = Color(0, 0, 0, 1)
+Tile/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+Tile/colors/icon_normal_color = Color(0, 0, 0, 1)
+Tile/colors/icon_pressed_color = Color(0, 0, 0, 1)
+Tile/styles/focus = ExtResource("2_avm0e")
+Tile/styles/hover = ExtResource("2_avm0e")
+Tile/styles/normal = ExtResource("2_avm0e")
+Tile/styles/pressed = ExtResource("2_avm0e")
+TileSelected/base_type = &"Tile"
+TileSelected/styles/focused = ExtResource("3_eym8a")
+TileSelected/styles/hover = ExtResource("3_eym8a")
+TileSelected/styles/normal = ExtResource("3_eym8a")
 
-[sub_resource type="Theme" id="Theme_6b7vy"]
+[sub_resource type="Theme" id="Theme_khbeu"]
 resource_local_to_scene = true
+default_font_size = 48
 Tile/base_type = &"Button"
-Tile/colors/font_color = Color(0.116127, 0.116127, 0.116126, 1)
-Tile/font_sizes/font_size = 48
-Tile/styles/hover = SubResource("StyleBoxFlat_bm54e")
-Tile/styles/normal = SubResource("StyleBoxFlat_lny23")
-TileActive/base_type = &"Tile"
-TileActive/styles/focus = SubResource("StyleBoxFlat_jtvuq")
-TileActive/styles/normal = SubResource("StyleBoxFlat_jlmnw")
-TilePeerActive/base_type = &"Tile"
-TilePeerActive/styles/normal = SubResource("StyleBoxFlat_id5gj")
-TileStatic/base_type = &"Tile"
-TileStatic/colors/font_color = Color(0.0022333, 0.080062, 0.121947, 1)
+Tile/colors/font_color = Color(0.106237, 0.106237, 0.106237, 1)
+Tile/colors/font_disabled_color = Color(0, 0, 0, 1)
+Tile/colors/font_focus_color = Color(0, 0, 0, 1)
+Tile/colors/font_hover_color = Color(0, 0, 0, 1)
+Tile/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Tile/colors/font_outline_color = Color(0, 0, 0, 1)
+Tile/colors/font_pressed_color = Color(0, 0, 0, 1)
+Tile/colors/icon_disabled_color = Color(0, 0, 0, 1)
+Tile/colors/icon_focus_color = Color(0, 0, 0, 1)
+Tile/colors/icon_hover_color = Color(0, 0, 0, 1)
+Tile/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+Tile/colors/icon_normal_color = Color(0, 0, 0, 1)
+Tile/colors/icon_pressed_color = Color(0, 0, 0, 1)
+Tile/styles/focus = ExtResource("2_avm0e")
+Tile/styles/hover = ExtResource("2_avm0e")
+Tile/styles/normal = ExtResource("2_avm0e")
+Tile/styles/pressed = ExtResource("2_avm0e")
+TileSelected/base_type = &"Tile"
+TileSelected/styles/focused = ExtResource("3_eym8a")
+TileSelected/styles/hover = ExtResource("3_eym8a")
+TileSelected/styles/normal = ExtResource("3_eym8a")
 
-[sub_resource type="Theme" id="Theme_gbtow"]
+[sub_resource type="Theme" id="Theme_370iw"]
 resource_local_to_scene = true
+default_font_size = 48
 Tile/base_type = &"Button"
-Tile/colors/font_color = Color(0.116127, 0.116127, 0.116126, 1)
-Tile/font_sizes/font_size = 48
-Tile/styles/hover = SubResource("StyleBoxFlat_bm54e")
-Tile/styles/normal = SubResource("StyleBoxFlat_lny23")
-TileActive/base_type = &"Tile"
-TileActive/styles/focus = SubResource("StyleBoxFlat_jtvuq")
-TileActive/styles/normal = SubResource("StyleBoxFlat_jlmnw")
-TilePeerActive/base_type = &"Tile"
-TilePeerActive/styles/normal = SubResource("StyleBoxFlat_id5gj")
-TileStatic/base_type = &"Tile"
-TileStatic/colors/font_color = Color(0.0022333, 0.080062, 0.121947, 1)
+Tile/colors/font_color = Color(0.106237, 0.106237, 0.106237, 1)
+Tile/colors/font_disabled_color = Color(0, 0, 0, 1)
+Tile/colors/font_focus_color = Color(0, 0, 0, 1)
+Tile/colors/font_hover_color = Color(0, 0, 0, 1)
+Tile/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Tile/colors/font_outline_color = Color(0, 0, 0, 1)
+Tile/colors/font_pressed_color = Color(0, 0, 0, 1)
+Tile/colors/icon_disabled_color = Color(0, 0, 0, 1)
+Tile/colors/icon_focus_color = Color(0, 0, 0, 1)
+Tile/colors/icon_hover_color = Color(0, 0, 0, 1)
+Tile/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+Tile/colors/icon_normal_color = Color(0, 0, 0, 1)
+Tile/colors/icon_pressed_color = Color(0, 0, 0, 1)
+Tile/styles/focus = ExtResource("2_avm0e")
+Tile/styles/hover = ExtResource("2_avm0e")
+Tile/styles/normal = ExtResource("2_avm0e")
+Tile/styles/pressed = ExtResource("2_avm0e")
+TileSelected/base_type = &"Tile"
+TileSelected/styles/focused = ExtResource("3_eym8a")
+TileSelected/styles/hover = ExtResource("3_eym8a")
+TileSelected/styles/normal = ExtResource("3_eym8a")
 
-[sub_resource type="Theme" id="Theme_rokjh"]
+[sub_resource type="Theme" id="Theme_q0i8v"]
 resource_local_to_scene = true
+default_font_size = 48
 Tile/base_type = &"Button"
-Tile/colors/font_color = Color(0.116127, 0.116127, 0.116126, 1)
-Tile/font_sizes/font_size = 48
-Tile/styles/hover = SubResource("StyleBoxFlat_bm54e")
-Tile/styles/normal = SubResource("StyleBoxFlat_lny23")
-TileActive/base_type = &"Tile"
-TileActive/styles/focus = SubResource("StyleBoxFlat_jtvuq")
-TileActive/styles/normal = SubResource("StyleBoxFlat_jlmnw")
-TilePeerActive/base_type = &"Tile"
-TilePeerActive/styles/normal = SubResource("StyleBoxFlat_id5gj")
-TileStatic/base_type = &"Tile"
-TileStatic/colors/font_color = Color(0.0022333, 0.080062, 0.121947, 1)
+Tile/colors/font_color = Color(0.106237, 0.106237, 0.106237, 1)
+Tile/colors/font_disabled_color = Color(0, 0, 0, 1)
+Tile/colors/font_focus_color = Color(0, 0, 0, 1)
+Tile/colors/font_hover_color = Color(0, 0, 0, 1)
+Tile/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Tile/colors/font_outline_color = Color(0, 0, 0, 1)
+Tile/colors/font_pressed_color = Color(0, 0, 0, 1)
+Tile/colors/icon_disabled_color = Color(0, 0, 0, 1)
+Tile/colors/icon_focus_color = Color(0, 0, 0, 1)
+Tile/colors/icon_hover_color = Color(0, 0, 0, 1)
+Tile/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+Tile/colors/icon_normal_color = Color(0, 0, 0, 1)
+Tile/colors/icon_pressed_color = Color(0, 0, 0, 1)
+Tile/styles/focus = ExtResource("2_avm0e")
+Tile/styles/hover = ExtResource("2_avm0e")
+Tile/styles/normal = ExtResource("2_avm0e")
+Tile/styles/pressed = ExtResource("2_avm0e")
+TileSelected/base_type = &"Tile"
+TileSelected/styles/focused = ExtResource("3_eym8a")
+TileSelected/styles/hover = ExtResource("3_eym8a")
+TileSelected/styles/normal = ExtResource("3_eym8a")
 
-[sub_resource type="Theme" id="Theme_g7181"]
+[sub_resource type="Theme" id="Theme_hnant"]
 resource_local_to_scene = true
+default_font_size = 48
 Tile/base_type = &"Button"
-Tile/colors/font_color = Color(0.116127, 0.116127, 0.116126, 1)
-Tile/font_sizes/font_size = 48
-Tile/styles/hover = SubResource("StyleBoxFlat_bm54e")
-Tile/styles/normal = SubResource("StyleBoxFlat_lny23")
-TileActive/base_type = &"Tile"
-TileActive/styles/focus = SubResource("StyleBoxFlat_jtvuq")
-TileActive/styles/normal = SubResource("StyleBoxFlat_jlmnw")
-TilePeerActive/base_type = &"Tile"
-TilePeerActive/styles/normal = SubResource("StyleBoxFlat_id5gj")
-TileStatic/base_type = &"Tile"
-TileStatic/colors/font_color = Color(0.0022333, 0.080062, 0.121947, 1)
+Tile/colors/font_color = Color(0.106237, 0.106237, 0.106237, 1)
+Tile/colors/font_disabled_color = Color(0, 0, 0, 1)
+Tile/colors/font_focus_color = Color(0, 0, 0, 1)
+Tile/colors/font_hover_color = Color(0, 0, 0, 1)
+Tile/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Tile/colors/font_outline_color = Color(0, 0, 0, 1)
+Tile/colors/font_pressed_color = Color(0, 0, 0, 1)
+Tile/colors/icon_disabled_color = Color(0, 0, 0, 1)
+Tile/colors/icon_focus_color = Color(0, 0, 0, 1)
+Tile/colors/icon_hover_color = Color(0, 0, 0, 1)
+Tile/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+Tile/colors/icon_normal_color = Color(0, 0, 0, 1)
+Tile/colors/icon_pressed_color = Color(0, 0, 0, 1)
+Tile/styles/focus = ExtResource("2_avm0e")
+Tile/styles/hover = ExtResource("2_avm0e")
+Tile/styles/normal = ExtResource("2_avm0e")
+Tile/styles/pressed = ExtResource("2_avm0e")
+TileSelected/base_type = &"Tile"
+TileSelected/styles/focused = ExtResource("3_eym8a")
+TileSelected/styles/hover = ExtResource("3_eym8a")
+TileSelected/styles/normal = ExtResource("3_eym8a")
 
-[sub_resource type="Theme" id="Theme_ovgwg"]
+[sub_resource type="Theme" id="Theme_tcr14"]
 resource_local_to_scene = true
+default_font_size = 48
 Tile/base_type = &"Button"
-Tile/colors/font_color = Color(0.116127, 0.116127, 0.116126, 1)
-Tile/font_sizes/font_size = 48
-Tile/styles/hover = SubResource("StyleBoxFlat_bm54e")
-Tile/styles/normal = SubResource("StyleBoxFlat_lny23")
-TileActive/base_type = &"Tile"
-TileActive/styles/focus = SubResource("StyleBoxFlat_jtvuq")
-TileActive/styles/normal = SubResource("StyleBoxFlat_jlmnw")
-TilePeerActive/base_type = &"Tile"
-TilePeerActive/styles/normal = SubResource("StyleBoxFlat_id5gj")
-TileStatic/base_type = &"Tile"
-TileStatic/colors/font_color = Color(0.0022333, 0.080062, 0.121947, 1)
+Tile/colors/font_color = Color(0.106237, 0.106237, 0.106237, 1)
+Tile/colors/font_disabled_color = Color(0, 0, 0, 1)
+Tile/colors/font_focus_color = Color(0, 0, 0, 1)
+Tile/colors/font_hover_color = Color(0, 0, 0, 1)
+Tile/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Tile/colors/font_outline_color = Color(0, 0, 0, 1)
+Tile/colors/font_pressed_color = Color(0, 0, 0, 1)
+Tile/colors/icon_disabled_color = Color(0, 0, 0, 1)
+Tile/colors/icon_focus_color = Color(0, 0, 0, 1)
+Tile/colors/icon_hover_color = Color(0, 0, 0, 1)
+Tile/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+Tile/colors/icon_normal_color = Color(0, 0, 0, 1)
+Tile/colors/icon_pressed_color = Color(0, 0, 0, 1)
+Tile/styles/focus = ExtResource("2_avm0e")
+Tile/styles/hover = ExtResource("2_avm0e")
+Tile/styles/normal = ExtResource("2_avm0e")
+Tile/styles/pressed = ExtResource("2_avm0e")
+TileSelected/base_type = &"Tile"
+TileSelected/styles/focused = ExtResource("3_eym8a")
+TileSelected/styles/hover = ExtResource("3_eym8a")
+TileSelected/styles/normal = ExtResource("3_eym8a")
 
-[sub_resource type="Theme" id="Theme_g6n3s"]
+[sub_resource type="Theme" id="Theme_4nn3a"]
 resource_local_to_scene = true
+default_font_size = 48
 Tile/base_type = &"Button"
-Tile/colors/font_color = Color(0.116127, 0.116127, 0.116126, 1)
-Tile/font_sizes/font_size = 48
-Tile/styles/hover = SubResource("StyleBoxFlat_bm54e")
-Tile/styles/normal = SubResource("StyleBoxFlat_lny23")
-TileActive/base_type = &"Tile"
-TileActive/styles/focus = SubResource("StyleBoxFlat_jtvuq")
-TileActive/styles/normal = SubResource("StyleBoxFlat_jlmnw")
-TilePeerActive/base_type = &"Tile"
-TilePeerActive/styles/normal = SubResource("StyleBoxFlat_id5gj")
-TileStatic/base_type = &"Tile"
-TileStatic/colors/font_color = Color(0.0022333, 0.080062, 0.121947, 1)
+Tile/colors/font_color = Color(0.106237, 0.106237, 0.106237, 1)
+Tile/colors/font_disabled_color = Color(0, 0, 0, 1)
+Tile/colors/font_focus_color = Color(0, 0, 0, 1)
+Tile/colors/font_hover_color = Color(0, 0, 0, 1)
+Tile/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Tile/colors/font_outline_color = Color(0, 0, 0, 1)
+Tile/colors/font_pressed_color = Color(0, 0, 0, 1)
+Tile/colors/icon_disabled_color = Color(0, 0, 0, 1)
+Tile/colors/icon_focus_color = Color(0, 0, 0, 1)
+Tile/colors/icon_hover_color = Color(0, 0, 0, 1)
+Tile/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+Tile/colors/icon_normal_color = Color(0, 0, 0, 1)
+Tile/colors/icon_pressed_color = Color(0, 0, 0, 1)
+Tile/styles/focus = ExtResource("2_avm0e")
+Tile/styles/hover = ExtResource("2_avm0e")
+Tile/styles/normal = ExtResource("2_avm0e")
+Tile/styles/pressed = ExtResource("2_avm0e")
+TileSelected/base_type = &"Tile"
+TileSelected/styles/focused = ExtResource("3_eym8a")
+TileSelected/styles/hover = ExtResource("3_eym8a")
+TileSelected/styles/normal = ExtResource("3_eym8a")
 
 [node name="Panel" type="PanelContainer"]
 theme_override_styles/panel = SubResource("StyleBoxFlat_drxfq")
@@ -164,36 +250,36 @@ columns = 3
 
 [node name="Tile" parent="Grid1" instance=ExtResource("1_tfqsl")]
 layout_mode = 2
-theme = SubResource("Theme_bjmgy")
+theme = SubResource("Theme_3vm6d")
 
 [node name="Tile2" parent="Grid1" instance=ExtResource("1_tfqsl")]
 layout_mode = 2
-theme = SubResource("Theme_ks0gg")
+theme = SubResource("Theme_604ib")
 
 [node name="Tile3" parent="Grid1" instance=ExtResource("1_tfqsl")]
 layout_mode = 2
-theme = SubResource("Theme_w1rin")
+theme = SubResource("Theme_24pcj")
 
 [node name="Tile4" parent="Grid1" instance=ExtResource("1_tfqsl")]
 layout_mode = 2
-theme = SubResource("Theme_6b7vy")
+theme = SubResource("Theme_khbeu")
 
 [node name="Tile5" parent="Grid1" instance=ExtResource("1_tfqsl")]
 layout_mode = 2
-theme = SubResource("Theme_gbtow")
+theme = SubResource("Theme_370iw")
 
 [node name="Tile6" parent="Grid1" instance=ExtResource("1_tfqsl")]
 layout_mode = 2
-theme = SubResource("Theme_rokjh")
+theme = SubResource("Theme_q0i8v")
 
 [node name="Tile7" parent="Grid1" instance=ExtResource("1_tfqsl")]
 layout_mode = 2
-theme = SubResource("Theme_g7181")
+theme = SubResource("Theme_hnant")
 
 [node name="Tile8" parent="Grid1" instance=ExtResource("1_tfqsl")]
 layout_mode = 2
-theme = SubResource("Theme_ovgwg")
+theme = SubResource("Theme_tcr14")
 
 [node name="Tile9" parent="Grid1" instance=ExtResource("1_tfqsl")]
 layout_mode = 2
-theme = SubResource("Theme_g6n3s")
+theme = SubResource("Theme_4nn3a")

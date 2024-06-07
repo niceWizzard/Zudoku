@@ -1,7 +1,7 @@
 class_name FixedTileView
 extends TileView
 
-const prefix := "TileStatic"
+const prefix := "TileFixed"
 
 func mode_normal() -> void: 
     theme_type_variation = "%s" %prefix

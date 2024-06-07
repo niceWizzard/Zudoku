@@ -59,7 +59,8 @@ func _physics_process(delta : float) -> void:
 
 
 func _on_clear_btn_pressed() -> void:
-	board_view.clear_active_tile_value()
+	# board_view.clear_active_tile_value()
+	pass
 
 
 func _on_back_btn_pressed() -> void:
