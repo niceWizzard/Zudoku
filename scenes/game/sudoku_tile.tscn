@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2v0h8xk14wbf"]
+[gd_scene load_steps=2 format=3 uid="uid://c2v0h8xk14wbf"]
 
-[ext_resource type="Theme" uid="uid://cobhq532aqdhx" path="res://themes/tile_theme.tres" id="1_8kfej"]
-[ext_resource type="Script" path="res://scripts/game/sudoku views/tile_view.gd" id="2_jhw5w"]
+[ext_resource type="Theme" uid="uid://bgd6lt1h1dri" path="res://themes/tiles/tile_theme.tres" id="1_o7g72"]
 
 [node name="Tile" type="Button"]
 custom_minimum_size = Vector2(72, 72)
@@ -10,15 +9,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = -40.0
-offset_right = 24.0
-offset_bottom = 24.0
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_8kfej")
+theme = ExtResource("1_o7g72")
 theme_type_variation = &"Tile"
 text = "1"
-script = ExtResource("2_jhw5w")
-
-[connection signal="pressed" from="." to="." method="_on_pressed"]

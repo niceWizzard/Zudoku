@@ -14,27 +14,28 @@ func _ready() -> void:
 		func(a: int) -> String:
 			return "Lives left: %s" %a
 	)
+
 	for child : Button in number_btn_parent.get_children():
 		child.pressed.connect(
-			func() -> void:
-				if board_view.active_tile_view != null and board_view.active_tile_view.is_static:
-					return
-				var can_set :=  board_view.try_set_active_tile_value(int(child.text))
-
-				if  can_set and board_view.unfilled_tiles == 0:
-					print("Game Solved!")
-					SceneManager.go_to_start_scn()
-				elif not can_set:
-					lives.value -= 1
-					if lives.value == 0:
-						for c: Button in number_btn_parent.get_children():
-							c.disabled = true	
+			_onNumberBtnPressed.bind(child)
 		)
 	await get_tree().physics_frame
-	
+	board_view.set_board(GameManager.board)
 	while true:
 		await get_tree().create_timer(1.0/12.0).timeout
 		time_label.text = parse_time(time)
+
+func _onNumberBtnPressed(btn : Button) -> void:
+		if board_view.activeTileView == null or board_view.activeTileView is FixedTileView:
+			return
+		var can_set :=  board_view.try_set_active_tile_value(int(btn.text))
+		if  can_set and board_view.unfilled_tiles == 0:
+			SceneManager.go_to_start_scn()
+		elif not can_set:
+			lives.value -= 1
+			if lives.value == 0:
+				for c: Button in number_btn_parent.get_children():
+					c.disabled = true	
 
 func parse_time(time : float) -> String:
 	var seconds := floori(time) % 60 
