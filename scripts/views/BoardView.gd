@@ -9,21 +9,7 @@ var board : Board
 var tileViewsMap := {}
 var peerActivatedTileViews : Array[TileView] = []
 
-var activeTileView : TileView = null:
-	set(v):
-		for peer : TileView in peerActivatedTileViews:
-			peer.mode_normal()
-		if activeTileView != null:
-			activeTileView.mode_normal()
-		activeTileView = v
-		activeTileView.mode_selected()
-
-		peerActivatedTileViews.clear()
-
-		for coord : Vector2i in board.get_peers(v.coordinate):
-			var peerTileView := tileViewsMap[coord] as TileView
-			peerTileView.mode_peer_selected()
-			peerActivatedTileViews.append(peerTileView)
+var activeTileView : TileView = null
 
 
 func set_board(b : Board) -> void:
@@ -50,4 +36,16 @@ func _ready() -> void:
 			tileViewsMap[Vector2i(x, y)] = tile_view
 		
 func _on_tile_selected(tile : TileView) -> void:
+	for peer : TileView in peerActivatedTileViews:
+			peer.mode_normal()
+	if activeTileView != null:
+		activeTileView.mode_normal()
 	activeTileView = tile
+	activeTileView.mode_selected()
+
+	peerActivatedTileViews.clear()
+
+	for coord : Vector2i in board.get_peers(tile.coordinate):
+		var peerTileView := tileViewsMap[coord] as TileView
+		peerTileView.mode_peer_selected()
+		peerActivatedTileViews.append(peerTileView)
