@@ -10,6 +10,8 @@ var tile_views_map := {}
 var active_tile_view : TileView
 var active_tile_peers : Array[TileView]= []
 
+var unfilled_tiles := 81
+
 const TILE_THEME := preload('uid://cobhq532aqdhx')
 
 func _ready() -> void:
@@ -31,6 +33,7 @@ func _ready() -> void:
 		if val != 0:
 			tile_view.state = TileView.State.STATIC
 			tile_view.is_static = true
+			unfilled_tiles -= 1
 		tile_view.update_view(val)
 		tile_view.theme = TILE_THEME
 
@@ -79,6 +82,7 @@ func clear_active_tile_value() -> void:
 		return
 	board.set_tile(active_tile_view.coordinate, 0)	
 	active_tile_view.update_view(0)
+	unfilled_tiles += 1
 	
 
 func try_set_active_tile_value(val : int) -> bool:
@@ -90,6 +94,7 @@ func try_set_active_tile_value(val : int) -> bool:
 	
 	board.set_tile(active_tile_view.coordinate, val)	
 	active_tile_view.update_view(val)
+	unfilled_tiles -= 1
 	return true
 
 	
