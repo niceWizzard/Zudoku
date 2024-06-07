@@ -1,8 +1,13 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bgd6lt1h1dri"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bgd6lt1h1dri"]
 
 [ext_resource type="StyleBox" uid="uid://bq12moj0dca12" path="res://themes/tiles/normal_stylebox.tres" id="1_7ftwf"]
 [ext_resource type="StyleBox" uid="uid://drfjk01hda7lm" path="res://themes/tiles/selected_stylebox.tres" id="2_2sywb"]
+[ext_resource type="StyleBox" uid="uid://dpudui7vuiqhs" path="res://themes/tiles/peer_selected.tres" id="2_n8f8o"]
 [ext_resource type="StyleBox" uid="uid://be51ph025ugsq" path="res://themes/tiles/fixed_stylebox.tres" id="2_u4fkm"]
+[ext_resource type="FontFile" uid="uid://ke23phxg2wkl" path="res://fonts/Roboto-Regular.ttf" id="4_qrmq7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_id733"]
+bg_color = Color(1.97336e-06, 0.728324, 0.0318266, 1)
 
 [resource]
 resource_local_to_scene = true
@@ -21,14 +26,36 @@ Tile/colors/icon_hover_color = Color(0, 0, 0, 1)
 Tile/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
 Tile/colors/icon_normal_color = Color(0, 0, 0, 1)
 Tile/colors/icon_pressed_color = Color(0, 0, 0, 1)
+Tile/styles/focus = SubResource("StyleBoxFlat_id733")
 Tile/styles/hover = ExtResource("1_7ftwf")
 Tile/styles/normal = ExtResource("1_7ftwf")
 Tile/styles/pressed = ExtResource("1_7ftwf")
 TileFixed/base_type = &"Tile"
 TileFixed/styles/normal = ExtResource("2_u4fkm")
+TileFixedPeerSelected/base_type = &"Tile"
+TileFixedPeerSelected/styles/normal = ExtResource("2_n8f8o")
+TileFixedSelected/base_type = &"TileFixed"
+TileFixedSelected/styles/focus = ExtResource("2_2sywb")
 TilePeerSelected/base_type = &"Tile"
-TilePeerSelected/styles/normal = ExtResource("1_7ftwf")
-TileSelected/base_type = &"Tile"
+TilePeerSelected/styles/normal = ExtResource("2_n8f8o")
+TileSelected/base_type = &"Button"
+TileSelected/colors/font_color = Color(0, 0, 0, 1)
+TileSelected/colors/font_disabled_color = Color(0, 0, 0, 1)
+TileSelected/colors/font_focus_color = Color(0, 0, 0, 1)
+TileSelected/colors/font_hover_color = Color(0, 0, 0, 1)
+TileSelected/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+TileSelected/colors/font_outline_color = Color(0, 0, 0, 1)
+TileSelected/colors/font_pressed_color = Color(0, 0, 0, 1)
+TileSelected/colors/icon_disabled_color = Color(0, 0, 0, 1)
+TileSelected/colors/icon_focus_color = Color(0, 0, 0, 1)
+TileSelected/colors/icon_hover_color = Color(0, 0, 0, 1)
+TileSelected/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+TileSelected/colors/icon_normal_color = Color(0, 0, 0, 1)
+TileSelected/colors/icon_pressed_color = Color(0, 0, 0, 1)
+TileSelected/constants/h_separation = 0
+TileSelected/constants/icon_max_width = 0
+TileSelected/constants/outline_size = 0
+TileSelected/fonts/font = ExtResource("4_qrmq7")
 TileSelected/styles/focus = ExtResource("2_2sywb")
 TileSelected/styles/hover = ExtResource("2_2sywb")
 TileSelected/styles/normal = ExtResource("2_2sywb")

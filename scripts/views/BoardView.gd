@@ -11,12 +11,13 @@ var peerActivatedTileViews : Array[TileView] = []
 
 var activeTileView : TileView = null:
 	set(v):
+		for peer : TileView in peerActivatedTileViews:
+			peer.mode_normal()
 		if activeTileView != null:
 			activeTileView.mode_normal()
 		activeTileView = v
 		activeTileView.mode_selected()
-		for peer : TileView in peerActivatedTileViews:
-			peer.mode_normal()
+
 		peerActivatedTileViews.clear()
 
 		for coord : Vector2i in board.get_peers(v.coordinate):
