@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://cv4xo6ygesr5u"]
+[gd_scene load_steps=2 format=3 uid="uid://cv4xo6ygesr5u"]
 
-[ext_resource type="Script" path="res://scripts/game/sudoku views/board_view.gd" id="1_42eli"]
 [ext_resource type="PackedScene" uid="uid://dcdooiu4iuf56" path="res://scenes/game/tile_group.tscn" id="2_6pjjk"]
 
 [node name="MainGrid" type="GridContainer"]
@@ -10,7 +9,6 @@ size_flags_horizontal = 4
 theme_override_constants/h_separation = 6
 theme_override_constants/v_separation = 6
 columns = 3
-script = ExtResource("1_42eli")
 
 [node name="Panel3" parent="." instance=ExtResource("2_6pjjk")]
 layout_mode = 2
