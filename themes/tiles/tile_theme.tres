@@ -1,0 +1,32 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cobhq532aqdhx"]
+
+[ext_resource type="StyleBox" uid="uid://bptq116egncw1" path="res://themes/tiles/peer_active_stylebox.tres" id="1_eo2q1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bm54e"]
+bg_color = Color(0.515948, 0.636756, 0.538909, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lny23"]
+bg_color = Color(0.952941, 0.968627, 0.92549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jtvuq"]
+bg_color = Color(0.583436, 0.089879, 0.19947, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jlmnw"]
+bg_color = Color(0.583436, 0.089879, 0.19947, 1)
+
+[resource]
+resource_local_to_scene = true
+Tile/base_type = &"Button"
+Tile/colors/font_color = Color(0, 0.360784, 0.470588, 1)
+Tile/font_sizes/font_size = 48
+Tile/styles/hover = SubResource("StyleBoxFlat_bm54e")
+Tile/styles/normal = SubResource("StyleBoxFlat_lny23")
+TileActive/base_type = &"Tile"
+TileActive/styles/focus = SubResource("StyleBoxFlat_jtvuq")
+TileActive/styles/normal = SubResource("StyleBoxFlat_jlmnw")
+TilePeerActive/base_type = &"Tile"
+TilePeerActive/styles/normal = ExtResource("1_eo2q1")
+TileStatic/base_type = &"Tile"
+TileStatic/colors/font_color = Color(0.0022333, 0.080062, 0.121947, 1)
+TileStaticPeerActive/base_type = &"TileStatic"
+TileStaticPeerActive/styles/normal = ExtResource("1_eo2q1")
