@@ -74,6 +74,13 @@ func reflect_changes(animate:=true) -> void:
 		if animate:
 			await get_tree().create_timer(0.02).timeout
 
+func clear_active_tile_value() -> void:
+	if active_tile_view == null or active_tile_view.is_static:
+		return
+	board.set_tile(active_tile_view.coordinate, 0)	
+	active_tile_view.update_view(0)
+	
+
 func try_set_active_tile_value(val : int) -> bool:
 	if active_tile_view == null:
 		return false

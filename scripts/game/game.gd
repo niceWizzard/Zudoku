@@ -14,7 +14,6 @@ func _ready() -> void:
 		func(a: int) -> String:
 			return "Lives left: %s" %a
 	)
-	clear_btn.disabled = true
 	for child : Button in number_btn_parent.get_children():
 		child.pressed.connect(
 			func() -> void:
@@ -54,7 +53,7 @@ func _physics_process(delta : float) -> void:
 
 
 func _on_clear_btn_pressed() -> void:
-	board_view.set_active_tile_value(0)
+	board_view.clear_active_tile_value()
 
 
 func _on_back_btn_pressed() -> void:
