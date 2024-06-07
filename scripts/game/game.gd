@@ -37,7 +37,7 @@ func _onNumberBtnPressed(btn : Button) -> void:
 		if board_view.activeTileView == null or board_view.activeTileView is FixedTileView:
 			return
 		var can_set :=  board_view.try_set_active_tile_value(int(btn.text))
-		if  can_set and board_view.unfilled_tiles == 0:
+		if  can_set and board_view.unfilled_tiles == 0 and board_view.board.is_solved():
 			SceneManager.go_to_start_scn()
 		elif not can_set:
 			lives.value -= 1
