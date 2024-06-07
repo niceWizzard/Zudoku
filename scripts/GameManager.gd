@@ -11,6 +11,7 @@ enum Difficulty {
 	Normal,
 	Hard,
 	Expert,
+	Master,
 	Insane,
 }
 
@@ -64,17 +65,19 @@ func get_tile_from_difficulty(difficulty: Difficulty) -> int:
 	
 	match difficulty:
 		Difficulty.Noob:
-			return 75
+			return 71
 		Difficulty.Basic:
-			return 65
+			return 66
 		Difficulty.Easy:
-			return 55
+			return 56
 		Difficulty.Normal:
-			return 40
+			return 46
 		Difficulty.Hard: 
-			return 32
+			return 36
 		Difficulty.Expert:
-			return 26
+			return 30
+		Difficulty.Master:
+			return 24
 		Difficulty.Insane:
 			return 17
 		_:
