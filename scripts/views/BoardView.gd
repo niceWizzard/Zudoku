@@ -84,7 +84,8 @@ func clear_active_tile_value() -> void:
 		return
 	if activeTileView is FixedTileView:
 		return
+	valueTileMapping[board.get_tile(activeTileView.coordinate)].erase(activeTileView.coordinate)
 	board.set_tile(activeTileView.coordinate, 0)
 	activeTileView.update_view(0)
-	valueTileMapping[board.get_tile(activeTileView.coordinate)].erase(activeTileView.coordinate)
+	valueTileMapping[0][activeTileView.coordinate] = activeTileView
 	tileValueCountChanged.emit()
