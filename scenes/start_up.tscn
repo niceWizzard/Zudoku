@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dg30cn0wga43j"]
+[gd_scene load_steps=9 format=3 uid="uid://dg30cn0wga43j"]
 
 [ext_resource type="Script" path="res://nodes/SafeAreaContainer.gd" id="1_ru3uo"]
 [ext_resource type="Script" path="res://scripts/start_up.gd" id="1_t7c6g"]
@@ -14,6 +14,12 @@ font_color = Color(0, 0.360784, 0.470588, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qq55o"]
 bg_color = Color(0.488286, 0.619424, 0.717166, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gyqsp"]
+bg_color = Color(0.145098, 0.145098, 0.145098, 0.552941)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ovjkf"]
+bg_color = Color(0.952941, 0.968627, 0.92549, 1)
+
 [node name="Root" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -21,6 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_sdijh")
 
 [node name="Panel2" type="Panel" parent="."]
 layout_mode = 1
@@ -40,10 +47,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ru3uo")
 
-[node name="Control" type="Control" parent="SafeAreaContainer" node_paths=PackedStringArray("difficulty_btn")]
+[node name="Control" type="Control" parent="SafeAreaContainer" node_paths=PackedStringArray("popup_root", "popup_content")]
 layout_mode = 2
 script = ExtResource("1_t7c6g")
-difficulty_btn = NodePath("DifficultyBtn")
+popup_root = NodePath("../../PopupBg")
+popup_content = NodePath("../../PopupBg/SafeAreaContainer/Control/DifficultyPopup/MarginContainer/VBoxContainer")
 
 [node name="Label" type="Label" parent="SafeAreaContainer/Control"]
 layout_mode = 1
@@ -123,22 +131,54 @@ layout_mode = 2
 theme = ExtResource("3_sdijh")
 text = "Exit"
 
-[node name="DifficultyBtn" type="Button" parent="SafeAreaContainer/Control"]
+[node name="PopupBg" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gyqsp")
+
+[node name="SafeAreaContainer" type="MarginContainer" parent="PopupBg"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_ru3uo")
+
+[node name="Control" type="Control" parent="PopupBg/SafeAreaContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="DifficultyPopup" type="PanelContainer" parent="PopupBg/SafeAreaContainer/Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -59.0
-offset_top = -296.0
-offset_right = 49.0
-offset_bottom = -248.0
+offset_left = -240.0
+offset_top = -240.0
+offset_right = 240.0
+offset_bottom = 240.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("3_sdijh")
-text = "Easy"
+theme_override_styles/panel = SubResource("StyleBoxFlat_ovjkf")
+
+[node name="MarginContainer" type="MarginContainer" parent="PopupBg/SafeAreaContainer/Control/DifficultyPopup"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupBg/SafeAreaContainer/Control/DifficultyPopup/MarginContainer"]
+layout_mode = 2
 
 [connection signal="pressed" from="SafeAreaContainer/Control/MarginContainer/VBoxContainer/PlayBtn" to="SafeAreaContainer/Control" method="_on_play_btn_pressed"]
 [connection signal="pressed" from="SafeAreaContainer/Control/MarginContainer/VBoxContainer/ExitBtn" to="SafeAreaContainer/Control" method="_on_exit_btn_pressed"]
-[connection signal="pressed" from="SafeAreaContainer/Control/DifficultyBtn" to="SafeAreaContainer/Control" method="_on_difficulty_btn_pressed"]
+[connection signal="gui_input" from="PopupBg" to="SafeAreaContainer/Control" method="_on_popup_bg_gui_input"]
