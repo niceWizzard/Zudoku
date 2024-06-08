@@ -73,9 +73,7 @@ func try_set_active_tile_value(value : int) -> bool:
 	board.set_tile(activeTileView.coordinate, value)
 	activeTileView.update_view(value)
 
-	valueTileMapping[prevValue].erase(activeTileView.coordinate)
-	valueTileMapping[value][activeTileView.coordinate] = activeTileView
-	tileValueCountChanged.emit()
+	update_active_tile_tile_count(prevValue)
 	return true
 
 	 
@@ -84,8 +82,14 @@ func clear_active_tile_value() -> void:
 		return
 	if activeTileView is FixedTileView:
 		return
-	valueTileMapping[board.get_tile(activeTileView.coordinate)].erase(activeTileView.coordinate)
+	var prevValue := board.get_tile(activeTileView.coordinate)
 	board.set_tile(activeTileView.coordinate, 0)
 	activeTileView.update_view(0)
-	valueTileMapping[0][activeTileView.coordinate] = activeTileView
+	
+	update_active_tile_tile_count(prevValue)
+
+func update_active_tile_tile_count(prevValue: int) -> void:
+	valueTileMapping[prevValue].erase(activeTileView.coordinate)
+	var curValue := board.get_tile(activeTileView.coordinate)
+	valueTileMapping[curValue][activeTileView.coordinate] = activeTileView
 	tileValueCountChanged.emit()
