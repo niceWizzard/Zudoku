@@ -18,6 +18,13 @@ var unfilled_tiles : int:
 
 var valueTileMapping := {}
 
+func get_active_tile_value() -> int:
+	if activeTileView == null:
+		return -1
+	return board.get_tile(activeTileView.coordinate)
+
+func set_active_tile_value(val : int) -> void:
+	board.set_tile(activeTileView.coordinate, val)
 
 func set_board(b : Board) -> void:
 	board = b
@@ -69,8 +76,8 @@ func try_set_active_tile_value(value : int) -> bool:
 		return false
 	if not board.is_valid_for_tile(activeTileView.coordinate, value):
 		return false
-	var prevValue := board.get_tile(activeTileView.coordinate)
-	board.set_tile(activeTileView.coordinate, value)
+	var prevValue := get_active_tile_value()
+	set_active_tile_value(value)
 	activeTileView.update_view(value)
 
 	update_active_tile_tile_count(prevValue)
@@ -82,8 +89,8 @@ func clear_active_tile_value() -> void:
 		return
 	if activeTileView is FixedTileView:
 		return
-	var prevValue := board.get_tile(activeTileView.coordinate)
-	board.set_tile(activeTileView.coordinate, 0)
+	var prevValue :=  get_active_tile_value()
+	set_active_tile_value(0)
 	activeTileView.update_view(0)
 	
 	update_active_tile_tile_count(prevValue)
