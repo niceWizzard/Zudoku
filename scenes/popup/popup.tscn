@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctfj8uccrw0rv"]
+
+[ext_resource type="Script" path="res://scenes/popup/popup.gd" id="1_bmqip"]
+[ext_resource type="Script" path="res://nodes/SafeAreaContainer.gd" id="1_nuj0f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gyqsp"]
+bg_color = Color(0.145098, 0.145098, 0.145098, 0.552941)
+
+[node name="PopupBg" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gyqsp")
+script = ExtResource("1_bmqip")
+
+[node name="SafeAreaContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_nuj0f")
+
+[node name="Content" type="Control" parent="SafeAreaContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
