@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://kls4jfercssy"]
+[gd_scene load_steps=10 format=3 uid="uid://kls4jfercssy"]
 
 [ext_resource type="Script" path="res://scripts/game/game.gd" id="1_7uriu"]
 [ext_resource type="Script" path="res://nodes/SafeAreaContainer.gd" id="2_1mxru"]
 [ext_resource type="PackedScene" uid="uid://cv4xo6ygesr5u" path="res://scenes/game/sudoku_board.tscn" id="3_m8twr"]
 [ext_resource type="Theme" uid="uid://wdgprplnsvvu" path="res://themes/theme.tres" id="4_e4yss"]
+[ext_resource type="PackedScene" uid="uid://ctfj8uccrw0rv" path="res://scenes/popup/popup.tscn" id="5_ylepi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0sxk"]
 bg_color = Color(0.952941, 0.968627, 0.92549, 1)
@@ -12,13 +13,23 @@ bg_color = Color(0.952941, 0.968627, 0.92549, 1)
 font_size = 18
 font_color = Color(0.848905, 0.848905, 0.848905, 1)
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("board_view", "lives_label", "number_btn_parent", "clear_btn", "time_label")]
+[sub_resource type="LabelSettings" id="LabelSettings_4hy35"]
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_lp1fd"]
+font_size = 24
+
+[node name="Main" type="Node2D" node_paths=PackedStringArray("board_view", "lives_label", "number_btn_parent", "clear_btn", "time_label", "popup", "popup_title", "popup_desc", "retry_btn")]
 script = ExtResource("1_7uriu")
 board_view = NodePath("CanvasLayer/Control/SafeAreaContainer/VBox/MainContent/Board")
 lives_label = NodePath("CanvasLayer/Control/SafeAreaContainer/VBox/Header/HBoxContainer/Center/LivesLeft")
 number_btn_parent = NodePath("CanvasLayer/Control/SafeAreaContainer/VBox/MainContent/Number Btn")
 clear_btn = NodePath("CanvasLayer/Control/SafeAreaContainer/VBox/MainContent/HBoxContainer/ClearBtn")
 time_label = NodePath("CanvasLayer/Control/SafeAreaContainer/VBox/Header/HBoxContainer/Center/TimeLabel")
+popup = NodePath("CanvasLayer/Control/PopupBg")
+popup_title = NodePath("CanvasLayer/Control/PopupBg/Control/MarginContainer/Control/Title")
+popup_desc = NodePath("CanvasLayer/Control/PopupBg/Control/MarginContainer/Control/Description")
+retry_btn = NodePath("CanvasLayer/Control/PopupBg/Control/MarginContainer/Control/HBoxContainer/RetryBtn")
 metadata/_edit_vertical_guides_ = [-987.0]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -307,5 +318,97 @@ label_settings = SubResource("LabelSettings_jpryu")
 horizontal_alignment = 1
 vertical_alignment = 2
 
+[node name="PopupBg" parent="CanvasLayer/Control" instance=ExtResource("5_ylepi")]
+layout_mode = 1
+grow_horizontal = 1
+grow_vertical = 1
+theme = ExtResource("4_e4yss")
+
+[node name="Control" type="Panel" parent="CanvasLayer/Control/PopupBg"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -272.0
+offset_right = 280.0
+offset_bottom = 272.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/PopupBg/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="Control" type="Control" parent="CanvasLayer/Control/PopupBg/Control/MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CanvasLayer/Control/PopupBg/Control/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -273.0
+offset_top = -266.0
+offset_right = 273.0
+offset_bottom = -113.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "You lost!"
+label_settings = SubResource("LabelSettings_4hy35")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="CanvasLayer/Control/PopupBg/Control/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -273.0
+offset_top = -76.5
+offset_right = 273.0
+offset_bottom = 76.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "asdklfjasdlkfjasdklfjaskldfjklasdjfklsadfjklasdfj"
+label_settings = SubResource("LabelSettings_lp1fd")
+autowrap_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/PopupBg/Control/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MainMenuBtn" type="Button" parent="CanvasLayer/Control/PopupBg/Control/MarginContainer/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Main Menu"
+
+[node name="RetryBtn" type="Button" parent="CanvasLayer/Control/PopupBg/Control/MarginContainer/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Retry"
+
 [connection signal="pressed" from="CanvasLayer/Control/SafeAreaContainer/VBox/Header/HBoxContainer/BackBtn" to="." method="_on_back_btn_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/SafeAreaContainer/VBox/MainContent/HBoxContainer/ClearBtn" to="." method="_on_clear_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/PopupBg/Control/MarginContainer/Control/HBoxContainer/MainMenuBtn" to="." method="_on_main_menu_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/PopupBg/Control/MarginContainer/Control/HBoxContainer/RetryBtn" to="." method="_on_retry_btn_pressed"]

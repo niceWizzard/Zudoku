@@ -6,6 +6,13 @@ extends Node2D
 @export var clear_btn : Button
 @export var time_label : Label
 
+@export_category("Popup")
+@export var popup : RPopup
+@export var popup_title : Label
+@export var popup_desc : Label
+@export var retry_btn : Button
+
+
 var time := 60.0 * 59 + 55
 var lives := IntBindable.new(3)
 
@@ -36,7 +43,7 @@ func _onNumberBtnPressed(btn : Button) -> void:
 			return
 		var can_set :=  board_view.try_set_active_tile_value(int(btn.text))
 		if  can_set and board_view.unfilled_tiles == 0 and board_view.board.is_solved():
-			SceneManager.go_to_start_scn()
+			game_won()
 		elif not can_set:
 			board_view.clear_highlighted_tiles()
 			for peer : TileView in board_view.get_active_tile_view_peers():
@@ -45,6 +52,7 @@ func _onNumberBtnPressed(btn : Button) -> void:
 					board_view.highlighted_tiles.append(peer)
 			lives.value -= 1
 			if lives.value == 0:
+				game_lost()
 				for c: Button in number_btn_parent.get_children():
 					c.disabled = true	
 
@@ -63,6 +71,16 @@ func _physics_process(delta : float) -> void:
 	time += delta
 
 
+func game_won() -> void:
+	popup_title.text = "You solved it!"
+	popup_desc.text = "That puzzle took you %s. Amazing!" % parse_time(floori(time))
+	retry_btn.text = "New Game"
+
+func game_lost() -> void:
+	popup.show_popup()
+	popup_title.text = "You lost!"
+	popup_desc.text = "You ran out of lives. Better luck next time!"
+	retry_btn.text = "Try again"
 
 func _on_clear_btn_pressed() -> void:
 	board_view.clear_active_tile_value()
@@ -70,3 +88,14 @@ func _on_clear_btn_pressed() -> void:
 
 func _on_back_btn_pressed() -> void:
 	SceneManager.go_to_start_scn()
+
+
+
+func _on_main_menu_btn_pressed() -> void:
+	SceneManager.go_to_start_scn()
+
+
+func _on_retry_btn_pressed() -> void:
+	print("RETRY! NOT IMPELEMENTED YET")
+
+
