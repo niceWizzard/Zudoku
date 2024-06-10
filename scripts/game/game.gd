@@ -72,6 +72,7 @@ func _physics_process(delta : float) -> void:
 
 
 func game_won() -> void:
+	popup.show_popup()
 	popup_title.text = "You solved it!"
 	popup_desc.text = "That puzzle took you %s. Amazing!" % parse_time(floori(time))
 	retry_btn.text = "New Game"
