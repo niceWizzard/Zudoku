@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://kls4jfercssy"]
+[gd_scene load_steps=11 format=3 uid="uid://kls4jfercssy"]
 
 [ext_resource type="Script" path="res://scripts/game/game.gd" id="1_7uriu"]
 [ext_resource type="Script" path="res://nodes/SafeAreaContainer.gd" id="2_1mxru"]
@@ -13,11 +13,16 @@ bg_color = Color(0.952941, 0.968627, 0.92549, 1)
 font_size = 18
 font_color = Color(0.848905, 0.848905, 0.848905, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fk8bl"]
+bg_color = Color(0.952941, 0.968627, 0.92549, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_4hy35"]
 font_size = 48
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_lp1fd"]
 font_size = 24
+font_color = Color(0.241156, 0.241156, 0.241156, 1)
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("board_view", "lives_label", "number_btn_parent", "clear_btn", "time_label", "popup", "popup_title", "popup_desc", "retry_btn")]
 script = ExtResource("1_7uriu")
@@ -337,6 +342,7 @@ offset_right = 280.0
 offset_bottom = 272.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fk8bl")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/PopupBg/Control"]
 layout_mode = 1
