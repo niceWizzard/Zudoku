@@ -9,7 +9,7 @@ const TILE_THEME := preload("uid://bgd6lt1h1dri")
 
 var _is_fixed := false
 
-var font_override := ["font_color", "font_hover_color"]
+var font_override := ["font_color", "font_hover_color", "font_pressed_color", "font_focus_color", "font_hover_pressed_color"]
 
 func fixed() -> void:
 	_is_fixed = true
