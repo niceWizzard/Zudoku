@@ -30,12 +30,12 @@ func set_board(b : Board) -> void:
 	board = b
 	for key : Vector2i in board.board_map:
 		var value := board.board_map[key] as int
-		var script := NormalTileView if value == 0 else FixedTileView
-		
 		var unsetTileView :=  tileViewsMap[key] as Control
-		unsetTileView.set_script(script)
-		var tileView := unsetTileView as TileView
+		unsetTileView.set_script(TileView)
+		var tileView :TileView = unsetTileView
 		tileView.setup(key)
+		if value != 0:
+			tileView.fixed()
 		tileView.update_view(value)
 		tileView.tile_selected.connect(_on_tile_selected)
 		tileView.mode_normal()
@@ -87,7 +87,7 @@ func try_set_active_tile_value(value : int) -> bool:
 func clear_active_tile_value() -> void:
 	if activeTileView == null:
 		return
-	if activeTileView is FixedTileView:
+	if activeTileView.is_fixed():
 		return
 	var prevValue :=  get_active_tile_value()
 	set_active_tile_value(0)

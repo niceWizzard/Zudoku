@@ -32,7 +32,7 @@ func _ready() -> void:
 		time_label.text = parse_time(time)
 
 func _onNumberBtnPressed(btn : Button) -> void:
-		if board_view.activeTileView == null or board_view.activeTileView is FixedTileView:
+		if board_view.activeTileView == null or board_view.activeTileView.is_fixed():
 			return
 		var can_set :=  board_view.try_set_active_tile_value(int(btn.text))
 		if  can_set and board_view.unfilled_tiles == 0 and board_view.board.is_solved():
