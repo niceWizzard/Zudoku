@@ -16,6 +16,8 @@ var unfilled_tiles : int:
 	get:
 		return valueTileMapping[0].size()
 
+var highlighted_tiles : Array[TileView] = []
+
 var valueTileMapping := {}
 
 func get_active_tile_value() -> int:
@@ -70,7 +72,17 @@ func _on_tile_selected(tile : TileView) -> void:
 		var peerTileView := tileViewsMap[coord] as TileView
 		peerTileView.mode_peer_selected()
 		peerActivatedTileViews.append(peerTileView)
+	
+	for i : TileView in highlighted_tiles:
+		i.clear_highlight()
 
+	if activeTileView.is_fixed():
+		for i : TileView in valueTileMapping[get_active_tile_value()].values():
+			if i == activeTileView:
+				continue
+			i.highlight_peer()
+			highlighted_tiles.append(i)
+	
 func try_set_active_tile_value(value : int) -> bool:
 	if activeTileView == null:
 		return false

@@ -9,6 +9,8 @@ const TILE_THEME := preload("uid://bgd6lt1h1dri")
 
 var _is_fixed := false
 
+var font_override := ["font_color", "font_hover_color"]
+
 func fixed() -> void:
 	_is_fixed = true
 
@@ -41,4 +43,13 @@ func _on_gui_input(event : InputEvent) -> void:
 		if event.button_mask == MOUSE_BUTTON_MASK_LEFT:
 			tile_selected.emit(self)
 
+func highlight_error() -> void:
+	pass
 
+func highlight_peer() -> void:
+	for override : String in font_override:
+		add_theme_color_override(override, Color.DARK_BLUE)
+
+func clear_highlight() -> void:
+	for override : String in font_override:
+		remove_theme_color_override(override)
