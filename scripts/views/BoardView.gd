@@ -75,7 +75,7 @@ func _on_tile_selected(tile : TileView) -> void:
 	
 	clear_highlighted_tiles()
 
-	if activeTileView.is_fixed():
+	if activeTileView.value() > 0:
 		for i : TileView in valueTileMapping[get_active_tile_value()].values():
 			i.highlight_peer()
 			highlighted_tiles.append(i)
