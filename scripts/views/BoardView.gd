@@ -73,8 +73,7 @@ func _on_tile_selected(tile : TileView) -> void:
 		peerTileView.mode_peer_selected()
 		peerActivatedTileViews.append(peerTileView)
 	
-	for i : TileView in highlighted_tiles:
-		i.clear_highlight()
+	clear_highlighted_tiles()
 
 	if activeTileView.is_fixed():
 		for i : TileView in valueTileMapping[get_active_tile_value()].values():
@@ -82,6 +81,9 @@ func _on_tile_selected(tile : TileView) -> void:
 				continue
 			i.highlight_peer()
 			highlighted_tiles.append(i)
+
+func get_active_tile_view_peers() -> Array[TileView]:
+	return peerActivatedTileViews
 	
 func try_set_active_tile_value(value : int) -> bool:
 	if activeTileView == null:
@@ -95,6 +97,10 @@ func try_set_active_tile_value(value : int) -> bool:
 	update_active_tile_tile_count(prevValue)
 	return true
 
+func clear_highlighted_tiles() -> void:
+	for i : TileView in highlighted_tiles:
+		i.clear_highlight()
+	highlighted_tiles.clear()
 	 
 func clear_active_tile_value() -> void:
 	if activeTileView == null:

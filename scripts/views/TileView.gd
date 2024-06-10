@@ -21,7 +21,9 @@ func setup(coord : Vector2i) -> void:
 	coordinate  =coord
 	gui_input.connect(_on_gui_input)
 	theme = TILE_THEME
-	
+
+func value() -> int:
+	return int(text)
 
 func mode_normal() -> void: 
 	var variant := "TileFixed" if _is_fixed else "Tile"
@@ -44,7 +46,8 @@ func _on_gui_input(event : InputEvent) -> void:
 			tile_selected.emit(self)
 
 func highlight_error() -> void:
-	pass
+	for override : String in font_override:
+		add_theme_color_override(override, Color.DARK_RED)
 
 func highlight_peer() -> void:
 	for override : String in font_override:

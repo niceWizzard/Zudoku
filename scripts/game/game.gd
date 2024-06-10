@@ -38,6 +38,11 @@ func _onNumberBtnPressed(btn : Button) -> void:
 		if  can_set and board_view.unfilled_tiles == 0 and board_view.board.is_solved():
 			SceneManager.go_to_start_scn()
 		elif not can_set:
+			board_view.clear_highlighted_tiles()
+			for peer : TileView in board_view.get_active_tile_view_peers():
+				if peer.value() == int(btn.text):
+					peer.highlight_error()
+					board_view.highlighted_tiles.append(peer)
 			lives.value -= 1
 			if lives.value == 0:
 				for c: Button in number_btn_parent.get_children():
