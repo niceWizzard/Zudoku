@@ -6,7 +6,7 @@ extends Node2D
 @export var clear_btn : Button
 @export var time_label : Label
 
-var time := 0.0
+var time := 60.0 * 59 + 55
 var lives := IntBindable.new(3)
 
 func _ready() -> void:
@@ -43,21 +43,16 @@ func _onNumberBtnPressed(btn : Button) -> void:
 				for c: Button in number_btn_parent.get_children():
 					c.disabled = true	
 
-func parse_time(time : float) -> String:
-	var seconds := floori(time) % 60 
-	var minutes := floori(time / 60)
+func parse_time(time : int) -> String:
+	var seconds := time % 60 
+	var minutes := floori(time / 60) % 60
 	var hours := floori(time / (60 * 60))
 	var s := ""		
-	var array := []
-	if hours != 0:
-		s += "%s:"
-		array.push_front(hours)
-	if minutes != 0:
-		s += "%s:"
-		array.push_back(minutes)
-	s += "%ss"
-	array.push_back(seconds)
-	return s % array
+	s += ("0%s" if seconds < 10 else "%s") % seconds
+	s = ("0%s:" if minutes < 10 else "%s:") % minutes + s
+	if hours > 0:
+		s = ("0%s:" if hours < 10 else "%s:") % hours + s
+	return s 
 
 func _physics_process(delta : float) -> void:
 	time += delta
