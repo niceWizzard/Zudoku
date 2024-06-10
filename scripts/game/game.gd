@@ -13,7 +13,7 @@ extends Node2D
 @export var retry_btn : Button
 
 
-var time := 60.0 * 59 + 55
+var time := 0 
 var lives := IntBindable.new(3)
 
 func _ready() -> void:
