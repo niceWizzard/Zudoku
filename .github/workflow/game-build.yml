@@ -1,9 +1,9 @@
 name: Export Godot Game
 on:
   push:
-    branches: production
+    branches: [main, master]
   pull_request:
-    branches: production
+    branches: [main, master]
 
 jobs:
   # job id, can be anything
