@@ -56,8 +56,11 @@ func _onNumberBtnPressed(btn : Button) -> void:
 			lives.value -= 1
 			if lives.value == 0:
 				game_lost()
-				for c: Button in number_btn_parent.get_children():
-					c.disabled = true	
+				
+func disable_buttons() -> void:
+	clear_btn.disabled = true
+	for c: Button in number_btn_parent.get_children():
+		c.disabled = true	
 
 func parse_time(time : int) -> String:
 	var seconds := time % 60 
@@ -75,12 +78,14 @@ func _physics_process(delta : float) -> void:
 
 
 func game_won() -> void:
+	disable_buttons()
 	popup.show_popup()
 	popup_title.text = "You solved it!"
 	popup_desc.text = "That puzzle took you %s. Amazing!" % parse_time(floori(time))
 	retry_btn.text = "New Game"
 
 func game_lost() -> void:
+	disable_buttons()
 	popup.show_popup()
 	popup_title.text = "You lost!"
 	popup_desc.text = "You ran out of lives. Better luck next time!"
