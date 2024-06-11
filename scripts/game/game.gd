@@ -78,6 +78,7 @@ func _physics_process(delta : float) -> void:
 
 
 func game_won() -> void:
+	set_physics_process(false)
 	disable_buttons()
 	popup.show_popup()
 	popup_title.text = "You solved it!"
@@ -86,6 +87,7 @@ func game_won() -> void:
 
 func game_lost() -> void:
 	disable_buttons()
+	set_physics_process(false)
 	popup.show_popup()
 	popup_title.text = "You lost!"
 	popup_desc.text = "You ran out of lives. Better luck next time!"
