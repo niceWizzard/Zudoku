@@ -6,6 +6,8 @@ var backdrop : Control
 
 var tween : Tween
 
+@export var input_closeable:= true
+
 func _ready() -> void:
 	z_index = 100
 	backdrop = get_child(0)
@@ -22,6 +24,8 @@ func calculate_content_pivot() -> void:
 
 
 func _on_gui_input(event:InputEvent) -> void:
+	if not input_closeable:
+		return
 	if event is InputEventMouse:
 		if event.is_pressed():
 			close_popup()
@@ -54,7 +58,7 @@ func _close() -> void:
 	
 
 func _unhandled_key_input(event : InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("ui_cancel") and input_closeable:
 		close_popup()
 
 

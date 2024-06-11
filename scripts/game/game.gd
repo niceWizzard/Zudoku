@@ -76,18 +76,20 @@ func parse_time(time : int) -> String:
 func _physics_process(delta : float) -> void:
 	time += delta
 
-
-func game_won() -> void:
+func clean_up() -> void:
 	set_physics_process(false)
 	disable_buttons()
+	GameManager.saved_game = ""
+
+func game_won() -> void:
+	clean_up()
 	popup.show_popup()
 	popup_title.text = "You solved it!"
 	popup_desc.text = "That puzzle took you %s. Amazing!" % parse_time(floori(time))
 	retry_btn.text = "New Game"
 
 func game_lost() -> void:
-	disable_buttons()
-	set_physics_process(false)
+	clean_up()
 	popup.show_popup()
 	popup_title.text = "You lost!"
 	popup_desc.text = "You ran out of lives. Better luck next time!"
@@ -136,6 +138,8 @@ func load_game() -> void:
 	diff_label.text = GameManager.Difficulty.find_key(Startup.difficulty.value)
 
 func save_game() -> void:
+	if lives.value <= 0:
+		return 
 	var save := {
 		"difficulty": GameManager.Difficulty.find_key(Startup.difficulty.value),
 		"lives_left" : lives.value,

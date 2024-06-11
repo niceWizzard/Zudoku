@@ -338,6 +338,7 @@ layout_mode = 1
 grow_horizontal = 1
 grow_vertical = 1
 theme = ExtResource("4_e4yss")
+input_closeable = false
 
 [node name="Control" type="Panel" parent="CanvasLayer/Control/PopupBg"]
 layout_mode = 1
