@@ -10,7 +10,6 @@ func _ready() -> void:
 	backdrop = get_child(0)
 	content_root = get_child(1).get_child(0).get_child(0)
 	var content := get_child(2)
-	print(content_root)
 	remove_child(content)
 	content_root.add_child(content)
 	close_popup()
