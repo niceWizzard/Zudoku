@@ -3,17 +3,27 @@
 [ext_resource type="Script" path="res://scenes/popup/popup.gd" id="1_bmqip"]
 [ext_resource type="Script" path="res://nodes/SafeAreaContainer.gd" id="1_nuj0f"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gyqsp"]
-bg_color = Color(0.145098, 0.145098, 0.145098, 0.552941)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vkuvd"]
+bg_color = Color(0.160784, 0.160784, 0.160784, 0.690196)
 
-[node name="PopupBg" type="Panel"]
+[node name="Popup" type="Control"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_gyqsp")
 script = ExtResource("1_bmqip")
+
+[node name="Backdrop" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vkuvd")
 
 [node name="SafeAreaContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -25,8 +35,19 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_nuj0f")
 
-[node name="Content" type="Control" parent="SafeAreaContainer"]
+[node name="Control" type="Control" parent="SafeAreaContainer"]
 layout_mode = 2
 mouse_filter = 2
 
+[node name="Content" type="Control" parent="SafeAreaContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(360, 540)
+mouse_filter = 2
+
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="resized" from="SafeAreaContainer/Control/Content" to="." method="_on_content_resized"]
