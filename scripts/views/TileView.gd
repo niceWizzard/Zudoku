@@ -6,10 +6,12 @@ signal tile_selected(tile : TileView)
 var coordinate : Vector2i
 
 const TILE_THEME := preload("uid://bgd6lt1h1dri")
+static var SELECTED_TILE_STYLEBOX := preload('uid://drfjk01hda7lm')
+static var HIGHLIGHT_ERROR_STYLEBOX := preload('uid://ba1tbkpwdbfqn')
 
 var _is_fixed := false
 
-var font_override := ["font_color", "font_hover_color", "font_pressed_color", "font_focus_color", "font_hover_pressed_color"]
+var stylebox_override := ["normal", "focus", "pressed", "hover"]
 
 func fixed() -> void:
 	_is_fixed = true
@@ -46,13 +48,15 @@ func _on_gui_input(event : InputEvent) -> void:
 			tile_selected.emit(self)
 
 func highlight_error() -> void:
-	for override : String in font_override:
-		add_theme_color_override(override, Color.DARK_RED)
+	for override : String in stylebox_override:
+		add_theme_stylebox_override(override, HIGHLIGHT_ERROR_STYLEBOX)
+
 
 func highlight_peer() -> void:
-	for override : String in font_override:
-		add_theme_color_override(override, Color.DARK_BLUE)
+	for override : String in stylebox_override:
+		add_theme_stylebox_override(override, SELECTED_TILE_STYLEBOX)
+
 
 func clear_highlight() -> void:
-	for override : String in font_override:
-		remove_theme_color_override(override)
+	for override : String in stylebox_override:	
+		remove_theme_stylebox_override(override)
