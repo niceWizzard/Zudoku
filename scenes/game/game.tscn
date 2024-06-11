@@ -24,13 +24,14 @@ font_color = Color(0, 0, 0, 1)
 font_size = 24
 font_color = Color(0.241156, 0.241156, 0.241156, 1)
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("board_view", "lives_label", "number_btn_parent", "clear_btn", "time_label", "popup", "popup_title", "popup_desc", "retry_btn")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("board_view", "lives_label", "number_btn_parent", "clear_btn", "time_label", "diff_label", "popup", "popup_title", "popup_desc", "retry_btn")]
 script = ExtResource("1_7uriu")
 board_view = NodePath("CanvasLayer/Control/SafeAreaContainer/VBox/MainContent/Board")
 lives_label = NodePath("CanvasLayer/Control/SafeAreaContainer/VBox/Header/HBoxContainer/Center/LivesLeft")
 number_btn_parent = NodePath("CanvasLayer/Control/SafeAreaContainer/VBox/MainContent/Number Btn")
 clear_btn = NodePath("CanvasLayer/Control/SafeAreaContainer/VBox/MainContent/HBoxContainer/ClearBtn")
 time_label = NodePath("CanvasLayer/Control/SafeAreaContainer/VBox/Header/HBoxContainer/Center/TimeLabel")
+diff_label = NodePath("CanvasLayer/Control/SafeAreaContainer/VBox/Header/HBoxContainer/Center/DifficultyLabel")
 popup = NodePath("CanvasLayer/Control/PopupBg")
 popup_title = NodePath("CanvasLayer/Control/PopupBg/Control/MarginContainer/Control/Title")
 popup_desc = NodePath("CanvasLayer/Control/PopupBg/Control/MarginContainer/Control/Description")
@@ -94,6 +95,15 @@ size_flags_horizontal = 3
 alignment = 1
 
 [node name="Spacer2" type="Control" parent="CanvasLayer/Control/SafeAreaContainer/VBox/Header/HBoxContainer/Center"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DifficultyLabel" type="Label" parent="CanvasLayer/Control/SafeAreaContainer/VBox/Header/HBoxContainer/Center"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Easy"
+
+[node name="Spacer3" type="Control" parent="CanvasLayer/Control/SafeAreaContainer/VBox/Header/HBoxContainer/Center"]
 layout_mode = 2
 size_flags_horizontal = 3
 

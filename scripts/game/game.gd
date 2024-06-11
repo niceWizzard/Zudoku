@@ -5,6 +5,7 @@ extends Node2D
 @export var number_btn_parent : Container
 @export var clear_btn : Button
 @export var time_label : Label
+@export var diff_label : Label
 
 @export_category("Popup")
 @export var popup : RPopup
@@ -103,6 +104,7 @@ func _on_retry_btn_pressed() -> void:
 	print("RETRY! NOT IMPELEMENTED YET")
 
 func load_game() -> void:
+
 	if GameManager.saved_game:
 		var saved_game : Dictionary = JSON.parse_string(GameManager.saved_game)
 		var b := Board.create_from(saved_game["puzzle"])
@@ -124,9 +126,11 @@ func load_game() -> void:
 		board_view.set_board(GameManager.board)
 		orig_board = GameManager.board.copy()
 		save_game()
+	diff_label.text = GameManager.Difficulty.find_key(Startup.difficulty.value)
 
 func save_game() -> void:
 	var save := {
+		"difficulty": GameManager.Difficulty.find_key(Startup.difficulty.value),
 		"lives_left" : lives.value,
 		"time" : time,
 		"puzzle" : orig_board.to_save_string(),

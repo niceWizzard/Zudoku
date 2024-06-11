@@ -45,6 +45,7 @@ func _ready() -> void:
 		return
 	
 	GameManager.saved_game = FileAccess.get_file_as_string(SAVE_FILE_PATH) as String
+	
 
 func save_to_disk() -> void:
 	var save_file := FileAccess.open("user://savegame.save", FileAccess.WRITE)

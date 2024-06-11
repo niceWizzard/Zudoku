@@ -10,9 +10,12 @@ static var difficulty : IntBindable
 @export var popup_content : VBoxContainer
 
 func _ready() -> void:
+	difficulty = IntBindable.new(1 if difficulty == null else difficulty.value)
 	if not GameManager.saved_game :
 		continue_btn.hide()
-	difficulty = IntBindable.new(1 if difficulty == null else difficulty.value)
+	else:
+		var json : Dictionary= JSON.parse_string(GameManager.saved_game)
+		difficulty.value = GameManager.Difficulty[json["difficulty"]]
 	for i : String in GameManager.Difficulty.keys():
 		var button := Button.new()
 		button.text = i
