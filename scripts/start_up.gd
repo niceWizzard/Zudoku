@@ -3,11 +3,15 @@ class_name Startup
 
 static var difficulty : IntBindable
 
+@export var continue_btn : Button
+
 @export_category("Popup")
 @export var popup : RPopup
 @export var popup_content : VBoxContainer
 
 func _ready() -> void:
+	if not GameManager.saved_game :
+		continue_btn.hide()
 	difficulty = IntBindable.new(1 if difficulty == null else difficulty.value)
 	for i : String in GameManager.Difficulty.keys():
 		var button := Button.new()
@@ -28,3 +32,7 @@ func _on_play_btn_pressed() -> void:
 	popup.show_popup()
 
 
+
+
+func _on_continue_btn_pressed() -> void:
+	SceneManager.go_to_main_scn()	

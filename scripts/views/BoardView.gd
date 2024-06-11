@@ -116,3 +116,11 @@ func update_active_tile_tile_count(prevValue: int) -> void:
 	var curValue := board.get_tile(activeTileView.coordinate)
 	valueTileMapping[curValue][activeTileView.coordinate] = activeTileView
 	tileValueCountChanged.emit()
+
+func get_board_state() -> Dictionary:
+	var dict := {}
+	for tile : TileView in tileViewsMap.values():
+		if tile.is_fixed() or tile.value() == 0:
+			continue
+		dict[var_to_str(tile.coordinate)] = tile.value()
+	return dict

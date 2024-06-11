@@ -4,6 +4,8 @@ signal generate_puzzle_completed(board : Board)
 
 var board : Board
 
+var saved_game : String
+
 enum Difficulty {
 	Noob,
 	Basic,

@@ -157,11 +157,19 @@ func get_tile(coord : Vector2i) -> int:
 		return -1
 	return board_map[coord]
 
+
 func reset() -> void:
 	for y in range(9):
 		for x in range(9):
 			set_tile(Vector2i(x, y), 0)
 
+func to_save_string() -> String:
+	var s : = ""
+	for y in range(9):
+		for x in range(9):
+			var value := get_tile(Vector2i(x, y))
+			s += str(value) if value > 0 else "."
+	return s
 func _to_string() -> String:
 	var s : = ""
 	for y in range(9):
