@@ -13,7 +13,7 @@ extends Node2D
 @export var retry_btn : Button
 
 
-var time := 0 
+var time := 0.0
 var lives := IntBindable.new(3)
 
 func _ready() -> void:
@@ -36,7 +36,7 @@ func _ready() -> void:
 
 	while true:
 		await get_tree().create_timer(1.0/12.0).timeout
-		time_label.text = parse_time(time)
+		time_label.text = parse_time(floori(time))
 
 func _onNumberBtnPressed(btn : Button) -> void:
 		if board_view.activeTileView == null or board_view.activeTileView.is_fixed():
