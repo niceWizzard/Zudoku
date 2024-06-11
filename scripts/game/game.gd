@@ -33,7 +33,15 @@ func _ready() -> void:
 	board_view.tileValueCountChanged.connect(
 		func() -> void:
 			for i in range(1, 10):
-				number_btn_parent.get_child(i-1).get_node("Label").text = str(9-board_view.valueTileMapping[i].size())
+				var count :int= 9 - board_view.valueTileMapping[i].size()
+				var btn : Button= number_btn_parent.get_child(i-1)
+				if count <= 0:
+					btn.disabled = true
+					btn.modulate.a = 0
+				else:
+					btn.disabled = false
+					btn.modulate.a = 1
+				btn.get_node("Label").text = str(count)
 	)	
 	load_game()
 	while true:
