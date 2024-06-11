@@ -110,7 +110,12 @@ func _on_main_menu_btn_pressed() -> void:
 
 
 func _on_retry_btn_pressed() -> void:
-	print("RETRY! NOT IMPELEMENTED YET")
+	if lives.value <= 0:
+		GameManager.saved_game = ""
+		GameManager.board = orig_board.copy()
+		get_tree().reload_current_scene()
+	else:
+		SceneManager.go_to_game_preloader_scn()
 
 func load_game() -> void:
 
