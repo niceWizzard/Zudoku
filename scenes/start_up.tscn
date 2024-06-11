@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dg30cn0wga43j"]
+[gd_scene load_steps=8 format=3 uid="uid://dg30cn0wga43j"]
 
 [ext_resource type="Script" path="res://nodes/SafeAreaContainer.gd" id="1_ru3uo"]
 [ext_resource type="Script" path="res://scripts/start_up.gd" id="1_t7c6g"]
@@ -11,9 +11,6 @@ bg_color = Color(0.952941, 0.968627, 0.92549, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_41y78"]
 font_size = 96
 font_color = Color(0, 0.360784, 0.470588, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qq55o"]
-bg_color = Color(0.488286, 0.619424, 0.717166, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ovjkf"]
 bg_color = Color(0.952941, 0.968627, 0.92549, 1)
@@ -66,33 +63,6 @@ text = "Zudoku"
 label_settings = SubResource("LabelSettings_41y78")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="PanelContainer" type="PanelContainer" parent="SafeAreaContainer/Control"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -64.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_qq55o")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="SafeAreaContainer/Control/PanelContainer"]
-layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="Button" type="Button" parent="SafeAreaContainer/Control/PanelContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 24
-text = "Single Player"
-
-[node name="Button2" type="Button" parent="SafeAreaContainer/Control/PanelContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 24
-text = "Multiplayer"
 
 [node name="MarginContainer" type="MarginContainer" parent="SafeAreaContainer/Control"]
 layout_mode = 1
