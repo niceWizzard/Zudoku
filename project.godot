@@ -12,6 +12,8 @@ config_version=5
 
 config/name="Zudoku"
 run/main_scene="res://scenes/start_up.tscn"
+config/auto_accept_quit=false
+config/quit_on_go_back=false
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 

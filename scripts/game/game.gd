@@ -19,6 +19,11 @@ var lives := IntBindable.new(3)
 
 var orig_board : Board
 
+func _notification(what : int) -> void:
+	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
+		_on_back_btn_pressed()
+
+
 func _ready() -> void:
 	lives.bind_transform(lives_label, "text", 
 		func(a: int) -> String:
