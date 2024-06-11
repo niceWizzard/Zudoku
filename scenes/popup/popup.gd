@@ -7,6 +7,7 @@ var backdrop : Control
 var tween : Tween
 
 func _ready() -> void:
+	z_index = 100
 	backdrop = get_child(0)
 	content_root = get_child(1).get_child(0).get_child(0)
 	var content := get_child(2)
