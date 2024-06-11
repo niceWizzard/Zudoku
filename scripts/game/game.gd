@@ -110,12 +110,16 @@ func load_game() -> void:
 		orig_board = b.copy()
 		time = saved_game['time']
 		lives.value = saved_game["lives_left"]
-		print(saved_game["state"])
 		for key: String in saved_game["state"].keys():
 			var value : int = saved_game["state"][key]
 			var coord := str_to_var(key) as Vector2i
+			var tile := board_view.tileViewsMap[coord] as TileView
 			board_view.board.set_tile(coord, value)
 			board_view.tileViewsMap[coord].update_view(value)
+			board_view.valueTileMapping[0].erase(coord)
+			board_view.valueTileMapping[value][coord] = tile
+		board_view.tileValueCountChanged.emit()
+
 	else:
 		board_view.set_board(GameManager.board)
 		orig_board = GameManager.board.copy()
