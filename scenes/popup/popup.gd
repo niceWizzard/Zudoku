@@ -12,7 +12,9 @@ func _ready() -> void:
 	var content := get_child(2)
 	remove_child(content)
 	content_root.add_child(content)
-	close_popup()
+	_close()
+
+	
 
 func calculate_content_pivot() -> void:
 	content_root.pivot_offset = content_root.size / 2.0
@@ -24,7 +26,6 @@ func _on_gui_input(event:InputEvent) -> void:
 			close_popup()
 
 func show_popup() -> void:
-	backdrop.show()
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	if tween :
 		tween.kill()
@@ -44,6 +45,12 @@ func close_popup() -> void:
 	tween.tween_property(backdrop, "modulate:a", 0, .2)
 	tween.tween_property(content_root, "modulate:a", 0, .2)
 
+func _close() -> void:
+	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	content_root.scale *= 0
+	backdrop.modulate.a *= 0
+	content_root.modulate.a *= 0
+	
 
 func _unhandled_key_input(event : InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
