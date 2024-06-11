@@ -4,7 +4,10 @@ signal generate_puzzle_completed(board : Board)
 
 var board : Board
 
-var saved_game : String
+var saved_game : String:
+	set(v):
+		saved_game = v
+		save_to_disk()
 
 enum Difficulty {
 	Noob,
@@ -22,6 +25,8 @@ var puzzle_generated := false
 var running_threads := {}
 var running_timeouts := {}
 
+const SAVE_FILE_PATH := "user://savegame.save"
+
 func start_timer() -> void:
 	var id := str(Time.get_unix_time_from_system(), randi())
 	running_timeouts[id] = true
@@ -34,7 +39,17 @@ func start_timer() -> void:
 	if not puzzle_generated:
 		running_threads.clear()
 		SceneManager.go_to_start_scn()
-		
+
+func _ready() -> void:		
+	if not FileAccess.file_exists(SAVE_FILE_PATH):
+		return
+	
+	GameManager.saved_game = FileAccess.get_file_as_string(SAVE_FILE_PATH) as String
+
+func save_to_disk() -> void:
+	var save_file := FileAccess.open("user://savegame.save", FileAccess.WRITE)
+	save_file.store_string(GameManager.saved_game)
+
 
 func generate_puzzle(difficulty : Difficulty) -> Signal:
 	puzzle_generated = false
